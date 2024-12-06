@@ -28,12 +28,12 @@ export default function Banner({ dataid }) {
       setDoAnimate(true);
     }
     setShowText(true);
-    setTimeout(() => setShowImage(true), 300);
+    setTimeout(() => setShowImage(true), 600);
     setTimeout(() => {
       setShowText(false);
       setShowImage(false);
       setDoAnimate(false);
-    }, 1300);
+    }, 1600);
   };
 
   return (
