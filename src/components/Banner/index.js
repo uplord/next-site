@@ -29,11 +29,11 @@ export default function Banner({ dataid }) {
     }
     setShowText(true);
     setTimeout(() => setShowImage(true), 300);
-    // setTimeout(() => {
-    //   setShowText(false);
-    //   setShowImage(false);
-    //   setDoAnimate(false);
-    // }, 600);
+    setTimeout(() => {
+      setShowText(false);
+      setShowImage(false);
+      setDoAnimate(false);
+    }, 600);
   };
 
   return (
