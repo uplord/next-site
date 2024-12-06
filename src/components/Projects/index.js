@@ -19,9 +19,9 @@ const projectsData = [
   { type: 'svg', name: 'bluewater', tooltip: 'Bluewater' },
 ];
 
-export default function Projects({ dataID }) {
+export default function Projects({ dataid }) {
   return (
-    <Animated dataID={dataID} id="projects" className={styles.projects}>
+    <Animated dataid={dataid} id="projects" className={styles.projects}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.text}>

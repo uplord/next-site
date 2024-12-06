@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 import { useEffect, useRef, useState } from 'react';
 import { useQueue } from '@/context/queueContext';
 
-export default function Animated({ children, dataid, className = '' }) {
+export default function Animated({ children, dataid, id = '', className = '' }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasTransition, setHasTransition] = useState(false);
@@ -63,8 +63,8 @@ export default function Animated({ children, dataid, className = '' }) {
 
   return (
     <div 
-      dataid={dataid}
       ref={sectionRef}
+      id={id}
       className={`${className} ${dynamicClass}`.trim()}
     >
       {children}

@@ -11,7 +11,7 @@ export default function Section({ dataid }) {
   }];
 
   return (
-    <Animated dataid={dataid} className={styles.section}>
+    <Animated dataid={dataid} id="about-me" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.image}>
