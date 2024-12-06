@@ -57,11 +57,9 @@
   }
 
   &.show img {
-    -webkit-animation-delay: .3s;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-name: fadeIn;
-    transition-delay: .3s;
   }
 
   .imageWrap {

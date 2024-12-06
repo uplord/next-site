@@ -33,7 +33,7 @@ export default function Banner({ dataid }) {
       setShowText(false);
       setShowImage(false);
       setDoAnimate(false);
-    }, 600);
+    }, 1300);
   };
 
   return (
