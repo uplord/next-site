@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    formats: ['image/webp'],
+    formats: ['image/webp', 'image/avif'],
   },
   webpack(config, options) {
     config.module.rules.push({

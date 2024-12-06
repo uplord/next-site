@@ -50,9 +50,11 @@ export default function Banner({ dataid }) {
               src="/images/me.jpeg"
               alt="Hi, I&apos;m Michael"
               quality={80}
-              width={748}
-              height={748}
               priority
+              sizes="(max-width: 768px) 140px, 500px"
+              layout="responsive"
+              width={500}
+              height={500}
             />
           </div>
           <div className={`${styles.text} ${doAnimate == true ? styles.animate : ''} ${showText == true ? styles.show : ''}`}>
