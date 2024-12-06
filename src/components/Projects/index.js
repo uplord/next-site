@@ -39,8 +39,9 @@ export default function Projects({ dataid }) {
                     src={project.src}
                     alt={project.alt}
                     quality={80}
-                    width={900}
-                    height={600}
+                    sizes="(max-width: 767px) 360px, 326px"
+                    width={326}
+                    height={218}
                   />
                 )}
               </div>

@@ -51,8 +51,7 @@ export default function Banner({ dataid }) {
               alt="Hi, I&apos;m Michael"
               quality={80}
               priority
-              sizes="(max-width: 768px) 140px, 500px"
-              layout="responsive"
+              sizes="(max-width: 767px) 140px, 500px"
               width={500}
               height={500}
             />

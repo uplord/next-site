@@ -19,9 +19,10 @@ export default function Section({ dataid }) {
               src="/images/me.png"
               alt="Michael Allen"
               quality={80}
+              priority
+              sizes="(max-width: 767px) 240px, 500px"
               width={500}
               height={617}
-              priority
             />
           </div>
           <div className={styles.text}>
