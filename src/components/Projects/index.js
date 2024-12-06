@@ -12,7 +12,7 @@ const projectsData = [
   { type: 'svg', name: 'dundeeunited', tooltip: 'Dundee United Football Club' },
   { type: 'svg', name: 'hungrrr', tooltip: 'Hungrrr' },
   { type: 'svg', name: 'snappy', tooltip: 'Snappy Shopper' },
-  { type: 'svg', name: 'macdonalds', tooltip: 'Macdonald Hotels &amp; Resorts' },
+  { type: 'svg', name: 'macdonalds', tooltip: 'Macdonald Hotels & Resorts' },
   { type: 'svg', name: 'campbells', tooltip: 'Campbells Meat' },
   { type: 'image', src: '/images/petervardy.png', alt: 'Peter Vardy', tooltip: 'Peter Vardy' },
   { type: 'image', src: '/images/carmoney.png', alt: 'CarMoney', tooltip: 'CarMoney' },
