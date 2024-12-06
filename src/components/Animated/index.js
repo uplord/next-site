@@ -24,7 +24,8 @@ export default function Animated({ children, dataid, id = '', className = '', on
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleIntersection, {
-      rootMargin: '0px 0px 0px 0px',
+      rootMargin: '0% 0% -100px 0%',
+      threshold: 0,
     });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
@@ -47,20 +48,19 @@ export default function Animated({ children, dataid, id = '', className = '', on
     }
 
     if (queueList.length && queueList[0] === dataid) {
-      const timer = setTimeout(() => {
-        setIsVisible(true);
+      setIsVisible(true);
+
+      if (onVisible) {
+        onVisible(dataid);
+      }
+
+      setTimeout(() => {
+        setHasTransition(false);
+      }, 600);
+
+      setTimeout(() => {
         removeFromQueue(dataid);
-
-        if (onVisible) {
-          onVisible(dataid);
-        }
-
-        setTimeout(() => {
-          setHasTransition(false);
-        }, 600);
       }, 1200);
-
-      return () => clearTimeout(timer);
     }
   }, [queue, dataid, removeFromQueue, onVisible]);
 
