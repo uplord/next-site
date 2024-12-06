@@ -46,15 +46,18 @@ export default function Banner({ dataid }) {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={`${styles.image} ${doAnimate == true ? styles.animate : ''} ${showImage == true ? styles.show : ''}`}>
-            <Image
-              src="/images/me.jpeg"
-              alt="Hi, I&apos;m Michael"
-              quality={80}
-              priority
-              sizes="(max-width: 767px) 140px, 500px"
-              width={500}
-              height={500}
-            />
+            <div className={styles.imageWrap}>
+              <Image
+                src="/images/me.jpeg"
+                alt="Hi, I&apos;m Michael"
+                quality={80}
+                priority
+                sizes="(max-width: 767px) 140px, 500px"
+                layout="responsive"
+                width={500}
+                height={500}
+              />
+            </div>
           </div>
           <div className={`${styles.text} ${doAnimate == true ? styles.animate : ''} ${showText == true ? styles.show : ''}`}>
             <h1><span>Hi, I&apos;m Michael</span> A Front End Developer</h1>

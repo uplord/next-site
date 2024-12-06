@@ -64,14 +64,16 @@
     transition-delay: .3s;
   }
 
-  img {
-    border-radius: 1rem;
+  .imageWrap {
     width: 140px;
-    height: auto;
-    
+
     @media (min-width: $breakpoint-md) {
       width: 500px;
     }
+  }
+
+  img {
+    border-radius: 1rem;
   }
 }
 

@@ -39,13 +39,17 @@
     justify-content: center;
   }
 
-  img {
+  .imageWrap {
+    width: 100%;
     max-width: 240px;
-    border-radius: 1rem;
 
     @media (min-width: $breakpoint-md) {
       max-width: 100%;
     }
+  }
+
+  img {
+    border-radius: 1rem;
   }
 }
 

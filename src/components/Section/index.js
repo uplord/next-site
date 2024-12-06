@@ -15,15 +15,18 @@ export default function Section({ dataid }) {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.image}>
-            <Image
-              src="/images/me.png"
-              alt="Michael Allen"
-              quality={80}
-              priority
-              sizes="(max-width: 767px) 240px, 500px"
-              width={500}
-              height={617}
-            />
+            <div className={styles.imageWrap}>
+              <Image
+                src="/images/me.png"
+                alt="Michael Allen"
+                quality={80}
+                priority
+                sizes="(max-width: 767px) 240px, 500px"
+                layout="responsive"
+                width={500}
+                height={617}
+              />
+            </div>
           </div>
           <div className={styles.text}>
             <h2>About Michael Allen</h2>
