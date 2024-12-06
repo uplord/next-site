@@ -1,6 +1,7 @@
 import styles from './style.module.scss';
 import Image from 'next/image';
 import { Svg } from '@/components';
+import Animated from '@/components/Animated';
 
 const projectsData = [
   { type: 'svg', name: 'brewdog', tooltip: 'Brewdog' },
@@ -18,9 +19,9 @@ const projectsData = [
   { type: 'svg', name: 'bluewater', tooltip: 'Bluewater' },
 ];
 
-export default function Projects() {
+export default function Projects({ dataID }) {
   return (
-    <div id="projects" className={styles.projects}>
+    <Animated dataID={dataID} id="projects" className={styles.projects}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.text}>
@@ -47,6 +48,6 @@ export default function Projects() {
           </div>
         </div>
       </div>
-    </div>
+    </Animated>
   );
 }

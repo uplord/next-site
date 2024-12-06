@@ -1,8 +1,9 @@
 import styles from './style.module.scss';
 import Link from 'next/link'
 import { Svg, Buttons } from '@/components';
+import Animated from '@/components/Animated';
 
-export default function Timeline() {
+export default function Timeline({ dataid }) {
   const buttons = [{
     title: 'Get in touch',
     link: 'mailto:michael@uplord.co.uk',
@@ -10,7 +11,7 @@ export default function Timeline() {
   }];
 
   return (
-    <div id="timeline" className={styles.timeline}>
+    <Animated dataid={dataid} id="timeline" className={styles.timeline}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.list}>
@@ -50,6 +51,6 @@ export default function Timeline() {
           </div>
         </div>
       </div>
-    </div>
+    </Animated>
   )
 }

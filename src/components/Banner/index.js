@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import styles from './style.module.scss';
 import { Buttons } from '@/components';
+import Animated from '@/components/Animated';
 
-export default function Banner() {
+export default function Banner({ dataid }) {
   const buttons = [{
     title: 'Get in touch',
     link: 'mailto:michael@uplord.co.uk',
@@ -15,7 +16,7 @@ export default function Banner() {
   }];
 
   return (
-    <div className={styles.banner}>
+    <Animated dataid={dataid} className={styles.banner}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.image}>
@@ -35,6 +36,6 @@ export default function Banner() {
           </div>
         </div>
       </div>
-    </div>
+    </Animated>
   )
 }

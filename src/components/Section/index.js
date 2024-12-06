@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import styles from "./style.module.scss"
 import { Buttons } from '@/components';
+import Animated from '@/components/Animated';
 
-export default function Section() {
+export default function Section({ dataid }) {
   const buttons = [{
     title: 'Get in touch',
     link: 'mailto:michael@uplord.co.uk',
@@ -10,7 +11,7 @@ export default function Section() {
   }];
 
   return (
-    <div id="about-me" className={styles.section}>
+    <Animated dataid={dataid} className={styles.section}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.image}>
@@ -31,6 +32,6 @@ export default function Section() {
           </div>
         </div>
       </div>
-    </div>
+    </Animated>
   )
 }

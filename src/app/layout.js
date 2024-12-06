@@ -2,6 +2,7 @@ import Head from "next/head";
 import { DM_Sans } from "next/font/google";
 import "@/styles/global.scss";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { QueueProvider } from '@/context/queueContext';
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -32,7 +33,9 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <QueueProvider>
+            {children}
+          </QueueProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,9 +1,10 @@
 import styles from "./style.module.scss";
 import Svg from '@/components/Svg';
+import Animated from '@/components/Animated';
 
-export default function Stack() {
+export default function Stack({ dataid }) {
   return (
-    <div className={styles.stack}>
+    <Animated dataid={dataid} className={styles.stack}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.text}>
@@ -73,6 +74,6 @@ export default function Stack() {
           </div>
         </div>
       </div>
-    </div>
+    </Animated>
   );
 }
