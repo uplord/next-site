@@ -1,0 +1,51 @@
+
+@import './mixins';
+
+$font-heading: 'DM Sans', Arial, sans-serif;
+$font-body: Arial, sans-serif;
+
+$width-max: 1432px;
+
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+
+// Primary color scheme
+$color-primary: #dd2121;
+$color-primary-hover: darken($color-primary, 10%);
+$color-primary-text: #fff;
+
+// Light theme colors
+$color-bg: #fff;
+$color-heading: #000;
+$color-text: #333;
+
+$color-border: #ddd;
+
+$color-svg: #000;
+$color-block: #f7f7f7;
+$color-tooltip: #0d0d0d;
+$color-tooltip-text: #fff;
+
+// Dark theme colors
+$color-bg-dark: #0d0d0d;
+$color-heading-dark: #fff;
+$color-text-dark: #bdc1c6;
+
+$color-border-dark: #2b2b2b;
+
+$color-svg-dark: #fff;
+$color-block-dark: #1a1a1a;
+$color-tooltip-dark: #fff;
+$color-tooltip-text-dark: #000;
+
+$color-header: #fff;
+$color-nav: rgba(0,0,0,.05);
+$color-nav-text: inherit;
+$color-nav-hover: rgba(0,0,0,.1);
+$color-nav-hover-text: inherit;
+
+$color-header-dark: #0d0d0d;
+$color-nav-dark: #202124;
+$color-nav-text-dark: #fff;
+$color-nav-hover-dark: #fff;
+$color-nav-hover-text-dark: #312e2c;

@@ -1,0 +1,42 @@
+@import '@/styles/variables.scss';
+
+.social {
+  display: flex;
+  gap: 2rem;
+
+  @media (min-width: $breakpoint-md) {
+    gap: 1.5rem;
+  }
+
+  a {
+    background: $color-primary;
+    padding: 0.75rem;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    transition: all .3s ease;
+
+    @media (min-width: $breakpoint-md) {
+      padding: 0.5rem;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.linkedin {
+      background: #0077b5;
+    }
+
+    &.instagram {
+      background: #d62976;
+    }
+  }
+
+  svg {
+    width: 28px;
+    height: auto;
+
+    @media (min-width: $breakpoint-md) {
+      width: 24px;
+    }
+  }
+}

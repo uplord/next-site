@@ -1,0 +1,100 @@
+@import '@/styles/variables.scss';
+
+.header {
+  position: relative;
+  background: $color-header;
+  margin-bottom: -78px;
+  z-index: 10;
+
+  @include dark-mode {
+    background: $color-header-dark;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    position: sticky;
+    top: 0;
+  }
+
+  &.scrolled {
+    border-bottom: 1px solid $color-border;
+
+    @include dark-mode {
+      border-color: $color-border-dark;
+    }
+  }
+
+  .logo {
+    margin: 1.1875rem auto 1.1875rem 0;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.navigation {
+  display: none;
+  align-items: center;
+  background: $color-nav;
+  border-radius: 23px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: auto;
+
+  @include dark-mode {
+    background: $color-nav-dark;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    display: flex;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    border-radius: 23px;
+    color: $color-nav-text;
+    height: 46px;
+    line-height: 1.25rem;
+    padding: 0.75rem 1rem;
+    margin: 0 0.25rem;
+    transition: all 0.3s;
+
+    @include dark-mode {
+      color: $color-nav-text-dark;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    &:hover {
+      background: $color-nav-hover;
+      color: $color-nav-hover-text;
+
+      @include dark-mode {
+        background: $color-nav-hover-dark;
+        color: $color-nav-hover-text-dark;
+      }
+    }
+
+    &:nth-child(1) {
+      margin-left: 0;
+
+      @media (max-width: $breakpoint-lg - 1) {
+        display: none;
+      }
+    }
+
+    &:nth-child(2) {
+      @media (max-width: $breakpoint-lg - 1) {
+        margin-left: 0;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

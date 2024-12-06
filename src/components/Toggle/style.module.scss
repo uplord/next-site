@@ -1,0 +1,71 @@
+@import '@/styles/variables.scss';
+$color-sun: #ffd43b;
+$color-moon: #74c0fc;
+
+.toggle {
+  position: relative;
+  margin: 1.1875rem 0;
+  display: flex;
+  width: 76px;
+  cursor: pointer;
+
+  span {
+    position: relative;
+    display: block;
+    height: 40px;
+    width: 100%;
+    background: $color-nav;
+    border-radius: 20px;
+
+    @include dark-mode {
+      background: $color-nav-dark;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      height: 32px;
+      width: 32px;
+      border-radius: 16px;
+      z-index: 1;
+      background: $color-sun;
+      left: 40px;
+
+      @include dark-mode {
+        background: $color-moon;
+        left: 4px;
+      }
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    color: #fff;
+    z-index: 1;
+    left: 46px;
+
+    @include dark-mode {
+      transform: translateY(-50%) rotate(0deg);
+      left: 10px;
+    }
+  }
+
+  .sun {
+    opacity: 1;
+
+    @include dark-mode {
+      opacity: 0;
+    }
+  }
+
+  .moon {
+    opacity: 0;
+
+    @include dark-mode {
+      opacity: 1;
+    }
+  }
+}

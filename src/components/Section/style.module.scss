@@ -1,0 +1,111 @@
+@import '@/styles/variables.scss';
+
+.section {
+  display: block;
+  text-align: left;
+  scroll-margin-top: 110px;
+
+  @media (min-width: $breakpoint-md) {
+    text-align: left;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.content {
+  display: grid;
+  gap: 1.5rem;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1)  {
+    gap: 2rem
+  }
+
+  @media (min-width: 1024px) {
+    gap: 5rem;
+  }
+}
+
+.image {
+  display: flex;
+  justify-content: flex-start;;
+
+  @media (min-width: $breakpoint-md) {
+    justify-content: center;
+  }
+
+  img {
+    max-width: 240px;
+    border-radius: 1rem;
+
+    @media (min-width: $breakpoint-md) {
+      max-width: 100%;
+    }
+  }
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @media (min-width: $breakpoint-md) {
+    gap: 1rem;
+  }
+
+  h2 {
+    font-family: $font-heading;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $color-primary;
+
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
+      font-size: 1.375rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  h3 {
+    font-family: $font-heading;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $color-heading;
+
+    @include dark-mode {
+      color: $color-heading-dark;
+    }
+
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
+      font-size: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.125rem;
+    } 
+  }
+
+  .buttons {
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+
+    @media (min-width: $breakpoint-md) {
+      justify-content: flex-start;
+      margin-top: 0;
+    }
+  }
+}

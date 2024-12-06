@@ -1,0 +1,21 @@
+@import '@/styles/variables.scss';
+
+.footer {
+  padding: 2rem 0;
+
+  .logo {
+    color: $color-heading;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+}
+
+.container {
+  @include container;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}

@@ -1,0 +1,29 @@
+@import '@/styles/variables.scss';
+
+.logo {
+  font-family: $font-heading;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: $color-heading;
+
+  @include dark-mode {
+    color: $color-heading-dark;
+  }
+
+  .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-primary;
+    color: #fff;
+    font-size: 1.625rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .primary {
+    color: $color-primary;
+  }
+}
