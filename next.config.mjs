@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
+    deviceSizes: [768],
   },
   webpack(config, options) {
     config.module.rules.push({

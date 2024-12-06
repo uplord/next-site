@@ -22,7 +22,6 @@ export default function Section({ dataid }) {
                 quality={80}
                 priority
                 sizes="(max-width: 767px) 240px, 500px"
-                layout="responsive"
                 width={500}
                 height={617}
               />
