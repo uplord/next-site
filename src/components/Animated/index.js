@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 import { useEffect, useRef, useState } from 'react';
 import { useQueue } from '@/context/queueContext';
 
-export default function Animated({ children, dataid, id = '', className = '' }) {
+export default function Animated({ children, dataid, id = '', className = '', onVisible, animated = true }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasTransition, setHasTransition] = useState(false);
@@ -13,7 +13,9 @@ export default function Animated({ children, dataid, id = '', className = '' }) 
   const handleIntersection = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting && !isVisible) {
-        setHasTransition(true);
+        if (animated == true) {
+          setHasTransition(true);
+        }
         addToQueue(dataid);
         observer.unobserve(entry.target);
       }
@@ -22,7 +24,7 @@ export default function Animated({ children, dataid, id = '', className = '' }) 
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleIntersection, {
-      rootMargin: '-100px 0px 0px 0px',
+      rootMargin: '0px 0px 0px 0px',
     });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
@@ -31,14 +33,16 @@ export default function Animated({ children, dataid, id = '', className = '' }) 
   }, [isVisible]);
 
   useEffect(() => { 
-    const queueList = queue.sort((a, b) => {
-      return a - b;
-    });
+    const queueList = queue.sort((a, b) => a - b);
     const rect = sectionRef.current?.getBoundingClientRect();
     if (rect?.bottom < 0 && !isVisible) {
       setHasTransition(false);
       setIsVisible(true);
       removeFromQueue(dataid);
+
+      if (onVisible) {
+        onVisible(dataid, false);
+      }
       return;
     }
 
@@ -47,19 +51,25 @@ export default function Animated({ children, dataid, id = '', className = '' }) 
         setIsVisible(true);
         removeFromQueue(dataid);
 
+        if (onVisible) {
+          onVisible(dataid);
+        }
+
         setTimeout(() => {
           setHasTransition(false);
-        }, 500);
+        }, 600);
       }, 1200);
 
       return () => clearTimeout(timer);
     }
-  }, [queue, dataid, removeFromQueue]);
+  }, [queue, dataid, removeFromQueue, onVisible]);
 
-  const dynamicClass = 
-    isVisible && hasTransition ? styles.loading : 
+  let dynamicClass = null
+  if (animated == true) { 
+    dynamicClass = isVisible && hasTransition ? styles.loading : 
     isVisible && !hasTransition ? '' : 
     styles.section;
+  }
 
   return (
     <div 
