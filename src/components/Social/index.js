@@ -8,17 +8,22 @@ export default function Social() {
     icon: "linkedin-in-brands-solid",
     link: "https://www.linkedin.com/in/themichael/",
     class: styles.linkedin,
-    target: ""
+    target: "_blank"
   },{
     icon: "instagram-brands-solid",
     link: "https://www.instagram.com/michael.adam.allen/",
     class: styles.instagram,
-    target: ""
+    target: "_blank"
+  },{
+    icon: "github-brands-solid",
+    link: "https://github.com/uplord/",
+    class: styles.github,
+    target: "_blank"
   },{
     icon: "envelope-solid",
     link: "mailto:michael@uplord.co.uk",
     class: "",
-    target: "_blank"
+    target: ""
   }]
 
   return (
@@ -29,7 +34,7 @@ export default function Social() {
           {...(item.target && { "target": item.target })}
           {...(item.class && { "className": item.class })}
         >
-          <Svg name={item.icon} width={20} height={20} color="#fff" />
+          <Svg name={item.icon} width={20} height={20} />
         </Link>
       ))}
     </div>

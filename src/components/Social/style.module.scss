@@ -10,6 +10,7 @@
 
   a {
     background: $color-primary;
+    color: #fff;
     padding: 0.75rem;
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     transition: all .3s ease;
@@ -28,6 +29,16 @@
 
     &.instagram {
       background: #d62976;
+    }
+
+    &.github {
+      background: $color-svg;
+      color: $color-svg-dark;
+
+      @include dark-mode {
+        background: $color-svg-dark;
+        color: $color-svg;
+      }
     }
   }
 
