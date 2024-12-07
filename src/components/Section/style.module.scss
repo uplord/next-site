@@ -32,18 +32,15 @@
 }
 
 .image {
-  display: flex;
-  justify-content: flex-start;;
-
-  @media (min-width: $breakpoint-md) {
-    justify-content: center;
-  }
 
   .imageWrap {
+    display: flex;
+    justify-content: flex-start;;
     width: 100%;
     max-width: 240px;
 
     @media (min-width: $breakpoint-md) {
+      justify-content: center;
       max-width: 100%;
     }
   }

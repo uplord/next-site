@@ -1,8 +1,11 @@
 @import '@/styles/variables.scss';
 
 .projects {
-  text-align: center;
   scroll-margin-top: 110px;
+
+  @media (min-width: $breakpoint-md) {
+    text-align: center;
+  }
 
   h2 {
     font-family: $font-heading;
@@ -35,19 +38,32 @@
 
 .list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto; 
+  scroll-snap-type: x mandatory;
   gap: 1rem;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+
+  @media (min-width: $breakpoint-md) {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
 
   @media (min-width: 1024px) {
     gap: 2rem;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
 .item {
   position: relative;
   display: flex;
-  width: calc(50% - 0.5rem);
   border-radius: 1rem;
   border: 1px solid $color-border;
   background: $color-block;
@@ -59,11 +75,16 @@
     color: $color-svg-dark;
   }
 
+  @media (max-width: $breakpoint-md - 1) {
+    flex: 0 0 calc(40% - 1rem);
+    scroll-snap-align: center;
+  }
+
   @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
     width: calc(33.3% - 0.75rem);
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: $breakpoint-lg) {
     width: calc(25% - 1.5rem);
   }
 
