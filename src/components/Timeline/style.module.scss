@@ -117,6 +117,12 @@
     }
   }
 
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   p {
     @media (min-width: $breakpoint-md) {
       font-size: 1.125rem;

@@ -1,76 +1,64 @@
 import styles from "./style.module.scss";
-import Svg from '@/components/Svg';
-import Animated from '@/components/Animated';
+import Svg from "@/components/Svg";
+import Animated from "@/components/Animated";
 
 export default function Stack({ dataid }) {
+  const data = {
+    title: "My current stack",
+    list: [{
+      icon: "html5",
+      tooltip: "HTML5",
+    },{
+      icon: "css",
+      tooltip: "CSS",
+    },{
+      icon: "js",
+      tooltip: "JavaScript",
+    },{
+      icon: "sass",
+      tooltip: "Sass",
+    },{
+      icon: "react",
+      tooltip: "React",
+    },{
+      icon: "nextjs",
+      tooltip: "NextJs",
+    },{
+      icon: "typescript",
+      tooltip: "TypeScript",
+    },{
+      icon: "git",
+      tooltip: "Git",
+    },{
+      icon: "github",
+      tooltip: "Github",
+    },{
+      icon: "aws",
+      tooltip: "Amazon Web Services",
+    },{
+      icon: "netlify",
+      tooltip: "Netlify",
+    },{
+      icon: "vscode",
+      tooltip: "VS Code",
+    }]
+  }
+
   return (
     <Animated dataid={dataid} className={styles.stack}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.text}>
-            <h2>My current stack</h2>
+            <h2>{data.title}</h2>
           </div>
           <div className={styles.list}>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="HTML5">
-                <Svg name="html5" width={60} />
+            {data.list.map((item, index) => (
+              <div key={index} className={styles.item}>
+                <div className={styles.image} data-tooltip={item.tooltip}>
+                  <Svg name={item.icon} width={60} />
+                </div>
               </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="CSS">
-                <Svg name="css" width={60} />
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="JavaScript">
-                <Svg name="js" width={60} />
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="Sass">
-                <Svg name="sass" width={60} />
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="React">
-                <Svg name="react" width={60} />
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="NextJs">
-                <Svg name="nextjs" width={60} />
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="TypeScript">
-                <Svg name="typescript" width={60} />
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="Git">
-                <Svg name="git" width={60} />
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="Github">
-                <Svg name="github" width={60} />
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="Amazon Web Services">
-                <Svg name="aws" width={60} />
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="Netlify">
-                <Svg name="netlify" width={60} />
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.image} data-tooltip="VS Code">
-                <Svg name="vscode" width={60} />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

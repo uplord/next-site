@@ -4,17 +4,34 @@ import styles from "./style.module.scss";
 import { Svg } from "@/components";
 
 export default function Social() {
+  const data = [{
+    icon: "linkedin-in-brands-solid",
+    link: "https://www.linkedin.com/in/themichael/",
+    class: styles.linkedin,
+    target: ""
+  },{
+    icon: "instagram-brands-solid",
+    link: "https://www.instagram.com/michael.adam.allen/",
+    class: styles.instagram,
+    target: ""
+  },{
+    icon: "envelope-solid",
+    link: "mailto:michael@uplord.co.uk",
+    class: "",
+    target: "_blank"
+  }]
+
   return (
     <div className={styles.social}>
-      <Link href="https://www.linkedin.com/in/themichael/" target="_blank" className={styles.linkedin}>
-        <Svg name="linkedin-in-brands-solid" width={20} height={20} color="#fff" />
-      </Link>
-      <Link href="https://www.instagram.com/michael.adam.allen/" target="_blank" className={styles.instagram}>
-        <Svg name="instagram-brands-solid" width={20} height={20} color="#fff" />
-      </Link>
-      <Link href="mailto:michael@uplord.co.uk">
-        <Svg name="envelope-solid" width={20} height={20} color="#fff" />
-      </Link>
+      {data.map((item, index) => (
+        <Link key={index}
+          href={item.link}
+          {...(item.target && { "target": item.target })}
+          {...(item.class && { "className": item.class })}
+        >
+          <Svg name={item.icon} width={20} height={20} color="#fff" />
+        </Link>
+      ))}
     </div>
   )
 }

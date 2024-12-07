@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
 import styles from "./style.module.scss";
-import { useEffect, useRef, useState } from 'react';
-import { useQueue } from '@/context/queueContext';
+import { useEffect, useRef, useState } from "react";
+import { useQueue } from "@/context/queueContext";
 
-export default function Animated({ children, dataid, id = '', className = '', onVisible, animated = true }) {
+export default function Animated({ children, dataid, id = "", className = "", onVisible, animated = true }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasTransition, setHasTransition] = useState(false);
@@ -24,7 +24,7 @@ export default function Animated({ children, dataid, id = '', className = '', on
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleIntersection, {
-      rootMargin: '0% 0% -100px 0%',
+      rootMargin: "0% 0% -100px 0%",
       threshold: 0,
     });
     if (sectionRef.current) {
@@ -67,7 +67,7 @@ export default function Animated({ children, dataid, id = '', className = '', on
   let dynamicClass = null
   if (animated == true) { 
     dynamicClass = isVisible && hasTransition ? styles.loading : 
-    isVisible && !hasTransition ? '' : 
+    isVisible && !hasTransition ? "" : 
     styles.section;
   }
 

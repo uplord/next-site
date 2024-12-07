@@ -1,5 +1,5 @@
 import styles from "./not-found.module.scss";
-import { Logo, Buttons } from '@/components';
+import { Logo, Buttons } from "@/components";
 
 export const metadata = {
   title: "404 Page not found",
@@ -7,18 +7,22 @@ export const metadata = {
 };
  
 export default function NotFound() {
-  const buttons = [
-    { title: "Go back to the homepage", link: "/", class: "primary" },
-  ];
+  const data = {
+    title: "Page not found",
+    content: "We couldn't find the page you are looking for.",
+    buttons: [
+      { title: "Go back to the homepage", link: "/", class: "primary" },
+    ]
+  }
 
   return (
     <div className={styles.error}>
       <div className={styles.container}>
         <div className={styles.content}>
           <Logo />
-          <h1>Page not found</h1>
-          <p>We couldn&apos;t find the page you are looking for.</p>
-          <Buttons data={buttons} className={styles.buttons} />
+          <h1>{data.title}</h1>
+          <p>{data.content}</p>
+          <Buttons data={data.buttons} className={styles.buttons} />
         </div>
       </div>
     </div>
