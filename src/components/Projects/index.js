@@ -16,7 +16,7 @@ const projectsData = [
   { type: 'svg', name: 'campbells', tooltip: 'Campbells Meat' },
   { type: 'image', src: '/images/petervardy.png', alt: 'Peter Vardy', tooltip: 'Peter Vardy' },
   { type: 'image', src: '/images/carmoney.png', alt: 'CarMoney', tooltip: 'CarMoney' },
-  { type: 'svg', name: 'bluewater', tooltip: 'Bluewater' },
+  // { type: 'svg', name: 'bluewater', tooltip: 'Bluewater' },
 ];
 
 export default function Projects({ dataid }) {

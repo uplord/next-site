@@ -37,8 +37,9 @@
 }
 
 .list {
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: repeat(6, calc(100% / 2.5));
+  grid-auto-rows: 1fr;
   overflow-x: auto; 
   scroll-snap-type: x mandatory;
   gap: 1rem;
@@ -46,6 +47,7 @@
   padding: 0 1rem;
 
   @media (min-width: $breakpoint-md) {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0;
@@ -76,7 +78,6 @@
   }
 
   @media (max-width: $breakpoint-md - 1) {
-    flex: 0 0 calc(40% - 1rem);
     scroll-snap-align: center;
   }
 
