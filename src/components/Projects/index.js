@@ -49,6 +49,7 @@ export default function Projects({ id, queueId }) {
               </div>
             ))}
           </div>
+          <p className={styles.viewMore}>Swipe to view more <Svg name="arrow-right-long-solid" width={16} height={16} /></p>
         </div>
       </div>
     </Animated>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import clsx from "clsx";
 import styles from "./style.module.scss";
 import { Buttons } from "@/components";
 import Animated from "@/components/Animated";
@@ -9,6 +10,7 @@ import Animated from "@/components/Animated";
 export default function Banner({ id, queueId }) {
   const [showImage, setShowImage] = useState(false);
   const [showText, setShowText] = useState(false);
+  const [showMore, setShowMore] = useState(false);
   const [doAnimate, setDoAnimate] = useState(true);
 
   const data = {
@@ -39,6 +41,7 @@ export default function Banner({ id, queueId }) {
     }
     setShowText(true);
     setTimeout(() => setShowImage(true), 600);
+    setTimeout(() => setShowMore(true), 1200);
     setTimeout(() => {
       setShowText(false);
       setShowImage(false);
@@ -74,6 +77,7 @@ export default function Banner({ id, queueId }) {
             <h2>{data.subtitle}</h2>
             <Buttons data={data.buttons} className={styles.buttons} />
           </div>
+          <div className={clsx(styles.viewMore, showMore == true && styles.loaded)}></div>
         </div>
       </div>
     </Animated>

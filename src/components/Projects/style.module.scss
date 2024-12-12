@@ -103,3 +103,37 @@
     height: auto;
   }
 }
+
+.viewMore {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: -1rem;
+  opacity: 0.75;
+
+  @media (min-width: vars.$breakpoint-md) {
+    display: none;
+  }
+
+  svg {
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: slideSmall;
+  }
+}
+
+
+@keyframes slideSmall {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(0.5rem);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
