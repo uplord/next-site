@@ -6,7 +6,7 @@ import styles from "./style.module.scss";
 import { Buttons } from "@/components";
 import Animated from "@/components/Animated";
 
-export default function Banner({ dataid }) {
+export default function Banner({ id, queueId }) {
   const [showImage, setShowImage] = useState(false);
   const [showText, setShowText] = useState(false);
   const [doAnimate, setDoAnimate] = useState(true);
@@ -48,7 +48,8 @@ export default function Banner({ dataid }) {
 
   return (
     <Animated 
-      dataid={dataid} 
+      id={id}
+      queueId={queueId} 
       className={styles.banner} 
       onVisible={handleVisibilityChange}
       animated="false"

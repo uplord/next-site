@@ -1,10 +1,11 @@
 "use client";
 
+import clsx from "clsx";
 import styles from "./style.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { useQueue } from "@/context/queueContext";
 
-export default function Animated({ children, dataid, id = "", className = "", onVisible, animated = true }) {
+export default function Animated({ children, queueId, id = "", className = "", onVisible, animated = true }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasTransition, setHasTransition] = useState(false);
@@ -16,7 +17,7 @@ export default function Animated({ children, dataid, id = "", className = "", on
         if (animated == true) {
           setHasTransition(true);
         }
-        addToQueue(dataid);
+        addToQueue(queueId);
         observer.unobserve(entry.target);
       }
     });
@@ -39,19 +40,19 @@ export default function Animated({ children, dataid, id = "", className = "", on
     if (rect?.bottom < 0 && !isVisible) {
       setHasTransition(false);
       setIsVisible(true);
-      removeFromQueue(dataid);
+      removeFromQueue(queueId);
 
       if (onVisible) {
-        onVisible(dataid, false);
+        onVisible(queueId, false);
       }
       return;
     }
 
-    if (queueList.length && queueList[0] === dataid) {
+    if (queueList.length && queueList[0] === queueId) {
       setIsVisible(true);
 
       if (onVisible) {
-        onVisible(dataid);
+        onVisible(queueId);
       }
 
       setTimeout(() => {
@@ -59,10 +60,10 @@ export default function Animated({ children, dataid, id = "", className = "", on
       }, 600);
 
       setTimeout(() => {
-        removeFromQueue(dataid);
+        removeFromQueue(queueId);
       }, 1200);
     }
-  }, [queue, dataid, removeFromQueue, onVisible]);
+  }, [queue, queueId, removeFromQueue, onVisible]);
 
   let dynamicClass = null
   if (animated == true) { 
@@ -75,7 +76,7 @@ export default function Animated({ children, dataid, id = "", className = "", on
     <div 
       ref={sectionRef}
       id={id}
-      className={`${className} ${dynamicClass}`.trim()}
+      className={clsx(dynamicClass, className)}
     >
       {children}
     </div>

@@ -3,9 +3,8 @@ import styles from "./style.module.scss"
 import { Buttons } from "@/components";
 import Animated from "@/components/Animated";
 
-export default function Section({ dataid }) {
+export default function Section({ id, queueId }) {
   const data = {
-    id: "about-me",
     title: "About Michael Allen",
     subtitle: "Front End Development",
     content: "I'm an experienced Front End Developer with excellent collaboration, organization, and teamwork skills. Passionate about developing in HTML, CSS, and JavaScript and always open to exploring new technologies. Over the last 9 years, I&apos;ve worked with various clients, helping me hone my analytical, debugging, and problem-solving skills to create exceptional websites.",
@@ -24,7 +23,7 @@ export default function Section({ dataid }) {
   };
 
   return (
-    <Animated dataid={dataid} id={data.id} className={styles.section}>
+    <Animated id={id} queueId={queueId} className={styles.section}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.image}>

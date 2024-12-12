@@ -6,11 +6,11 @@ export default function Home() {
     <div>
       <Header />
       <main className={styles.main}>
-        <Banner dataid="0"  />
-        <Section dataid="1" />
-        <Projects dataid="2" />
-        <Timeline dataid="3" />
-        <Stack dataid="4" />
+        <Banner id="banner" queueId="0"  />
+        <Section id="about-me" queueId="1" />
+        <Projects id="projects" queueId="2" />
+        <Timeline id="timeline" queueId="3" />
+        <Stack id="stack" queueId="4" />
       </main>
       <Footer />
     </div>

@@ -4,7 +4,6 @@ import { Svg } from "@/components";
 import Animated from "@/components/Animated";
 
 const data = {
-  id: "projects",
   title: "Projects I've worked on",
   list: [
     { type: "svg", name: "brewdog", tooltip: "Brewdog" },
@@ -22,9 +21,9 @@ const data = {
   ]
 };
 
-export default function Projects({ dataid }) {
+export default function Projects({ id, queueId }) {
   return (
-    <Animated dataid={dataid} id={data.id} className={styles.projects}>
+    <Animated id={id} queueId={queueId} className={styles.projects}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.text}>

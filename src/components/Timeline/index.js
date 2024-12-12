@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Svg, Buttons } from "@/components";
 import Animated from "@/components/Animated";
 
-export default function Timeline({ dataid }) {
+export default function Timeline({ id, queueId }) {
   const data = {
     id: "timeline",
     title: "My timeline",
@@ -36,7 +36,7 @@ export default function Timeline({ dataid }) {
   };
 
   return (
-    <Animated dataid={dataid} id={data.id} className={styles.timeline}>
+    <Animated id={id} queueId={queueId} className={styles.timeline}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.list}>

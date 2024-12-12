@@ -2,7 +2,7 @@ import styles from "./style.module.scss";
 import Svg from "@/components/Svg";
 import Animated from "@/components/Animated";
 
-export default function Stack({ dataid }) {
+export default function Stack({ id, queueId }) {
   const data = {
     title: "My current stack",
     list: [{
@@ -45,7 +45,7 @@ export default function Stack({ dataid }) {
   }
 
   return (
-    <Animated dataid={dataid} className={styles.stack}>
+    <Animated id={id} queueId={queueId} className={styles.stack}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.text}>
