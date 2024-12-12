@@ -7,7 +7,7 @@ export default function Section({ id, queueId }) {
   const data = {
     title: "About Michael Allen",
     subtitle: "Front End Development",
-    content: "I'm an experienced Front End Developer with excellent collaboration, organization, and teamwork skills. Passionate about developing in HTML, CSS, and JavaScript and always open to exploring new technologies. Over the last 9 years, I&apos;ve worked with various clients, helping me hone my analytical, debugging, and problem-solving skills to create exceptional websites.",
+    content: "I'm an experienced Front End Developer with excellent collaboration, organization, and teamwork skills. Passionate about developing in HTML, CSS, and JavaScript and always open to exploring new technologies. Over the last 9 years, I've worked with various clients, helping me hone my analytical, debugging, and problem-solving skills to create exceptional websites.",
     buttons: [{
       title: "Get in touch",
       link: "mailto:michael@uplord.co.uk",
