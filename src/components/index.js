@@ -1,6 +1,5 @@
 export { default as Svg } from './Svg';
-export { default as Button } from './Button';
-export { default as Buttons } from './Button/Buttons';
+export { default as Button , Buttons} from './Button';
 export { default as Logo } from './Logo';
 export { default as Social } from './Social';
 
