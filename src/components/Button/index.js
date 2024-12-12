@@ -30,7 +30,7 @@ export default function Button({ data }) {
 
 export function Buttons({ data, className = "" }) {
   return (
-    <div className={`${styles.buttons} ${className}`}>
+    <div className={clsx(styles.buttons, className)}>
       {data.map((button, index) => (
         <Button
           key={index}

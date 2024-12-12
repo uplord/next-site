@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import clsx from "clsx";
 import { useTheme } from "next-themes";
 import styles from "./style.module.scss";
 import Svg from "@/components/Svg";
@@ -46,7 +47,7 @@ export default function Toggle() {
 
   return (
     <div
-      className={`${styles.toggle} ${themeStyles}`}
+      className={clsx(styles.toggle, themeStyles)}
       onClick={toggleTheme}
       suppressHydrationWarning
     >
