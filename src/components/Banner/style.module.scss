@@ -3,14 +3,6 @@
 
 .banner {
   position: relative;
-
-  &:before {
-    @media (max-width: vars.$breakpoint-md - 1) {
-      content: "";
-      display: block;
-      padding-bottom: 156.25%;
-    }
-  }
 }
 
 .container {
@@ -33,11 +25,7 @@
   }
 
   @media (max-width: vars.$breakpoint-md - 1) {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
+    height: 640px;
   }
 }
 
