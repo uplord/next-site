@@ -64,10 +64,10 @@
   }
 
   .imageWrap {
-    width: 140px;
+    max-width: 140px;
 
     @media (min-width: vars.$breakpoint-md) {
-      width: 500px;
+      max-width: 500px;
     }
   }
 
