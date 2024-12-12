@@ -1,34 +1,35 @@
-@import '@/styles/variables.scss';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
 
 .projects {
   scroll-margin-top: 110px;
 
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: vars.$breakpoint-md) {
     text-align: center;
   }
 
   h2 {
-    font-family: $font-heading;
+    font-family: vars.$font-heading;
     font-size: 1.75rem;
     font-weight: bold;
-    color: $color-heading;
+    color: vars.$color-heading;
 
-    @include dark-mode {
-      color: $color-heading-dark;
+    @include mixins.dark-mode {
+      color: vars.$color-heading-dark;
     }
 
-    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
+    @media (min-width: vars.$breakpoint-md) and (max-width: vars.$breakpoint-lg - 1) {
       font-size: 2rem;
     }
 
-    @media (min-width: $breakpoint-lg ) {
+    @media (min-width: vars.$breakpoint-lg) {
       font-size: 2.5rem;
     }
   }
 }
 
 .container {
-  @include container;
+  @include mixins.container;
 }
 
 .content {
@@ -40,13 +41,13 @@
   display: grid;
   grid-template-columns: repeat(6, calc(100% / 2.5));
   grid-auto-rows: 1fr;
-  overflow-x: auto; 
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 1rem;
   margin: 0 -1rem;
   padding: 0 1rem;
 
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: vars.$breakpoint-md) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -67,25 +68,25 @@
   position: relative;
   display: flex;
   border-radius: 1rem;
-  border: 1px solid $color-border;
-  background: $color-block;
-  color: $color-svg;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-block;
+  color: vars.$color-svg;
 
-  @include dark-mode {
-    border-color: $color-border-dark;
-    background: $color-block-dark;
-    color: $color-svg-dark;
+  @include mixins.dark-mode {
+    border-color: vars.$color-border-dark;
+    background: vars.$color-block-dark;
+    color: vars.$color-svg-dark;
   }
 
-  @media (max-width: $breakpoint-md - 1) {
+  @media (max-width: vars.$breakpoint-md - 1) {
     scroll-snap-align: center;
   }
 
-  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
+  @media (min-width: vars.$breakpoint-md) and (max-width: vars.$breakpoint-lg - 1) {
     width: calc(33.3% - 0.75rem);
   }
 
-  @media (min-width: $breakpoint-lg) {
+  @media (min-width: vars.$breakpoint-lg) {
     width: calc(25% - 1.5rem);
   }
 
@@ -94,7 +95,7 @@
   }
 
   &[data-tooltip] {
-    @include toolbar;
+    @include mixins.toolbar;
   }
 
   svg {

@@ -1,20 +1,21 @@
-@import '@/styles/variables.scss';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
 
 .logo {
-  font-family: $font-heading;
+  font-family: vars.$font-heading;
   font-size: 1.25rem;
   font-weight: bold;
-  color: $color-heading;
+  color: vars.$color-heading;
 
-  @include dark-mode {
-    color: $color-heading-dark;
+  @include mixins.dark-mode {
+    color: vars.$color-heading-dark;
   }
 
   .icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: $color-primary;
+    background: vars.$color-primary;
     color: #fff;
     font-size: 1.625rem;
     width: 2.5rem;
@@ -24,6 +25,6 @@
   }
 
   .primary {
-    color: $color-primary;
+    color: vars.$color-primary;
   }
 }

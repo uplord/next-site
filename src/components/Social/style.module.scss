@@ -1,21 +1,22 @@
-@import '@/styles/variables.scss';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
 
 .social {
   display: flex;
   gap: 2rem;
 
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: vars.$breakpoint-md) {
     gap: 1.5rem;
   }
 
   a {
-    background: $color-primary;
+    background: vars.$color-primary;
     color: #fff;
     padding: 0.75rem;
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     transition: all .3s ease;
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: vars.$breakpoint-md) {
       padding: 0.5rem;
     }
 
@@ -32,12 +33,12 @@
     }
 
     &.github {
-      background: $color-svg;
-      color: $color-svg-dark;
+      background: vars.$color-svg;
+      color: vars.$color-svg-dark;
 
-      @include dark-mode {
-        background: $color-svg-dark;
-        color: $color-svg;
+      @include mixins.dark-mode {
+        background: vars.$color-svg-dark;
+        color: vars.$color-svg;
       }
     }
   }
@@ -46,7 +47,7 @@
     width: 28px;
     height: auto;
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: vars.$breakpoint-md) {
       width: 24px;
     }
   }

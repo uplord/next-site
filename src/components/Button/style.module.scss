@@ -1,4 +1,5 @@
-@import '@/styles/variables.scss';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
 
 .buttons {
   width: 100%;
@@ -31,20 +32,20 @@
 }
 
 .primary {
-  background: $color-primary;
-  color: $color-primary-text;
+  background: vars.$color-primary;
+  color: vars.$color-primary-text;
 
   &:hover {
-    background: $color-primary-hover;
+    background: vars.$color-primary-hover;
   }
 }
 
 .link {
-  color: $color-heading;
+  color: vars.$color-heading;
   padding: 0.5rem 1rem;
 
-  @include dark-mode {
-    color: $color-heading-dark;
+  @include mixins.dark-mode {
+    color: vars.$color-heading-dark;
   }
 
   &.large {

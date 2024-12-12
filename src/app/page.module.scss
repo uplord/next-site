@@ -1,4 +1,4 @@
-@import '@/styles/variables.scss';
+@use '@/styles/variables' as vars;
 
 .main {
   width: 100%;
@@ -8,12 +8,12 @@
   padding: 0 0 2rem;
   transition: all .3s ease;
 
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: vars.$breakpoint-md) {
     gap: 4rem;
     padding: 0 0 3rem;
   }
 
-  @media (min-width: $breakpoint-lg) {
+  @media (min-width: vars.$breakpoint-lg) {
     gap: 8rem;
   }
 }

@@ -1,10 +1,11 @@
-@import '@/styles/variables.scss';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
 
 .footer {
   padding: 2rem 0;
 
   .logo {
-    color: $color-heading;
+    color: vars.$color-heading;
   }
 
   p {
@@ -13,7 +14,7 @@
 }
 
 .container {
-  @include container;
+  @include mixins.container;
   align-items: center;
   justify-content: center;
   flex-direction: column;

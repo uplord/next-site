@@ -1,4 +1,5 @@
-@import '@/styles/variables.scss';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
 
 .error {
   .content {
@@ -12,24 +13,24 @@
   }
 
   .logo {
-    color: $color-heading;
+    color: vars.$color-heading;
   }
 
   h1 {
-    font-family: $font-heading;
-    color: $color-heading;
+    font-family: vars.$font-heading;
+    color: vars.$color-heading;
     font-size: 1.5rem;
     font-weight: bold;
 
-    @include dark-mode {
-      color: $color-heading-dark;
+    @include mixins.dark-mode {
+      color: vars.$color-heading-dark;
     }
 
-    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
+    @media (min-width: vars.$breakpoint-md) and (max-width: vars.$breakpoint-lg - 1) {
       font-size: 2rem;
     }
 
-    @media (min-width: $breakpoint-lg) {
+    @media (min-width: vars.$breakpoint-lg) {
       font-size: 3rem;
     }
   }

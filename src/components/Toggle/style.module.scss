@@ -1,6 +1,5 @@
-@import '@/styles/variables.scss';
-$color-sun: #ffd43b;
-$color-moon: #74c0fc;
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
 
 .toggle {
   position: relative;
@@ -14,11 +13,11 @@ $color-moon: #74c0fc;
     display: block;
     height: 40px;
     width: 100%;
-    background: $color-nav;
+    background: vars.$color-nav;
     border-radius: 20px;
 
-    @include dark-mode {
-      background: $color-nav-dark;
+    @include mixins.dark-mode {
+      background: vars.$color-nav-dark;
     }
 
     &:after {
@@ -29,11 +28,11 @@ $color-moon: #74c0fc;
       width: 32px;
       border-radius: 16px;
       z-index: 1;
-      background: $color-sun;
+      background: vars.$color-sun;
       left: 40px;
 
-      @include dark-mode {
-        background: $color-moon;
+      @include mixins.dark-mode {
+        background: vars.$color-moon;
         left: 4px;
       }
     }
@@ -47,7 +46,7 @@ $color-moon: #74c0fc;
     z-index: 1;
     left: 46px;
 
-    @include dark-mode {
+    @include mixins.dark-mode {
       transform: translateY(-50%) rotate(0deg);
       left: 10px;
     }
@@ -56,7 +55,7 @@ $color-moon: #74c0fc;
   .sun {
     opacity: 1;
 
-    @include dark-mode {
+    @include mixins.dark-mode {
       opacity: 0;
     }
   }
@@ -64,7 +63,7 @@ $color-moon: #74c0fc;
   .moon {
     opacity: 0;
 
-    @include dark-mode {
+    @include mixins.dark-mode {
       opacity: 1;
     }
   }

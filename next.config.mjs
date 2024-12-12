@@ -4,6 +4,9 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [768],
   },
+  sassOptions: {
+    silenceDeprecations: ['legacy-js-api'],
+  },
   webpack(config, options) {
     config.module.rules.push({
       test: /\.svg$/,
