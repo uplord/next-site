@@ -13,6 +13,8 @@ export default function Banner({ id, queueId }) {
   const [showMore, setShowMore] = useState(false);
   const [doAnimate, setDoAnimate] = useState(true);
 
+  const [onLoaded, setOnLoaded] = useState(false);
+
   const data = {
     title: "<span>Hi, I'm Michael</span> A Front End Developer",
     subtitle: "With 9 years in the industry creating websites",
@@ -46,6 +48,8 @@ export default function Banner({ id, queueId }) {
       setShowText(false);
       setShowImage(false);
       setDoAnimate(false);
+
+      setOnLoaded(true);
     }, 1600);
   };
 
@@ -55,6 +59,7 @@ export default function Banner({ id, queueId }) {
       queueId={queueId} 
       className={styles.banner} 
       onVisible={handleVisibilityChange}
+      onLoaded={onLoaded}
       animated="false"
     >
       <div className={styles.container}>

@@ -5,9 +5,10 @@ import styles from "./style.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { useQueue } from "@/context/queueContext";
 
-export default function Animated({ children, queueId, id = "", className = "", onVisible, animated = true }) {
+export default function Animated({ children, queueId, id = "", className = "", onVisible, onLoaded = false, animated = true }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [hasTransition, setHasTransition] = useState(false);
   const { queue, addToQueue, removeFromQueue } = useQueue();
   
@@ -35,42 +36,42 @@ export default function Animated({ children, queueId, id = "", className = "", o
   }, [isVisible]);
 
   useEffect(() => { 
-    const queueList = queue.sort((a, b) => a - b);
     const rect = sectionRef.current?.getBoundingClientRect();
+  
     if (rect?.bottom < 0 && !isVisible) {
       setHasTransition(false);
       setIsVisible(true);
       removeFromQueue(queueId);
 
-      if (onVisible) {
-        onVisible(queueId, false);
-      }
+      onVisible?.(queueId, false);
       return;
     }
 
-    if (queueList.length && queueList[0] === queueId) {
+    const sortedQueue = queue.sort((a, b) => a - b);
+    if (sortedQueue.includes(queueId) && sortedQueue[0] === queueId) {
       setIsVisible(true);
-
-      if (onVisible) {
-        onVisible(queueId);
-      }
-
-      setTimeout(() => {
-        setHasTransition(false);
-      }, 600);
-
-      setTimeout(() => {
-        removeFromQueue(queueId);
-      }, 1200);
+      onVisible?.(queueId);
+      if (!onVisible) setTimeout(() => setIsLoaded(true), 600);
     }
-  }, [queue, queueId, removeFromQueue, onVisible]);
+  }, [queue, queueId]);
 
-  let dynamicClass = null
-  if (animated == true) { 
-    dynamicClass = isVisible && hasTransition ? styles.loading : 
-    isVisible && !hasTransition ? "" : 
-    styles.section;
-  }
+  useEffect(() => {
+    if (onLoaded) setIsLoaded(true);
+  }, [onLoaded]);
+
+  useEffect(() => {
+    if (isLoaded) {
+      setHasTransition(false);
+      removeFromQueue(queueId);
+    }
+  }, [isLoaded, queueId]);
+
+  const dynamicClass =
+    animated && isVisible
+      ? hasTransition
+        ? styles.loading
+        : ""
+      : styles.section;
 
   return (
     <div 
