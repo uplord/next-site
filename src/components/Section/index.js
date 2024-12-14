@@ -63,7 +63,7 @@ export default function Section({ id, queueId }) {
       className={clsx(styles.section)}
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
-      animated="false"
+      animated={false}
     >
       <div className={styles.container}>
         <div className={styles.content}>

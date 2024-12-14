@@ -60,7 +60,7 @@ export default function Banner({ id, queueId }) {
       className={styles.banner} 
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
-      animated="false"
+      animated={false}
     >
       <div className={styles.container}>
         <div className={styles.content}>
