@@ -36,12 +36,25 @@
 
   &.animate img {
     opacity: 0;
+
+    @media (max-width: vars.$breakpoint-md - 1) {
+      transform: translateY(100px);
+    }
   }
 
   &.show img {
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-name: slideRight;
+    opacity: 1;
+
+    @media (max-width: vars.$breakpoint-md - 1) {
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    @media (min-width: vars.$breakpoint-md) {
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-name: slideRight;
+    }
   }
 
   .imageWrap {
@@ -73,13 +86,27 @@
 
   &.animate {
     opacity: 0;
-    transform: translateY(50px);
-    transition: .3s ease-out;
+
+    @media (max-width: vars.$breakpoint-md - 1) {
+      transform: translateY(100px);
+    }
+
+    @media (min-width: vars.$breakpoint-md) {
+      transform: translateY(50px);
+    }
   }
 
   &.show {
     opacity: 1;
     transform: translateY(0);
+
+    @media (max-width: vars.$breakpoint-md - 1) {
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    @media (min-width: vars.$breakpoint-md) {
+      transition: .3s ease-out;
+    }
   }
 
   h2 {

@@ -37,13 +37,23 @@ export default function Section({ id, queueId }) {
       setDoAnimate(true);
     }
 
-    setShowText(true);
-    setTimeout(() => setShowImage(true), 600);
+    if (window.innerWidth < 768) {
+      setShowText(true);
+      setShowImage(true);
 
-    setTimeout(() => {
-      setDoAnimate(false);
-      setOnLoaded(true);
-    }, 1600);
+      setTimeout(() => {
+        setDoAnimate(false);
+        setOnLoaded(true);
+      }, 600);
+    } else {
+      setShowText(true);
+      setTimeout(() => setShowImage(true), 600);
+
+      setTimeout(() => {
+        setDoAnimate(false);
+        setOnLoaded(true);
+      }, 1600);
+    }
   };
 
   return (
