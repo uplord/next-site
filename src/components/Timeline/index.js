@@ -15,7 +15,7 @@ export default function Timeline({ id, queueId }) {
       class: "primary",
     }],
     list: [{
-      title: "Sept 2021 - Present",
+      title: "Sept 2021 - Jan 2025",
       subtitle: "Senior Front End Developer",
       logo: "snappy-logo",
       link: "https://www.snappyshopper.co.uk/",

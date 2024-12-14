@@ -1,9 +1,19 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import clsx from "clsx";
 import styles from "./style.module.scss"
 import { Buttons } from "@/components";
 import Animated from "@/components/Animated";
 
 export default function Section({ id, queueId }) {
+  const [showImage, setShowImage] = useState(false);
+  const [showText, setShowText] = useState(false);
+  const [doAnimate, setDoAnimate] = useState(true);
+
+  const [onLoaded, setOnLoaded] = useState(false);
+
   const data = {
     title: "About Michael Allen",
     subtitle: "Front End Development",
@@ -22,11 +32,32 @@ export default function Section({ id, queueId }) {
     }
   };
 
+  const handleVisibilityChange = (id, animate = true) => {
+    if (animate == true) {
+      setDoAnimate(true);
+    }
+
+    setShowText(true);
+    setTimeout(() => setShowImage(true), 600);
+
+    setTimeout(() => {
+      setDoAnimate(false);
+      setOnLoaded(true);
+    }, 1600);
+  };
+
   return (
-    <Animated id={id} queueId={queueId} className={styles.section}>
+    <Animated 
+      id={id}
+      queueId={queueId}
+      className={clsx(styles.section)}
+      onVisible={handleVisibilityChange}
+      onLoaded={onLoaded}
+      animated="false"
+    >
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.image}>
+          <div className={clsx(styles.image, doAnimate == true ? styles.animate : "", showImage == true ? styles.show : "")}>
             <div className={styles.imageWrap}>
               <Image
                 src={data.image.src}
@@ -39,7 +70,7 @@ export default function Section({ id, queueId }) {
               />
             </div>
           </div>
-          <div className={styles.text}>
+          <div className={clsx(styles.text, doAnimate == true ? styles.animate : "", showText == true ? styles.show : "")}>
             <h2>{data.title}</h2>
             <h3>{data.subtitle}</h3>
             <p>{data.content}</p>

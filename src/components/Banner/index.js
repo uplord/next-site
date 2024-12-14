@@ -64,7 +64,7 @@ export default function Banner({ id, queueId }) {
     >
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={`${styles.image} ${doAnimate == true ? styles.animate : ""} ${showImage == true ? styles.show : ""}`}>
+          <div className={clsx(styles.image, doAnimate == true ? styles.animate : "", showImage == true ? styles.show : "")}>
             <div className={styles.imageWrap}>
               <Image
                 src={data.image.src}
@@ -77,7 +77,7 @@ export default function Banner({ id, queueId }) {
               />
             </div>
           </div>
-          <div className={`${styles.text} ${doAnimate == true ? styles.animate : ""} ${showText == true ? styles.show : ""}`}>
+          <div className={clsx(styles.text, doAnimate == true ? styles.animate : "", showText == true ? styles.show : "")}>
             <h1 dangerouslySetInnerHTML={{ __html: data.title }}></h1>
             <h2>{data.subtitle}</h2>
             <Buttons data={data.buttons} className={styles.buttons} />

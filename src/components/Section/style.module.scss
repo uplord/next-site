@@ -33,6 +33,17 @@
 }
 
 .image {
+
+  &.animate img {
+    opacity: 0;
+  }
+
+  &.show img {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: slideRight;
+  }
+
   .imageWrap {
     display: flex;
     justify-content: flex-start;
@@ -58,6 +69,17 @@
 
   @media (min-width: vars.$breakpoint-md) {
     gap: 1rem;
+  }
+
+  &.animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .3s ease-out;
+  }
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   h2 {
@@ -108,5 +130,17 @@
       justify-content: flex-start;
       margin-top: 0;
     }
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
