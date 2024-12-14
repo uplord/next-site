@@ -3,14 +3,15 @@
 import clsx from "clsx";
 import styles from "./style.module.scss";
 import { useEffect, useRef, useState } from "react";
-import { useQueue } from "@/context/queueContext";
+import { useQueue, useTimelineQueue } from "@/context/QueueContexts";
 
-export default function Animated({ children, queueId, id = "", className = "", onVisible, onLoaded = false, animated = true }) {
+export default function Animated({ children, queueId, id = "", className = "", onVisible, onLoaded = false, animated = true, queueType = "default", }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasTransition, setHasTransition] = useState(false);
-  const { queue, addToQueue, removeFromQueue } = useQueue();
+  const { queue, addToQueue, removeFromQueue } =
+    queueType === "timeline" ? useTimelineQueue() : useQueue();
   
   const handleIntersection = (entries, observer) => {
     entries.forEach((entry) => {
@@ -48,6 +49,7 @@ export default function Animated({ children, queueId, id = "", className = "", o
     }
 
     const sortedQueue = queue.sort((a, b) => a - b);
+
     if (sortedQueue.includes(queueId) && sortedQueue[0] === queueId) {
       setIsVisible(true);
       onVisible?.();
@@ -56,7 +58,9 @@ export default function Animated({ children, queueId, id = "", className = "", o
   }, [queue, queueId]);
 
   useEffect(() => {
-    if (onLoaded) setIsLoaded(true);
+    if (onLoaded) {
+      setIsLoaded(true);
+    }
   }, [onLoaded]);
 
   useEffect(() => {

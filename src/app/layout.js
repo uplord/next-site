@@ -1,7 +1,7 @@
 import { DM_Sans } from "next/font/google";
 import "@/styles/global.scss";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { QueueProvider } from '@/context/queueContext';
+import { QueueProvider } from "@/context/QueueContexts";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],

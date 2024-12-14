@@ -12,7 +12,7 @@ export default function Home() {
         <Timeline id="timeline" queueId="3" />
         <Stack id="stack" queueId="4" />
       </main>
-      <Footer />
+      <Footer id="footer" queueId="5" />
     </div>
   );
 }
