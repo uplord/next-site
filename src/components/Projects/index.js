@@ -32,20 +32,21 @@ export default function Projects({ id, queueId }) {
           <div className={styles.list}>
             {data.list.map((item, index) => (
               <div key={index} className={styles.item}
-              {...(item.tooltip && { "data-tooltip": item.tooltip })}
               >
-                {item.type === "svg" ? (
-                  <Svg name={item.name} width={900} height={600} />
-                ) : (
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    quality={80}
-                    sizes="(max-width: 767px) 360px, 326px"
-                    width={326}
-                    height={218}
-                  />
-                )}
+                <div className={styles.image} {...(item.tooltip && { "data-tooltip": item.tooltip })}>
+                  {item.type === "svg" ? (
+                    <Svg name={item.name} width={900} height={600} />
+                  ) : (
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      quality={80}
+                      sizes="(max-width: 767px) 360px, 326px"
+                      width={326}
+                      height={218}
+                    />
+                  )}
+                </div>
               </div>
             ))}
           </div>

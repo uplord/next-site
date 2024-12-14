@@ -35,17 +35,21 @@
 .content {
   display: grid;
   gap: 2rem;
+  width: 100%;
 }
 
 .list {
-  display: grid;
-  grid-template-columns: repeat(6, calc(100% / 2.5));
-  grid-auto-rows: 1fr;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
   gap: 1rem;
   margin: 0 -1rem;
   padding: 0 1rem;
+
+  @media (max-width: vars.$breakpoint-md - 1) {
+    display: grid;
+    grid-template-columns: repeat(6, calc(100% / 2.5));
+    grid-auto-rows: 1fr;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
 
   @media (min-width: vars.$breakpoint-md) {
     display: flex;
@@ -71,6 +75,7 @@
   border: 1px solid vars.$color-border;
   background: vars.$color-block;
   color: vars.$color-svg;
+  aspect-ratio: 3/2;
 
   @include mixins.dark-mode {
     border-color: vars.$color-border-dark;
@@ -94,8 +99,16 @@
     z-index: 1;
   }
 
-  &[data-tooltip] {
-    @include mixins.toolbar;
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &[data-tooltip] {
+      @include mixins.toolbar;
+    }
   }
 
   svg {
