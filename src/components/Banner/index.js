@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import clsx from "clsx";
 import styles from "./style.module.scss";
-import { Buttons } from "@/components";
+import { Buttons, Social } from "@/components";
 import Animated from "@/components/Animated";
 
 export default function Banner({ id, queueId }) {
@@ -75,6 +75,7 @@ export default function Banner({ id, queueId }) {
                 width={data.image.width}
                 height={data.image.height}
               />
+              <Social className={styles.social} />
             </div>
           </div>
           <div className={clsx(styles.text, doAnimate == true ? styles.animate : "", showText == true ? styles.show : "")}>

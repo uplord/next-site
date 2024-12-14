@@ -20,3 +20,24 @@
   flex-direction: column;
   gap: 2rem;
 }
+
+.social {
+
+  @media (max-width: vars.$breakpoint-md - 1) {
+    gap: 2rem;
+  }
+
+  a {
+
+    @media (min-width: vars.$breakpoint-md - 1) {
+      padding: 0.75rem;
+    }
+  }
+
+  svg {
+
+    @media (max-width: vars.$breakpoint-md - 1) {
+      width: 28px;
+    }
+  }
+}

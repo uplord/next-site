@@ -1,9 +1,10 @@
 import React from "react";
 import Link from 'next/link'
+import clsx from "clsx";
 import styles from "./style.module.scss";
 import { Svg } from "@/components";
 
-export default function Social() {
+export default function Social({ className = "" }) {
   const data = [{
     icon: "linkedin-in-brands-solid",
     link: "https://www.linkedin.com/in/themichael/",
@@ -27,7 +28,7 @@ export default function Social() {
   }]
 
   return (
-    <div className={styles.social}>
+    <div className={clsx(styles.social, className)}>
       {data.map((item, index) => (
         <Link key={index}
           href={item.link}

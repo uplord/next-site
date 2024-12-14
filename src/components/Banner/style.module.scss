@@ -41,17 +41,32 @@
     order: 1;
   }
 
-  &.animate img {
-    opacity: 0;
+  &.animate {
+
+    .social,
+    img {
+      opacity: 0;
+    }
   }
 
-  &.show img {
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-name: fadeIn;
+  &.show {
+
+    .social {
+      animation-duration: 0.3s;
+      animation-delay: 0.6s;
+      animation-fill-mode: forwards;
+      animation-name: fadeIn;
+    }
+
+    img {
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-name: imageFade;
+    }
   }
 
   .imageWrap {
+    position: relative;
     max-width: 140px;
 
     @media (min-width: vars.$breakpoint-md) {
@@ -63,6 +78,17 @@
     width: auto;
     height: auto;
     border-radius: 1rem;
+  }
+
+  .social {
+    position: relative;
+    justify-content: center;
+    margin-top: -1rem;
+    z-index: 1;
+  
+    @media (max-width: vars.$breakpoint-md - 1) {
+      display: none;
+    }
   }
 }
 
@@ -82,12 +108,12 @@
   &.animate {
     opacity: 0;
     transform: translateY(50px);
-    transition: .3s ease-out;
   }
 
   &.show {
     opacity: 1;
     transform: translateY(0);
+    transition: .3s ease-out;
   }
 
   h1 {
@@ -186,7 +212,7 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes imageFade {
   0% {
     opacity: 0;
     transform: scale(.95)
@@ -195,6 +221,18 @@
   to {
     opacity: 1;
     transform: scale(1)
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
