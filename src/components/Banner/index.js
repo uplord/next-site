@@ -37,7 +37,7 @@ export default function Banner({ id, queueId }) {
     }
   };
 
-  const handleVisibilityChange = (id, animate = true) => {
+  const handleVisibilityChange = (animate = true) => {
     if (animate == true) {
       setDoAnimate(true);
     }

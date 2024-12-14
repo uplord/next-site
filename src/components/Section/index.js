@@ -32,7 +32,7 @@ export default function Section({ id, queueId }) {
     }
   };
 
-  const handleVisibilityChange = (id, animate = true) => {
+  const handleVisibilityChange = (animate = true) => {
     if (animate == true) {
       setDoAnimate(true);
     }

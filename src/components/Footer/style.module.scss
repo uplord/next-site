@@ -4,6 +4,15 @@
 .footer {
   padding: 2rem 0;
 
+  &.animate {
+    opacity: 0;
+  }
+
+  &.show {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+
   .logo {
     color: vars.$color-heading;
   }

@@ -43,14 +43,14 @@ export default function Animated({ children, queueId, id = "", className = "", o
       setIsVisible(true);
       removeFromQueue(queueId);
 
-      onVisible?.(queueId, false);
+      onVisible?.(false);
       return;
     }
 
     const sortedQueue = queue.sort((a, b) => a - b);
     if (sortedQueue.includes(queueId) && sortedQueue[0] === queueId) {
       setIsVisible(true);
-      onVisible?.(queueId);
+      onVisible?.();
       if (!onVisible) setTimeout(() => setIsLoaded(true), 600);
     }
   }, [queue, queueId]);
@@ -66,12 +66,12 @@ export default function Animated({ children, queueId, id = "", className = "", o
     }
   }, [isLoaded, queueId]);
 
-  const dynamicClass =
-    animated && isVisible
-      ? hasTransition
-        ? styles.loading
-        : ""
-      : styles.section;
+  let dynamicClass = "";
+  if (animated && !isVisible) {
+    dynamicClass = styles.section + ' ' + styles.animated
+  } else if (animated && isVisible && hasTransition) {
+    dynamicClass = styles.loading
+  }
 
   return (
     <div 

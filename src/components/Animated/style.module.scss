@@ -1,6 +1,9 @@
 .section {
-  opacity: 0;
-  transform: translateY(100px);
+
+  &.animated {
+    opacity: 0;
+    transform: translateY(100px);
+  }
 }
 
 .loading {
