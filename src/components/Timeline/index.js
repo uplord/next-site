@@ -2,9 +2,11 @@ import styles from "./style.module.scss";
 import Link from "next/link"
 import { Svg, Buttons } from "@/components";
 import Animated from "@/components/Animated";
-import { TimelineQueueProvider } from "@/context/QueueContexts";
 
 export default function Timeline({ id, queueId }) {
+
+  // Adjust so that once all timeline sections are loaded load the next main section
+
   const data = {
     id: "timeline",
     title: "My timeline",
@@ -40,22 +42,20 @@ export default function Timeline({ id, queueId }) {
     <Animated id={id} queueId={queueId} className={styles.timeline}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <TimelineQueueProvider>
-            <div className={styles.list}>
-              {data.list.map((item, index) => (
-                <Animated key={index} queueId={index} queueType="timeline" className={styles.item}>
-                  <h3>{item.title}</h3>
-                  <h4>{item.subtitle}</h4>
-                  <Link href={item.link} target="_blank">
-                    <Svg name={item.logo} height={32} />
-                  </Link>
-                  <div className={styles.content}
-                    dangerouslySetInnerHTML={{ __html: item.content }}
-                  ></div>
-                </Animated>
-              ))}
-            </div>
-          </TimelineQueueProvider>
+          <div className={styles.list}>
+            {data.list.map((item, index) => (
+              <Animated key={index} queueId={index} queueType="timeline" className={styles.item}>
+                <h3>{item.title}</h3>
+                <h4>{item.subtitle}</h4>
+                <Link href={item.link} target="_blank">
+                  <Svg name={item.logo} height={32} />
+                </Link>
+                <div className={styles.content}
+                  dangerouslySetInnerHTML={{ __html: item.content }}
+                ></div>
+              </Animated>
+            ))}
+          </div>
           <div className={styles.text}>
             <h2>{data.title}</h2>
             <h3>{data.subtitle}</h3>

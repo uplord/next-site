@@ -5,18 +5,33 @@ import styles from "./style.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { useQueue, useTimelineQueue } from "@/context/QueueContexts";
 
-export default function Animated({ children, queueId, id = "", className = "", onVisible, onLoaded = false, animated = true, queueType = "default", }) {
+export default function Animated({
+  children,
+  queueId,
+  id = "",
+  className = "",
+  onVisible,
+  onLoaded = false,
+  animated = true,
+  queueType = "default",
+}) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasTransition, setHasTransition] = useState(false);
+
+  // Always call hooks at the top level
+  const defaultQueue = useQueue();
+  const timelineQueue = useTimelineQueue();
+
+  // Decide context dynamically
   const { queue, addToQueue, removeFromQueue } =
-    queueType === "timeline" ? useTimelineQueue() : useQueue();
-  
+    queueType === "timeline" ? timelineQueue : defaultQueue;
+
   const handleIntersection = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting && !isVisible) {
-        if (animated == true) {
+        if (animated) {
           setHasTransition(true);
         }
         addToQueue(queueId);
@@ -36,9 +51,9 @@ export default function Animated({ children, queueId, id = "", className = "", o
     return () => observer.disconnect();
   }, [isVisible]);
 
-  useEffect(() => { 
+  useEffect(() => {
     const rect = sectionRef.current?.getBoundingClientRect();
-  
+
     if (rect?.bottom < 0 && !isVisible) {
       setHasTransition(false);
       setIsVisible(true);
@@ -72,17 +87,13 @@ export default function Animated({ children, queueId, id = "", className = "", o
 
   let dynamicClass = "";
   if (animated && !isVisible) {
-    dynamicClass = styles.section + ' ' + styles.animated
+    dynamicClass = styles.section + " " + styles.animated;
   } else if (animated && isVisible && hasTransition) {
-    dynamicClass = styles.loading
+    dynamicClass = styles.loading;
   }
 
   return (
-    <div 
-      ref={sectionRef}
-      id={id}
-      className={clsx(dynamicClass, className)}
-    >
+    <div ref={sectionRef} id={id} className={clsx(dynamicClass, className)}>
       {children}
     </div>
   );
