@@ -1,11 +1,23 @@
+"use client";
+
+import { useState } from "react";
+import clsx from "clsx";
 import styles from "./style.module.scss";
 import Link from "next/link"
 import { Svg, Buttons } from "@/components";
 import Animated from "@/components/Animated";
 
 export default function Timeline({ id, queueId }) {
+  const [showText, setShowText] = useState(false);
+
+  const [hasTransition, setHasTransition] = useState(false);
+  const [onLoaded, setOnLoaded] = useState(false);
+  const [animatedCount, setAnimatedCount] = useState(0);
+
+  const [onStart, setOnStart] = useState(false);
 
   // Adjust so that once all timeline sections are loaded load the next main section
+  // Only start load of timeline sections once main text is showing
 
   const data = {
     id: "timeline",
@@ -38,13 +50,48 @@ export default function Timeline({ id, queueId }) {
     }]
   };
 
+  const handleVisibilityChange = (animate = true) => {
+    if (animate == true) {
+      setHasTransition(true);
+      setShowText(true);
+
+      setTimeout(() => {
+        setOnStart(true);
+      }, 600);
+    } else {
+      setOnLoaded(true);
+    }
+  };
+
+  const handleCompleteChange = () => {
+    let count = animatedCount + 1;
+    setAnimatedCount(count);
+    if (count == data.list.length) {
+      setOnLoaded(true);
+      setShowText(false);
+    }
+  };
+
   return (
-    <Animated id={id} queueId={queueId} className={styles.timeline}>
+    <Animated
+      id={id}
+      queueId={queueId}
+      onVisible={handleVisibilityChange}
+      onLoaded={onLoaded}
+      className={styles.timeline}
+    >
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.list}>
             {data.list.map((item, index) => (
-              <Animated key={index} queueId={index} queueType="timeline" className={styles.item}>
+              <Animated
+                key={index}
+                queueId={index}
+                onStart={onStart}
+                onComplete={handleCompleteChange}
+                queueType="timeline"
+                className={styles.item}
+              >
                 <h3>{item.title}</h3>
                 <h4>{item.subtitle}</h4>
                 <Link href={item.link} target="_blank">
@@ -56,7 +103,12 @@ export default function Timeline({ id, queueId }) {
               </Animated>
             ))}
           </div>
-          <div className={styles.text}>
+          <div className={clsx(
+            styles.text,
+            onLoaded !== true ? styles.animate : "",
+            hasTransition === true && onLoaded !== true  ? styles.transition : "",
+            showText ? styles.show : ""
+          )}>
             <h2>{data.title}</h2>
             <h3>{data.subtitle}</h3>
             <p>{data.content}</p>

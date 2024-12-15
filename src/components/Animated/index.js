@@ -10,8 +10,10 @@ export default function Animated({
   queueId,
   id = "",
   className = "",
+  onStart = true,
   onVisible,
   onLoaded = false,
+  onComplete,
   queueType = "default",
 }) {
   const sectionRef = useRef(null);
@@ -40,15 +42,17 @@ export default function Animated({
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver(handleIntersection, {
-      rootMargin: "0% 0% -100px 0%",
-      threshold: 0,
-    });
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (onStart) {
+      const observer = new IntersectionObserver(handleIntersection, {
+        rootMargin: "0% 0% -100px 0%",
+        threshold: 0,
+      });
+      if (sectionRef.current) {
+        observer.observe(sectionRef.current);
+      }
+      return () => observer.disconnect();
     }
-    return () => observer.disconnect();
-  }, [isVisible]);
+  }, [isVisible, onStart]);
 
   useEffect(() => {
     const rect = sectionRef.current?.getBoundingClientRect();
@@ -58,6 +62,9 @@ export default function Animated({
       removeFromQueue(queueId);
       if (onVisible) {
         onVisible(false);
+      }
+      if (onComplete) {
+        onComplete();
       }
       return;
     }
@@ -69,7 +76,12 @@ export default function Animated({
       if (onVisible) {
         onVisible(true);
       } else {
-        setTimeout(() => setIsLoaded(true), 1200);
+        setTimeout(() => {
+          setIsLoaded(true);
+          if (onComplete) {
+            onComplete();
+          }
+        }, 1200);
       }
     }
   }, [queue, queueId]);
@@ -77,6 +89,9 @@ export default function Animated({
   useEffect(() => {
     if (onLoaded) {
       setIsLoaded(true);
+      if (onComplete) {
+        onComplete();
+      }
     }
   }, [onLoaded]);
 
