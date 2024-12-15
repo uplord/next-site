@@ -6,7 +6,7 @@ import clsx from "clsx";
 import styles from "./style.module.scss";
 import { Buttons, Social } from "@/components";
 import Animated from "@/components/Animated";
-import { useSeason, SeasonSnow } from "@/utils/seasonTheme";
+import { useSeason, ParticlesDefault, ParticlesSnow } from "@/utils/seasonTheme";
 
 export default function Banner({ id, queueId }) {
   const [showImage, setShowImage] = useState(false);
@@ -65,8 +65,11 @@ export default function Banner({ id, queueId }) {
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
     >
+      { season === "default" && (
+        <ParticlesDefault />
+      ) }
       { season === "xmas" && (
-        <SeasonSnow />
+        <ParticlesSnow />
       ) }
       <div className={styles.container}>
         <div className={styles.content}>

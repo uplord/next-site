@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-export { default as SeasonSnow } from "./seasonSnow";
+export { default as ParticlesSnow } from "./particlesSnow";
+export { default as ParticlesDefault } from "./particlesDefault";
 
 export function useSeason() {
   const [season, setSeason] = useState(false);
@@ -11,6 +12,8 @@ export function useSeason() {
 
     if (isXmasSeason) {
       setSeason("xmas");
+    } else {
+      setSeason("default");
     }
   }, []);
 
