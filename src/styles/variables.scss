@@ -14,6 +14,12 @@ $color-primary: #dd2121;
 $color-primary-hover: color.adjust($color-primary, $lightness: -10%);
 $color-primary-text: #fff;
 
+$color-success: #29a027;
+$color-error: #dd2121;
+$color-warning: #fc0;
+$color-info: #1164cc;
+$color-rebecca: rebeccapurple;
+
 // Light theme colors
 $color-bg: #fff;
 $color-heading: #000;
@@ -41,7 +47,7 @@ $color-tooltip-text-dark: #000;
 $color-header: $color-block;
 $color-nav: #ededed;
 $color-nav-text: inherit;
-$color-nav-hover: rgba(0,0,0,.1);
+$color-nav-hover: #d9d9d9;
 $color-nav-hover-text: inherit;
 
 $color-header-dark: #0d0d0d;

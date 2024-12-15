@@ -15,9 +15,18 @@
     width: 100%;
     background: vars.$color-nav;
     border-radius: 20px;
+    transition: all 0.3s;
 
     @include mixins.dark-mode {
       background: vars.$color-nav-dark;
+    }
+
+    &:hover {
+      background: vars.$color-nav-hover;
+      
+      @include mixins.dark-mode {
+        background: vars.$color-nav-hover-dark;
+      }
     }
 
     &:after {

@@ -6,16 +6,16 @@ import clsx from "clsx";
 import styles from "./style.module.scss";
 import { Buttons, Social } from "@/components";
 import Animated from "@/components/Animated";
-import Snow from "./Snow";
+import { useSeason, SeasonSnow } from "@/utils/seasonTheme";
 
 export default function Banner({ id, queueId }) {
   const [showImage, setShowImage] = useState(false);
   const [showText, setShowText] = useState(false);
   const [showMore, setShowMore] = useState(false);
-  
   const [hasTransition, setHasTransition] = useState(false);
-
   const [onLoaded, setOnLoaded] = useState(false);
+
+  const season = useSeason();
 
   const data = {
     title: "<span>Hi, I'm Michael</span> A Front End Developer",
@@ -65,7 +65,9 @@ export default function Banner({ id, queueId }) {
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
     >
-      <Snow />
+      { season === "winter" && (
+      <SeasonSnow />
+      ) }
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={clsx(

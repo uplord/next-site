@@ -3,7 +3,7 @@
 import Snowfall from "react-snowfall";
 import { useEffect, useState } from "react";
 
-export default function Snow() {
+export default function SeasonSnow() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [snowflakeCount, setSnowflakeCount] = useState(200);
 
@@ -39,7 +39,7 @@ export default function Snow() {
 
   return (
     <Snowfall
-      color={isDarkMode ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.25)"}
+      color={isDarkMode ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.5)"}
       style={{ background: "transparent" }}
       snowflakeCount={snowflakeCount}
     />
