@@ -32,6 +32,7 @@
 
   @media (max-width: vars.$breakpoint-md - 1) {
     height: 640px;
+    min-height: 100vh;
   }
 }
 
