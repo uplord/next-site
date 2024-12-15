@@ -23,7 +23,7 @@ export default function Social({ className = "" }) {
   },{
     icon: "envelope-solid",
     link: "mailto:michael@uplord.co.uk",
-    class: "",
+    class: styles.default,
     target: ""
   }]
 

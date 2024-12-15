@@ -3,12 +3,15 @@
 import Image from "next/image";
 import { useState } from "react";
 import clsx from "clsx";
+import { useTheme } from "next-themes";
 import styles from "./style.module.scss";
 import { Buttons, Social } from "@/components";
 import Animated from "@/components/Animated";
 import { useSeason, SeasonSnow } from "@/utils/seasonTheme";
 
 export default function Banner({ id, queueId }) {
+  const { theme } = useTheme();
+
   const [showImage, setShowImage] = useState(false);
   const [showText, setShowText] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -66,7 +69,7 @@ export default function Banner({ id, queueId }) {
       onLoaded={onLoaded}
     >
       { season === "winter" && (
-      <SeasonSnow />
+        <SeasonSnow />
       ) }
       <div className={styles.container}>
         <div className={styles.content}>

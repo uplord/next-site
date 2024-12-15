@@ -33,6 +33,15 @@
         color: vars.$color-svg;
       }
     }
+
+    &.default {
+      :global(#banner) & {
+        @include mixins.light-mode {
+          background: #FFF;
+          color: vars.$color-primary;
+        }
+      }
+    }
   }
 
   svg {

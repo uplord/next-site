@@ -42,6 +42,13 @@
   &:hover {
     background: vars.$color-primary-hover;
   }
+
+  :global(#banner) & {
+    @include mixins.light-mode {
+      background: #FFF;
+      color: vars.$color-primary;
+    }
+  }
 }
 
 .link {
@@ -58,5 +65,11 @@
 
   &:hover {
     text-decoration: underline;
+  }
+
+  :global(#banner) & {
+    @include mixins.light-mode {
+      color: #FFF;
+    }
   }
 }

@@ -5,7 +5,7 @@
   font-family: vars.$font-heading;
   font-size: 1.25rem;
   font-weight: bold;
-  color: vars.$color-heading;
+  color: #FFF;
 
   @include mixins.dark-mode {
     color: vars.$color-heading-dark;
@@ -15,16 +15,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: vars.$color-primary;
-    color: #fff;
+    background: #FFF;
+    color: vars.$color-primary;
     font-size: 1.625rem;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     margin-right: 0.5rem;
-  }
-
-  .primary {
-    color: vars.$color-primary;
   }
 }

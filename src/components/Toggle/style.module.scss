@@ -8,6 +8,14 @@
   width: 76px;
   cursor: pointer;
 
+  &:hover span {
+    background: vars.$color-nav-hover;
+    
+    @include mixins.dark-mode {
+      background: vars.$color-nav-hover-dark;
+    }
+  }
+
   span {
     position: relative;
     display: block;
@@ -19,14 +27,6 @@
 
     @include mixins.dark-mode {
       background: vars.$color-nav-dark;
-    }
-
-    &:hover {
-      background: vars.$color-nav-hover;
-      
-      @include mixins.dark-mode {
-        background: vars.$color-nav-hover-dark;
-      }
     }
 
     &:after {

@@ -3,7 +3,7 @@
 
 .banner {
   position: relative;
-  background: vars.$color-block;
+  background: vars.$color-primary;
 
   @include mixins.dark-mode {
     background: transparent;
@@ -77,6 +77,7 @@
 
   .imageWrap {
     position: relative;
+    width: 100%;
     max-width: 140px;
 
     @media (min-width: vars.$breakpoint-md) {
@@ -85,7 +86,7 @@
   }
 
   img {
-    width: auto;
+    width: 100%;
     height: auto;
     border-radius: 1rem;
   }
@@ -133,7 +134,7 @@
     font-family: vars.$font-heading;
     font-size: 1.75rem;
     font-weight: bold;
-    color: vars.$color-heading;
+    color: #FFF;
 
     @include mixins.dark-mode {
       color: vars.$color-heading-dark;
@@ -150,8 +151,11 @@
     span {
       display: block;
       font-size: 1.5rem;
-      color: vars.$color-primary;
       margin-bottom: 0.5rem;
+
+      @include mixins.dark-mode {
+        color: vars.$color-primary;
+      }
 
       @media (min-width: vars.$breakpoint-lg) {
         font-size: 2.5rem;
@@ -163,6 +167,7 @@
     font-family: vars.$font-heading;
     font-size: 1.125rem;
     font-weight: 500;
+    color: #FFF;
 
     @media (min-width: vars.$breakpoint-md) and (max-width: vars.$breakpoint-lg - 1) {
       font-size: 1.375rem;
@@ -188,7 +193,7 @@
   left: 50%;
   bottom: 2rem;
   transform: translateX(-50%);
-  border: 2px solid vars.$color-heading;
+  border: 2px solid #FFF;
   border-radius: 1rem;
   height: 3rem;
   width: 2rem;
@@ -198,7 +203,7 @@
   }
 
   &:after {
-    background: vars.$color-heading;
+    background: #FFF;
     border-radius: 3px;
     content: "";
     height: 9px;

@@ -10,6 +10,16 @@
   }
 }
 
+@mixin light-mode {
+  :global(.light) & {
+    @content;
+  }
+
+  .light & {
+    @content;
+  }
+}
+
 @mixin container {
   display: flex;
   max-width: vars.$width-max;
