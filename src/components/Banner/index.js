@@ -31,7 +31,7 @@ export default function Banner({ id, queueId }) {
       target: "_blank",
     }],
     image: {
-      src: season == "winter" ? "/images/me-santa.png" : "/images/me.jpeg",
+      src: season == "xmas" ? "/images/me-santa.png" : "/images/me.jpeg",
       alt: "Hi, I'm Michael",
       sizes: "(max-width: 767px) 140px, 500px",
       width: "500",
@@ -65,7 +65,7 @@ export default function Banner({ id, queueId }) {
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
     >
-      { season === "winter" && (
+      { season === "xmas" && (
         <SeasonSnow />
       ) }
       <div className={styles.container}>
