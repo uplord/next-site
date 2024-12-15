@@ -48,6 +48,7 @@
     grid-template-columns: repeat(6, calc(100% / 2.5));
     grid-auto-rows: 1fr;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
   }
 
