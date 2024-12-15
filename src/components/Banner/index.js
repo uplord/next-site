@@ -11,7 +11,8 @@ export default function Banner({ id, queueId }) {
   const [showImage, setShowImage] = useState(false);
   const [showText, setShowText] = useState(false);
   const [showMore, setShowMore] = useState(false);
-  const [doAnimate, setDoAnimate] = useState(true);
+  
+  const [hasTransition, setHasTransition] = useState(false);
 
   const [onLoaded, setOnLoaded] = useState(false);
 
@@ -38,19 +39,21 @@ export default function Banner({ id, queueId }) {
   };
 
   const handleVisibilityChange = (animate = true) => {
-    if (animate == true) {
-      setDoAnimate(true);
-    }
-    setShowText(true);
-    setTimeout(() => setShowImage(true), 600);
-    setTimeout(() => setShowMore(true), 1200);
-    setTimeout(() => {
-      setShowText(false);
-      setShowImage(false);
-      setDoAnimate(false);
+    if (animate) {
+      setHasTransition(true);
+      setShowText(true);
+      setTimeout(() => setShowImage(true), 900);
+      setTimeout(() => setShowMore(true), 1500);
 
+      setTimeout(() => {
+        setOnLoaded(true);
+        setShowText(false);
+        setShowImage(false);
+        setShowMore(false);
+      }, 2700);
+    } else {
       setOnLoaded(true);
-    }, 1600);
+    }
   };
 
   return (
@@ -60,11 +63,15 @@ export default function Banner({ id, queueId }) {
       className={styles.banner} 
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
-      animated={false}
     >
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={clsx(styles.image, doAnimate == true ? styles.animate : "", showImage == true ? styles.show : "")}>
+          <div className={clsx(
+            styles.image,
+            onLoaded !== true ? styles.animate : "",
+            hasTransition === true && onLoaded !== true  ? styles.transition : "",
+            showImage ? styles.show : ""
+          )}>
             <div className={styles.imageWrap}>
               <Image
                 src={data.image.src}
@@ -78,12 +85,22 @@ export default function Banner({ id, queueId }) {
               <Social className={styles.social} />
             </div>
           </div>
-          <div className={clsx(styles.text, doAnimate == true ? styles.animate : "", showText == true ? styles.show : "")}>
+          <div className={clsx(
+            styles.text,
+            onLoaded !== true ? styles.animate : "",
+            hasTransition === true && onLoaded !== true  ? styles.transition : "",
+            showText ? styles.show : ""
+          )}>
             <h1 dangerouslySetInnerHTML={{ __html: data.title }}></h1>
             <h2>{data.subtitle}</h2>
             <Buttons data={data.buttons} className={styles.buttons} />
           </div>
-          <div className={clsx(styles.viewMore, showMore == true && styles.loaded)}></div>
+          <div className={clsx(
+            styles.viewMore,
+            onLoaded !== true ? styles.animate : "",
+            hasTransition === true && onLoaded !== true  ? styles.transition : "",
+            showMore ? styles.show : ""
+          )}></div>
         </div>
       </div>
     </Animated>

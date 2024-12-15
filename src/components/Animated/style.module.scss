@@ -1,13 +1,13 @@
-.section {
-
-  &.animated {
-    opacity: 0;
-    transform: translateY(100px);
-  }
+.animate {
+  opacity: 0;
+  transform: translateY(100px);
 }
 
-.loading {
+.transition {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.show {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }

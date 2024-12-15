@@ -12,7 +12,6 @@ export default function Animated({
   className = "",
   onVisible,
   onLoaded = false,
-  animated = true,
   queueType = "default",
 }) {
   const sectionRef = useRef(null);
@@ -31,7 +30,7 @@ export default function Animated({
   const handleIntersection = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting && !isVisible) {
-        if (animated) {
+        if (!onVisible) {
           setHasTransition(true);
         }
         addToQueue(queueId);
@@ -55,11 +54,11 @@ export default function Animated({
     const rect = sectionRef.current?.getBoundingClientRect();
 
     if (rect?.bottom < 0 && !isVisible) {
-      setHasTransition(false);
       setIsVisible(true);
       removeFromQueue(queueId);
-
-      onVisible?.(false);
+      if (onVisible) {
+        onVisible(false);
+      }
       return;
     }
 
@@ -67,8 +66,11 @@ export default function Animated({
 
     if (sortedQueue.includes(queueId) && sortedQueue[0] === queueId) {
       setIsVisible(true);
-      onVisible?.();
-      if (!onVisible) setTimeout(() => setIsLoaded(true), 600);
+      if (onVisible) {
+        onVisible(true);
+      } else {
+        setTimeout(() => setIsLoaded(true), 1200);
+      }
     }
   }, [queue, queueId]);
 
@@ -86,14 +88,14 @@ export default function Animated({
   }, [isLoaded, queueId]);
 
   let dynamicClass = "";
-  if (animated && !isVisible) {
-    dynamicClass = styles.section + " " + styles.animated;
-  } else if (animated && isVisible && hasTransition) {
-    dynamicClass = styles.loading;
+  if (!onVisible && !isVisible) {
+    dynamicClass = styles.animate + " " + styles.transition;
+  } else if (!onVisible && isVisible && hasTransition === true) {
+    dynamicClass = styles.show + " " + styles.transition;
   }
 
   return (
-    <div ref={sectionRef} id={id} className={clsx(dynamicClass, className)}>
+    <div ref={sectionRef} id={id} className={clsx(className, dynamicClass)}>
       {children}
     </div>
   );

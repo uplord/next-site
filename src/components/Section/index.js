@@ -10,8 +10,8 @@ import Animated from "@/components/Animated";
 export default function Section({ id, queueId }) {
   const [showImage, setShowImage] = useState(false);
   const [showText, setShowText] = useState(false);
-  const [doAnimate, setDoAnimate] = useState(true);
 
+  const [hasTransition, setHasTransition] = useState(false);
   const [onLoaded, setOnLoaded] = useState(false);
 
   const data = {
@@ -34,25 +34,29 @@ export default function Section({ id, queueId }) {
 
   const handleVisibilityChange = (animate = true) => {
     if (animate == true) {
-      setDoAnimate(true);
-    }
+      setHasTransition(true);
 
-    if (window.innerWidth < 768) {
-      setShowText(true);
-      setShowImage(true);
+      if (window.innerWidth < 768) {
+        setShowText(true);
+        setShowImage(true);
 
-      setTimeout(() => {
-        setDoAnimate(false);
-        setOnLoaded(true);
-      }, 600);
+        setTimeout(() => {
+          setOnLoaded(true);
+          setShowText(false);
+          setShowImage(false);
+        }, 600);
+      } else {
+        setShowText(true);
+        setTimeout(() => setShowImage(true), 600);
+
+        setTimeout(() => {
+          setOnLoaded(true);
+          setShowText(false);
+          setShowImage(false);
+        }, 1600);
+      }
     } else {
-      setShowText(true);
-      setTimeout(() => setShowImage(true), 600);
-
-      setTimeout(() => {
-        setDoAnimate(false);
-        setOnLoaded(true);
-      }, 1600);
+      setOnLoaded(true);
     }
   };
 
@@ -63,11 +67,15 @@ export default function Section({ id, queueId }) {
       className={clsx(styles.section)}
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
-      animated={false}
     >
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={clsx(styles.image, doAnimate == true ? styles.animate : "", showImage == true ? styles.show : "")}>
+          <div className={clsx(
+            styles.image,
+            onLoaded !== true ? styles.animate : "",
+            hasTransition === true && onLoaded !== true  ? styles.transition : "",
+            showImage ? styles.show : ""
+          )}>
             <div className={styles.imageWrap}>
               <Image
                 src={data.image.src}
@@ -80,7 +88,12 @@ export default function Section({ id, queueId }) {
               />
             </div>
           </div>
-          <div className={clsx(styles.text, doAnimate == true ? styles.animate : "", showText == true ? styles.show : "")}>
+          <div className={clsx(
+            styles.text,
+            onLoaded !== true ? styles.animate : "",
+            hasTransition === true && onLoaded !== true  ? styles.transition : "",
+            showText ? styles.show : ""
+          )}>
             <h2>{data.title}</h2>
             <h3>{data.subtitle}</h3>
             <p>{data.content}</p>

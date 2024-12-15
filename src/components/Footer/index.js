@@ -8,31 +8,37 @@ import Animated from "@/components/Animated";
 
 export default function Footer({ id, queueId }) {
   const [showFooter, setShowFooter] = useState(false);
-  const [doAnimate, setDoAnimate] = useState(true);
+  const [hasTransition, setHasTransition] = useState(false);
   const [onLoaded, setOnLoaded] = useState(false);
 
   const currentYear = new Date().getFullYear();
 
   const handleVisibilityChange = (animate = true) => {
     if (animate == true) {
-      setDoAnimate(true);
+      setHasTransition(true);
       setShowFooter(true);
-    }
-    setTimeout(() => {
-      setDoAnimate(false);
-      setShowFooter(false);
+
+      setTimeout(() => {
+        setOnLoaded(true);
+        setShowFooter(false);
+      }, 600);
+    } else {
       setOnLoaded(true);
-    }, 600);
+    }
   };
 
   return (
     <Animated
       id={id}
       queueId={queueId} 
-      className={clsx(styles.footer, doAnimate == true ? styles.animate : "", showFooter == true ? styles.show : "")}
+      className={clsx(
+        styles.footer,
+        onLoaded !== true ? styles.animate : "",
+        hasTransition === true && onLoaded !== true  ? styles.transition : "",
+        showFooter ? styles.show : ""
+      )}
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
-      animated={false}
     >
       <div className={styles.container}>
         <Social className={styles.social} />

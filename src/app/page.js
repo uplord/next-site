@@ -6,7 +6,7 @@ export default function Home() {
     <div>
       <Header />
       <main className={styles.main}>
-        <Banner id="banner" queueId="0"  />
+        <Banner id="banner" queueId="0" />
         <Section id="about-me" queueId="1" />
         <Projects id="projects" queueId="2" />
         <Timeline id="timeline" queueId="3" />
