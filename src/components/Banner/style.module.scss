@@ -58,19 +58,24 @@
 
   &.transition {
 
+    .social {
+      animation-duration: 0.6s;
+      animation-delay: 0.6s;
+    }
+
+    img {
+      animation-duration: 1s;
+    }
   }
 
   &.show {
 
     .social {
-      animation-duration: 0.6s;
-      animation-delay: 0.6s;
       animation-fill-mode: forwards;
       animation-name: fadeIn;
     }
 
     img {
-      animation-duration: 1s;
       animation-fill-mode: forwards;
       animation-name: imageFade;
     }
