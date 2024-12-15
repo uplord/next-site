@@ -52,11 +52,11 @@ export default function Animated({
       }
       return () => observer.disconnect();
     }
-  }, [isVisible, onStart]);
+  }, [isVisible, onStart, handleIntersection]);
 
   useEffect(() => {
     const rect = sectionRef.current?.getBoundingClientRect();
-
+  
     if (rect?.bottom < 0 && !isVisible) {
       setIsVisible(true);
       removeFromQueue(queueId);
@@ -68,9 +68,9 @@ export default function Animated({
       }
       return;
     }
-
+  
     const sortedQueue = queue.sort((a, b) => a - b);
-
+  
     if (sortedQueue.includes(queueId) && sortedQueue[0] === queueId) {
       setIsVisible(true);
       if (onVisible) {
@@ -84,7 +84,7 @@ export default function Animated({
         }, 900);
       }
     }
-  }, [queue, queueId]);
+  }, [queue, queueId, isVisible, onVisible, onComplete, removeFromQueue]);
 
   useEffect(() => {
     if (onLoaded) {

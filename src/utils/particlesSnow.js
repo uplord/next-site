@@ -37,7 +37,7 @@ const ParticlesSnow = React.memo(() => {
           value: 400,
         },
         opacity: {
-          value: 0.7,
+          value: 0.5,
         },
         shape: {
           type: "circle",
@@ -68,5 +68,7 @@ const ParticlesSnow = React.memo(() => {
 
   return <Particles id="tsparticles" options={options} />;
 });
+
+ParticlesSnow.displayName = "ParticlesSnow";
 
 export default ParticlesSnow;

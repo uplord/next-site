@@ -28,31 +28,31 @@ const ParticlesDefault = React.memo(() => {
           enable: true,
           outModes: "out",
           random: true,
-          speed: 0.3
+          speed: 0.3,
         },
         number: {
           density: {
-            enable: true
+            enable: true,
           },
-          value: 600
+          value: 600,
         },
         opacity: {
           animation: {
             enable: true,
-            speed: 5
+            speed: 5,
           },
-          value: { min: 0.3, max: 0.6 }
+          value: { min: 0.3, max: 0.6 },
         },
         shape: {
-          type: "circle"
+          type: "circle",
         },
         size: {
-          value: 1.5
-        }
+          value: 1.5,
+        },
       },
       detectRetina: true,
       style: {
-        position: "absolute"
+        position: "absolute",
       },
     }),
     []
@@ -64,5 +64,7 @@ const ParticlesDefault = React.memo(() => {
 
   return <Particles id="tsparticles" options={options} />;
 });
+
+ParticlesDefault.displayName = "ParticlesDefault";
 
 export default ParticlesDefault;
