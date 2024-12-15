@@ -9,7 +9,7 @@ export default function Snow() {
 
   useEffect(() => {
     const updateSnowflakeCount = () => {
-      setSnowflakeCount(window.innerWidth < 768 ? 100 : 200);
+      setSnowflakeCount(window.innerWidth < 768 ? 50 : 200);
     };
 
     updateSnowflakeCount();
