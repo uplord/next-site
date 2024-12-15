@@ -3,11 +3,17 @@
 
 .banner {
   position: relative;
+  background: vars.$color-block;
+
+  @include mixins.dark-mode {
+    background: transparent;
+  }
 }
 
 .container {
   @include mixins.container;
   padding: 0;
+  position: relative;
 }
 
 .content {
@@ -180,7 +186,7 @@
 .viewMore {
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: 2rem;
   transform: translateX(-50%);
   border: 2px solid vars.$color-heading;
   border-radius: 1rem;
@@ -200,7 +206,6 @@
     position: absolute;
     top: 12px;
     transform: translate(-50%);
-    transition: top .3s ease-in-out;
     width: 4px;
     animation-duration: 3s;
     animation-fill-mode: forwards;

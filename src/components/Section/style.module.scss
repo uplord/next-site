@@ -49,7 +49,7 @@
     }
 
     @media (min-width: vars.$breakpoint-md) {
-      animation-duration: 1s;
+      animation-duration: 0.6s;
     }
   }
 
@@ -95,25 +95,11 @@
 
   &.animate {
     opacity: 0;
-
-    @media (max-width: vars.$breakpoint-md - 1) {
-      transform: translateY(100px);
-    }
-
-    @media (min-width: vars.$breakpoint-md) {
-      transform: translateY(50px);
-    }
+    transform: translateY(100px);
   }
 
   &.transition {
-    
-    @media (max-width: vars.$breakpoint-md - 1) {
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    @media (min-width: vars.$breakpoint-md) {
-      transition: .3s ease-out;
-    }
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
   &.show {

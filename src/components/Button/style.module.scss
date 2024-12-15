@@ -19,6 +19,10 @@
   border: 1px solid transparent;
   transition: all .3s ease;
   white-space: nowrap;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .icon {

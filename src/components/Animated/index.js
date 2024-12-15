@@ -81,7 +81,7 @@ export default function Animated({
           if (onComplete) {
             onComplete();
           }
-        }, 1200);
+        }, 900);
       }
     }
   }, [queue, queueId]);

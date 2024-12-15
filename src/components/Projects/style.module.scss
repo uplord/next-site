@@ -72,7 +72,7 @@
   position: relative;
   display: flex;
   border-radius: 1rem;
-  border: 1px solid vars.$color-border;
+  border: 1px solid transparent;
   background: vars.$color-block;
   color: vars.$color-svg;
   aspect-ratio: 3/2;

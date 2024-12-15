@@ -3,13 +3,8 @@
 
 .header {
   position: relative;
-  background: vars.$color-header;
   margin-bottom: -78px;
   z-index: 10;
-
-  @include mixins.dark-mode {
-    background: vars.$color-header-dark;
-  }
 
   @media (min-width: vars.$breakpoint-md) {
     position: sticky;
@@ -17,9 +12,11 @@
   }
 
   &.scrolled {
-    border-bottom: 1px solid vars.$color-border;
+    background: vars.$color-header;
+    border-bottom: 1px solid transparent;
 
     @include mixins.dark-mode {
+      background: vars.$color-header-dark;
       border-color: vars.$color-border-dark;
     }
   }

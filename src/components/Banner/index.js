@@ -6,6 +6,7 @@ import clsx from "clsx";
 import styles from "./style.module.scss";
 import { Buttons, Social } from "@/components";
 import Animated from "@/components/Animated";
+import Snow from "./Snow";
 
 export default function Banner({ id, queueId }) {
   const [showImage, setShowImage] = useState(false);
@@ -50,7 +51,7 @@ export default function Banner({ id, queueId }) {
         setShowText(false);
         setShowImage(false);
         setShowMore(false);
-      }, 2700);
+      }, 2400);
     } else {
       setOnLoaded(true);
     }
@@ -64,6 +65,7 @@ export default function Banner({ id, queueId }) {
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
     >
+      <Snow />
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={clsx(

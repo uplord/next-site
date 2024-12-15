@@ -44,16 +44,16 @@ export default function Section({ id, queueId }) {
           setOnLoaded(true);
           setShowText(false);
           setShowImage(false);
-        }, 600);
+        }, 900);
       } else {
         setShowText(true);
-        setTimeout(() => setShowImage(true), 600);
+        setTimeout(() => setShowImage(true), 900);
 
         setTimeout(() => {
           setOnLoaded(true);
           setShowText(false);
           setShowImage(false);
-        }, 1600);
+        }, 1800);
       }
     } else {
       setOnLoaded(true);

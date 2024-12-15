@@ -9,15 +9,10 @@ import Animated from "@/components/Animated";
 
 export default function Timeline({ id, queueId }) {
   const [showText, setShowText] = useState(false);
-
   const [hasTransition, setHasTransition] = useState(false);
   const [onLoaded, setOnLoaded] = useState(false);
   const [animatedCount, setAnimatedCount] = useState(0);
-
   const [onStart, setOnStart] = useState(false);
-
-  // Adjust so that once all timeline sections are loaded load the next main section
-  // Only start load of timeline sections once main text is showing
 
   const data = {
     id: "timeline",
