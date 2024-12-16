@@ -176,6 +176,10 @@
     font-weight: 500;
     color: #FFF;
 
+    @include mixins.dark-mode {
+      color: inherit;
+    }
+
     @media (min-width: vars.$breakpoint-md) and (max-width: vars.$breakpoint-lg - 1) {
       font-size: 1.375rem;
     }

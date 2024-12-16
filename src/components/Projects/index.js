@@ -2,6 +2,7 @@ import styles from "./style.module.scss";
 import Image from "next/image";
 import { Svg } from "@/components";
 import Animated from "@/components/Animated";
+import { useBreakpoints } from "@/utils/useBreakpoints";
 
 const data = {
   title: "Projects I've worked on",
@@ -22,6 +23,8 @@ const data = {
 };
 
 export default function Projects({ id, queueId }) {
+  const breakpoints = useBreakpoints();
+
   return (
     <Animated id={id} queueId={queueId} className={styles.projects}>
       <div className={styles.container}>
@@ -31,26 +34,40 @@ export default function Projects({ id, queueId }) {
           </div>
           <div className={styles.list}>
             {data.list.map((item, index) => (
-              <div key={index} className={styles.item}
+              <div
+                key={index}
+                className={styles.item}
               >
-                <div className={styles.image} {...(item.tooltip && { "data-tooltip": item.tooltip })}>
+                <div
+                  className={styles.image}
+                  {...(item.tooltip && { "data-tooltip": item.tooltip })}
+                >
                   {item.type === "svg" ? (
-                    <Svg name={item.name} width={900} height={600} />
-                  ) : (
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      quality={80}
-                      sizes="(max-width: 767px) 360px, 326px"
-                      width={326}
-                      height={218}
+                    <Svg
+                      name={item.name}
+                      width={900}
+                      height={600}
                     />
+                  ) : (
+                    item.src && (
+                      <Image
+                        src={item.src}
+                        alt={item.alt || "Project Image"}
+                        quality={80}
+                        sizes={`(max-width: ${breakpoints.md - 1}px) 360px, 326px`}
+                        width={326}
+                        height={218}
+                      />
+                    )
                   )}
                 </div>
               </div>
             ))}
           </div>
-          <p className={styles.viewMore}>Swipe to view more <Svg name="arrow-right-long-solid" width={16} height={16} /></p>
+          <p className={styles.viewMore}>
+            Swipe to view more{" "}
+            <Svg name="arrow-right-long-solid" width={16} height={16} />
+          </p>
         </div>
       </div>
     </Animated>

@@ -6,8 +6,10 @@ import clsx from "clsx";
 import styles from "./style.module.scss"
 import { Buttons } from "@/components";
 import Animated from "@/components/Animated";
+import { useBreakpoints } from "@/utils/useBreakpoints";
 
 export default function Section({ id, queueId }) {
+  const breakpoints = useBreakpoints();
   const [showImage, setShowImage] = useState(false);
   const [showText, setShowText] = useState(false);
 
@@ -26,7 +28,7 @@ export default function Section({ id, queueId }) {
     image: {
       src: "/images/me.png",
       alt: "Michael Allen",
-      sizes: "(max-width: 767px) 240px, 500px",
+      sizes: `(max-width: ${breakpoints.md - 1}px) 240px, 500px`,
       width: "500",
       height: "617",
     }
@@ -36,7 +38,7 @@ export default function Section({ id, queueId }) {
     if (animate == true) {
       setHasTransition(true);
 
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < breakpoints.md) {
         setShowText(true);
         setShowImage(true);
 

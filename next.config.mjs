@@ -2,7 +2,6 @@
 const nextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
-    deviceSizes: [768],
   },
   sassOptions: {
     silenceDeprecations: ['legacy-js-api'],

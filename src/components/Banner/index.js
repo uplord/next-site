@@ -7,8 +7,10 @@ import styles from "./style.module.scss";
 import { Buttons, Social } from "@/components";
 import Animated from "@/components/Animated";
 import { useSeason, ParticlesDefault, ParticlesSnow } from "@/utils/seasonTheme";
+import { useBreakpoints } from "@/utils/useBreakpoints";
 
 export default function Banner({ id, queueId }) {
+  const breakpoints = useBreakpoints();
   const [showImage, setShowImage] = useState(false);
   const [showText, setShowText] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -33,7 +35,7 @@ export default function Banner({ id, queueId }) {
     image: {
       src: season == "xmas" ? "/images/me-santa.png" : "/images/me.jpeg",
       alt: "Hi, I'm Michael",
-      sizes: "(max-width: 767px) 140px, 500px",
+      sizes: "(max-width: " + breakpoints.md - 1 + "px) 140px, 500px",
       width: "500",
       height: "500",
     }
