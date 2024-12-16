@@ -34,14 +34,14 @@
       }
     }
 
-    &.default {
-      :global(#banner) & {
-        @include mixins.light-mode {
-          background: #FFF;
-          color: vars.$color-primary;
-        }
-      }
-    }
+    // &.default {
+    //   :global(#banner) & {
+    //     @include mixins.light-mode {
+    //       background: #FFF;
+    //       color: vars.$color-primary;
+    //     }
+    //   }
+    // }
   }
 
   svg {

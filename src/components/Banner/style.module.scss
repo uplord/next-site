@@ -3,7 +3,7 @@
 
 .banner {
   position: relative;
-  background: vars.$color-primary;
+  background: vars.$color-info;
 
   @include mixins.dark-mode {
     background: transparent;
@@ -158,6 +158,7 @@
       display: block;
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
+      color: vars.$color-primary;
 
       @include mixins.dark-mode {
         color: vars.$color-primary;
