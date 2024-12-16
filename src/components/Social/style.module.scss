@@ -18,6 +18,13 @@
 
     &.linkedin {
       background: #0077b5;
+
+      :global(#banner) & {
+        @include mixins.light-mode {
+          background: #FFF;
+          color: #0077b5;
+        }
+      }
     }
 
     &.instagram {
