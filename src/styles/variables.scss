@@ -45,13 +45,13 @@ $color-tooltip-dark: #fff;
 $color-tooltip-text-dark: #000;
 
 $color-header: $color-info;
-$color-nav: #FFF;
-$color-nav-text: inherit;
-$color-nav-hover: #d9d9d9;
+$color-nav: color.adjust($color-header, $lightness: -10%);
+$color-nav-text: #fff;
+$color-nav-hover: #fff;
 $color-nav-hover-text: inherit;
 
 $color-header-dark: #0d0d0d;
-$color-nav-dark: $color-block-dark;
+$color-nav-dark: color.adjust($color-header-dark, $lightness: 10%);
 $color-nav-text-dark: #fff;
 $color-nav-hover-dark: #fff;
 $color-nav-hover-text-dark: #312e2c;
