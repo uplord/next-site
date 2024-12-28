@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
-const ParticlesDefault = React.memo(({ id, className }) => {
+const ParticlesDefault = React.memo(({ id, number, className }) => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -32,9 +32,9 @@ const ParticlesDefault = React.memo(({ id, className }) => {
         },
         number: {
           density: {
-            enable: true,
+            enable: false,
           },
-          value: 200,
+          value: number,
         },
         opacity: {
           animation: {

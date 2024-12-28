@@ -3,7 +3,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { loadImageShape } from "@tsparticles/shape-image"; // Import the image shape loader
 
-const ParticlesSnow = React.memo(({ id, className }) => {
+const ParticlesSnow = React.memo(({ id, number, className }) => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -33,10 +33,11 @@ const ParticlesSnow = React.memo(({ id, className }) => {
         },
         number: {
           density: {
-            enable: true,
-            area: 100,
+            enable: false,
+            area: 2000,
           },
-          value: 200,
+          limit: 0,
+          value: number,
         },
         opacity: {
           value: 0.8,
@@ -60,7 +61,7 @@ const ParticlesSnow = React.memo(({ id, className }) => {
           speed: 15,
         },
         zIndex: {
-          value: { min: 0, max: 80 },
+          value: { min: 0, max: 60 },
         },
       },
       detectRetina: true,
