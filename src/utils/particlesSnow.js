@@ -29,12 +29,12 @@ const ParticlesSnow = React.memo(({ id, className }) => {
           direction: "bottom",
           enable: true,
           outModes: "out",
-          speed: 5,
+          speed: 4,
         },
         number: {
           density: {
             enable: true,
-            area: 800,
+            area: 100,
           },
           value: 400,
         },
@@ -46,18 +46,18 @@ const ParticlesSnow = React.memo(({ id, className }) => {
           options: {
             image: {
               src: "/snowflake.svg",
-              width: 20,
-              height: 20,
+              width: 10,
+              height: 10,
             },
           },
         },
         size: {
-          value: 8,
+          value: 10,
         },
         wobble: {
           enable: true,
           distance: 10,
-          speed: 10,
+          speed: 15,
         },
         zIndex: {
           value: { min: 0, max: 100 },

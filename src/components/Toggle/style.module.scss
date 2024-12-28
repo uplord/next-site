@@ -8,11 +8,13 @@
   width: 76px;
   cursor: pointer;
 
-  &:hover span {
-    background: vars.$color-nav-hover;
-    
-    @include mixins.dark-mode {
-      background: vars.$color-nav-hover-dark;
+  @media (hover: hover) {
+    &:hover span {
+      background: vars.$color-nav-hover;
+      
+      @include mixins.dark-mode {
+        background: vars.$color-nav-hover-dark;
+      }
     }
   }
 

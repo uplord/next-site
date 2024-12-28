@@ -34,7 +34,7 @@ const ParticlesDefault = React.memo(({ id, className }) => {
           density: {
             enable: true,
           },
-          value: 600,
+          value: 800,
         },
         opacity: {
           animation: {
