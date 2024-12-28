@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <div className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
-      <Particles id="particles-header" number="10" className={styles.particles} />
+      <Particles id="particles-header" className={styles.particles} />
       <div className={styles.container}>
         <Logo className={styles.logo} />
         <Navigation />

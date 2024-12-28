@@ -68,7 +68,7 @@ export default function Banner({ id, queueId }) {
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
     >
-      <Particles id="particles-banner" number="200" />
+      <Particles id="particles-banner" />
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={clsx(
