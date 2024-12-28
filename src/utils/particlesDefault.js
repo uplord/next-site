@@ -20,7 +20,7 @@ const ParticlesDefault = React.memo(({ id, className }) => {
           value: "transparent",
         },
       },
-      fpsLimit: 120,
+      fpsLimit: 24,
       particles: {
         color: { value: "#ffffff" },
         move: {
@@ -34,7 +34,7 @@ const ParticlesDefault = React.memo(({ id, className }) => {
           density: {
             enable: true,
           },
-          value: 800,
+          value: 200,
         },
         opacity: {
           animation: {

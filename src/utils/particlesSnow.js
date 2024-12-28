@@ -22,7 +22,7 @@ const ParticlesSnow = React.memo(({ id, className }) => {
           value: "transparent",
         },
       },
-      fpsLimit: 120,
+      fpsLimit: 24,
       particles: {
         color: { value: "#fff" },
         move: {
@@ -36,7 +36,7 @@ const ParticlesSnow = React.memo(({ id, className }) => {
             enable: true,
             area: 100,
           },
-          value: 400,
+          value: 200,
         },
         opacity: {
           value: 0.8,
@@ -60,7 +60,7 @@ const ParticlesSnow = React.memo(({ id, className }) => {
           speed: 15,
         },
         zIndex: {
-          value: { min: 0, max: 100 },
+          value: { min: 0, max: 80 },
         },
       },
       detectRetina: true,
