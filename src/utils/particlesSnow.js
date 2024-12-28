@@ -37,7 +37,7 @@ const ParticlesSnow = React.memo(({ id, className }) => {
             area: 2000,
           },
           limit: 0,
-          value: 400,
+          value: 100,
         },
         opacity: {
           value: 0.8,

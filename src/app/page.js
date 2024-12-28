@@ -4,7 +4,7 @@ import { Header, Footer, Banner, Section, Projects, Timeline, Stack } from "@/co
 export default function Home() {
   return (
     <div>
-      <Header />
+      <Header home={true} />
       <main className={styles.main}>
         <Banner id="banner" queueId="0" />
         <Section id="about-me" queueId="1" />
