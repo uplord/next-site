@@ -24,6 +24,13 @@
   .logo {
     position: relative;
     margin: 1.1875rem auto 1.1875rem 0;
+    transition: transform 0.3s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.07);
+      }
+    }
   }
 }
 

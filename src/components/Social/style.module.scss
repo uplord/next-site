@@ -12,8 +12,10 @@
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     transition: all .3s ease;
 
-    &:hover {
-      transform: scale(1.1);
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
     &.linkedin {
@@ -40,15 +42,6 @@
         color: vars.$color-svg;
       }
     }
-
-    // &.default {
-    //   :global(#banner) & {
-    //     @include mixins.light-mode {
-    //       background: #FFF;
-    //       color: vars.$color-primary;
-    //     }
-    //   }
-    // }
   }
 
   svg {
