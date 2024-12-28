@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
-const ParticlesDefault = React.memo(() => {
+const ParticlesDefault = React.memo(({ id, className }) => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const ParticlesDefault = React.memo(() => {
     return null;
   }
 
-  return <Particles id="tsparticles" options={options} />;
+  return <Particles id={id} options={options} className={className} />;
 });
 
 ParticlesDefault.displayName = "ParticlesDefault";

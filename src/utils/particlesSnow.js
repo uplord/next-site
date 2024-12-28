@@ -1,13 +1,15 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { loadImageShape } from "@tsparticles/shape-image"; // Import the image shape loader
 
-const ParticlesSnow = React.memo(() => {
+const ParticlesSnow = React.memo(({ id, className }) => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
+      await loadImageShape(engine);
     }).then(() => {
       setInit(true);
     });
@@ -37,13 +39,20 @@ const ParticlesSnow = React.memo(() => {
           value: 400,
         },
         opacity: {
-          value: 0.5,
+          value: 0.8,
         },
         shape: {
-          type: "circle",
+          type: "image",
+          options: {
+            image: {
+              src: "/snowflake.svg",
+              width: 20,
+              height: 20,
+            },
+          },
         },
         size: {
-          value: 4,
+          value: 8,
         },
         wobble: {
           enable: true,
@@ -66,7 +75,7 @@ const ParticlesSnow = React.memo(() => {
     return null;
   }
 
-  return <Particles id="tsparticles" options={options} />;
+  return <Particles id={id} options={options} className={className} />;
 });
 
 ParticlesSnow.displayName = "ParticlesSnow";

@@ -8,11 +8,7 @@ export function useScroll() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerWidth > breakpoints.md - 1) {
-        setIsScrolled(window.scrollY > 0);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);

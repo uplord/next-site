@@ -6,8 +6,9 @@ import clsx from "clsx";
 import styles from "./style.module.scss";
 import { Buttons, Social } from "@/components";
 import Animated from "@/components/Animated";
-import { useSeason, ParticlesDefault, ParticlesSnow } from "@/utils/seasonTheme";
+import Particles from "@/components/Particles";
 import { useBreakpoints } from "@/utils/useBreakpoints";
+import { useSeason } from "@/utils/seasonTheme";
 
 export default function Banner({ id, queueId }) {
   const breakpoints = useBreakpoints();
@@ -37,7 +38,7 @@ export default function Banner({ id, queueId }) {
       alt: "Hi, I'm Michael",
       sizes: "(max-width: " + breakpoints.md - 1 + "px) 140px, 500px",
       width: "500",
-      height: "500",
+      height: "499",
     }
   };
 
@@ -67,12 +68,7 @@ export default function Banner({ id, queueId }) {
       onVisible={handleVisibilityChange}
       onLoaded={onLoaded}
     >
-      { season === "default" && (
-        <ParticlesDefault />
-      ) }
-      { season === "xmas" && (
-        <ParticlesSnow />
-      ) }
+      <Particles id="particles-banner" />
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={clsx(
@@ -86,7 +82,7 @@ export default function Banner({ id, queueId }) {
                 src={data.image.src}
                 alt={data.image.alt}
                 quality={80}
-                priority
+                priority={true}
                 sizes={data.image.sizes}
                 width={data.image.width}
                 height={data.image.height}

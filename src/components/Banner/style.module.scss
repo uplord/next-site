@@ -86,7 +86,7 @@
     width: 140px;
 
     @media (min-width: vars.$breakpoint-md) {
-      width: auto;
+      width: 100%;
       max-width: 500px;
     }
   }

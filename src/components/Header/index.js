@@ -5,6 +5,7 @@ import Link from 'next/link'
 import styles from "./style.module.scss";
 import { Logo } from "@/components";
 import Toggle from "@/components/Toggle";
+import Particles from "@/components/Particles";
 import { useScroll } from "@/utils/scrollUtils";
 
 export default function Header() {
@@ -12,6 +13,7 @@ export default function Header() {
 
   return (
     <div className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+      <Particles id="particles-header" className={styles.particles} />
       <div className={styles.container}>
         <Logo className={styles.logo} />
         <Navigation />
