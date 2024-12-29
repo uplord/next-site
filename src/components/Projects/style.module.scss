@@ -8,9 +8,16 @@
     text-align: center;
   }
 
+  @media (min-width: vars.$breakpoint-xl) {
+    scroll-margin-top: 136px;
+  }
+
   h2 {
     @include mixins.heading2;
-    color: vars.$color-heading;
+
+    & {
+      color: vars.$color-heading;
+    }
 
     @include mixins.dark-mode {
       color: vars.$color-heading-dark;

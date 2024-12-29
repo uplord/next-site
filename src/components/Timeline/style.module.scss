@@ -180,7 +180,10 @@
 
   h2 {
     @include mixins.heading2;
-    color: vars.$color-heading;
+
+    & {
+      color: vars.$color-heading;
+    }
 
     @include mixins.dark-mode {
       color: vars.$color-heading-dark;
@@ -189,7 +192,10 @@
 
   h3 {
     @include mixins.heading3;
-    color: vars.$color-primary;
+
+    & {
+      color: vars.$color-primary;
+    }
   }
 
   p {

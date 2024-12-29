@@ -4,6 +4,10 @@
 .stack {
   text-align: center;
   scroll-margin-top: 110px;
+
+  @media (min-width: vars.$breakpoint-xl) {
+    scroll-margin-top: 136px;
+  }
 }
 
 .container {
@@ -18,7 +22,10 @@
 
   h2 {
     @include mixins.heading2;
-    color: vars.$color-heading;
+
+    & {
+      color: vars.$color-heading;
+    }
 
     @include mixins.dark-mode {
       color: vars.$color-heading-dark;
