@@ -11,6 +11,10 @@
     color: vars.$color-heading-dark;
   }
 
+  @media (min-width: vars.$breakpoint-xl) {
+    font-size: 1.5rem;
+  }
+
   .icon {
     display: inline-flex;
     align-items: center;
@@ -22,5 +26,11 @@
     height: 2.5rem;
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     margin-right: 0.5rem;
+
+    @media (min-width: vars.$breakpoint-xl) {
+      font-size: 1.75rem;
+      width: 3rem;
+      height: 3rem;
+    }
   }
 }

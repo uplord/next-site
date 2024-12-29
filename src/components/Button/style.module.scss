@@ -25,6 +25,12 @@
       transform: scale(1.05);
     }
   }
+
+  @media (min-width: vars.$breakpoint-xl) {
+    font-size: 1.125rem;
+    padding: 0.75rem 2rem;
+    height: 56px;
+  }
 }
 
 .icon {
@@ -35,6 +41,12 @@
   font-size: 1.125rem;
   padding: 0.75rem 2rem;
   height: 56px;
+
+  @media (min-width: vars.$breakpoint-xl) {
+    font-size: 1.25rem;
+    padding: 1rem 2.5rem;
+    height: 66px;
+  }
 }
 
 .primary {

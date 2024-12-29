@@ -87,8 +87,8 @@ export default function Timeline({ id, queueId }) {
                 queueType="timeline"
                 className={styles.item}
               >
-                <h3>{item.title}</h3>
-                <h4>{item.subtitle}</h4>
+                <h4>{item.title}</h4>
+                <h3>{item.subtitle}</h3>
                 <Link href={item.link} target="_blank">
                   <Svg name={item.logo} height={32} />
                 </Link>
@@ -104,8 +104,8 @@ export default function Timeline({ id, queueId }) {
             hasTransition === true && onLoaded !== true  ? styles.transition : "",
             showText ? styles.show : ""
           )}>
-            <h2>{data.title}</h2>
-            <h3>{data.subtitle}</h3>
+            <h3>{data.title}</h3>
+            <h2>{data.subtitle}</h2>
             <p>{data.content}</p>
             <Buttons data={data.buttons} className={styles.buttons} />
           </div>

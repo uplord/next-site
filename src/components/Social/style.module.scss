@@ -18,6 +18,10 @@
       }
     }
 
+    @media (min-width: vars.$breakpoint-xl) {
+      padding: 1rem;
+    }
+
     &.linkedin {
       background: #0077b5;
 
@@ -47,5 +51,9 @@
   svg {
     width: 24px;
     height: auto;
+
+    @media (min-width: vars.$breakpoint-xl) {
+      width: 30px;
+    }
   }
 }

@@ -8,6 +8,10 @@
 
   &.home {
     margin-bottom: -78px;
+
+    @media (min-width: vars.$breakpoint-xl) {
+      margin-bottom: -104px;
+    }
   }
 
 
@@ -29,6 +33,10 @@
     position: relative;
     margin: 1.1875rem auto 1.1875rem 0;
     transition: transform 0.3s ease;
+
+    @media (min-width: vars.$breakpoint-xl) {
+      margin: 1.6875rem auto 1.6875rem 0;
+    }
 
     @media (hover: hover) {
       &:hover {
@@ -60,6 +68,12 @@
     display: flex;
   }
 
+  @media (min-width: vars.$breakpoint-xl) {
+    border-radius: 28px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
   a {
     display: flex;
     align-items: center;
@@ -78,6 +92,13 @@
     @media (min-width: vars.$breakpoint-lg) {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
+    }
+
+    @media (min-width: vars.$breakpoint-xl) {
+      border-radius: 28px;
+      height: 56px;
+      font-size: 1.125rem;
+      padding: 1rem 2rem;
     }
 
     @media (hover: hover) {

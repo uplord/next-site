@@ -8,6 +8,11 @@
   width: 76px;
   cursor: pointer;
 
+  @media (min-width: vars.$breakpoint-xl) {
+    margin: 1.5rem 0;
+    width: 106px;
+  }
+
   @media (hover: hover) {
     &:hover span {
       background: vars.$color-nav-hover;
@@ -31,6 +36,11 @@
       background: vars.$color-nav-dark;
     }
 
+    @media (min-width: vars.$breakpoint-xl) {
+      height: 56px;
+      border-radius: 28px;
+    }
+
     &:after {
       content: '';
       position: absolute;
@@ -45,6 +55,18 @@
       @include mixins.dark-mode {
         background: vars.$color-moon;
         left: 4px;
+
+        @media (min-width: vars.$breakpoint-xl) {
+          left: 6px;
+        }
+      }
+      
+      @media (min-width: vars.$breakpoint-xl) {
+        top: 6px;
+        left: 56px;
+        height: 44px;
+        width: 44px;
+        border-radius: 22px;
       }
     }
   }
@@ -60,6 +82,16 @@
     @include mixins.dark-mode {
       transform: translateY(-50%) rotate(0deg);
       left: 10px;
+
+      @media (min-width: vars.$breakpoint-xl) {
+        left: 15px;
+      }
+    }
+
+    @media (min-width: vars.$breakpoint-xl) {
+      left: 66px;
+      width: 24px;
+      height: 24px;
     }
   }
 
