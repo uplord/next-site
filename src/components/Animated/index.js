@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import styles from "./style.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useQueue, useTimelineQueue } from "@/context/QueueContexts";
 
 export default function Animated({
@@ -21,25 +21,34 @@ export default function Animated({
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasTransition, setHasTransition] = useState(false);
 
-  // Always call hooks at the top level
   const defaultQueue = useQueue();
   const timelineQueue = useTimelineQueue();
-
-  // Decide context dynamically
   const { queue, addToQueue, removeFromQueue } =
     queueType === "timeline" ? timelineQueue : defaultQueue;
 
-  const handleIntersection = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && !isVisible) {
-        if (!onVisible) {
-          setHasTransition(true);
+  const stableOnComplete = useCallback(() => {
+    if (onComplete) onComplete();
+  }, [onComplete]);
+
+  const stableRemoveFromQueue = useCallback(
+    (id) => {
+      removeFromQueue(id);
+    },
+    [removeFromQueue]
+  );
+
+  const handleIntersection = useCallback(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !isVisible) {
+          if (!onVisible) setHasTransition(true);
+          addToQueue(queueId);
+          observer.unobserve(entry.target);
         }
-        addToQueue(queueId);
-        observer.unobserve(entry.target);
-      }
-    });
-  };
+      });
+    },
+    [isVisible, onVisible, addToQueue, queueId]
+  );
 
   useEffect(() => {
     if (onStart) {
@@ -47,60 +56,49 @@ export default function Animated({
         rootMargin: "0% 0% -100px 0%",
         threshold: 0,
       });
-      if (sectionRef.current) {
-        observer.observe(sectionRef.current);
-      }
+      if (sectionRef.current) observer.observe(sectionRef.current);
       return () => observer.disconnect();
     }
-  }, [isVisible, onStart, handleIntersection]);
+  }, [handleIntersection, onStart]);
 
   useEffect(() => {
     const rect = sectionRef.current?.getBoundingClientRect();
-  
+
     if (rect?.bottom < 0 && !isVisible) {
       setIsVisible(true);
-      removeFromQueue(queueId);
-      if (onVisible) {
-        onVisible(false);
-      }
-      if (onComplete) {
-        onComplete();
-      }
+      stableRemoveFromQueue(queueId);
+      if (onVisible) onVisible(false);
+      stableOnComplete();
       return;
     }
-  
+
     const sortedQueue = queue.sort((a, b) => a - b);
-  
-    if (sortedQueue.includes(queueId) && sortedQueue[0] === queueId) {
+
+    if (!isVisible && sortedQueue.includes(queueId) && sortedQueue[0] === queueId) {
       setIsVisible(true);
-      if (onVisible) {
-        onVisible(true);
-      } else {
+      if (onVisible) onVisible(true);
+      else {
         setTimeout(() => {
           setIsLoaded(true);
-          if (onComplete) {
-            onComplete();
-          }
+          stableOnComplete();
         }, 900);
       }
     }
-  }, [queue, queueId, isVisible, onVisible, onComplete, removeFromQueue]);
+  }, [queue, queueId, isVisible, onVisible, stableOnComplete, stableRemoveFromQueue]);
 
   useEffect(() => {
     if (onLoaded) {
       setIsLoaded(true);
-      if (onComplete) {
-        onComplete();
-      }
+      stableOnComplete();
     }
-  }, [onLoaded]);
+  }, [onLoaded, stableOnComplete]);
 
   useEffect(() => {
     if (isLoaded) {
       setHasTransition(false);
-      removeFromQueue(queueId);
+      stableRemoveFromQueue(queueId);
     }
-  }, [isLoaded, queueId]);
+  }, [isLoaded, stableRemoveFromQueue, queueId]);
 
   let dynamicClass = "";
   if (!onVisible && !isVisible) {

@@ -12,8 +12,11 @@
 
 .container {
   @include mixins.container;
-  padding: 0;
-  position: relative;
+
+  & {
+    padding: 0;
+    position: relative;
+  }
 }
 
 .content {
