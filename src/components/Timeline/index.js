@@ -25,6 +25,12 @@ export default function Timeline({ id, queueId }) {
       class: "primary",
     }],
     list: [{
+      title: "Jan 2025 - Present",
+      subtitle: "Software Engineer",
+      logo: "leaseloco",
+      link: "https://www.leaseloco.com/",
+      content: "",
+    },{
       title: "Sept 2021 - Jan 2025",
       subtitle: "Senior Front End Developer",
       logo: "snappy-logo",
@@ -106,7 +112,9 @@ export default function Timeline({ id, queueId }) {
           )}>
             <h3>{data.title}</h3>
             <h2>{data.subtitle}</h2>
-            <p>{data.content}</p>
+            {data.content && (
+              <p>{data.content}</p>
+            )}
             <Buttons data={data.buttons} className={styles.buttons} />
           </div>
         </div>
