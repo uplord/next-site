@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
+import type { MoveDirection, OutMode } from '@tsparticles/engine';
 
 interface ParticlesDefaultProps {
   id: string;
@@ -30,9 +31,9 @@ const ParticlesDefault = React.memo(
         particles: {
           color: { value: '#ffffff' },
           move: {
-            direction: 'none',
+            direction: 'none' as MoveDirection,
             enable: true,
-            outModes: 'out',
+            outModes: 'out' as OutMode,
             random: true,
             speed: 0.3,
           },
