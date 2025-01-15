@@ -3,11 +3,14 @@
 
 .error {
   .content {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 1rem;
+    padding: 0 1rem;
     text-align: center;
     min-height: 100dvh;
   }
