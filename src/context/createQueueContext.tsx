@@ -19,13 +19,15 @@ export function CreateQueueContext() {
     const [queue, setQueue] = useState<number[]>([]);
 
     const addToQueue = (id: number) => {
-      setQueue((prevQueue) =>
-        prevQueue.includes(id) ? prevQueue : [...prevQueue, id]
-      );
+      if (!queue.includes(id)) {
+        setQueue((prevQueue) => [...prevQueue, id]);
+      }
     };
 
     const removeFromQueue = (id: number) => {
-      setQueue((prevQueue) => prevQueue.filter((item) => item !== id));
+      if (queue.includes(id)) {
+        setQueue((prevQueue) => prevQueue.filter((item) => item !== id));
+      }
     };
 
     return (

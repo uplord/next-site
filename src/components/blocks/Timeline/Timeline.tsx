@@ -66,12 +66,16 @@ export const Timeline = ({ id, queueId }: SectionProps) => {
   };
 
   const handleCompleteChange = () => {
-    let count = animatedCount + 1;
-    setAnimatedCount(count);
-    if (count == data.list.length) {
-      setOnLoaded(true);
-      setShowText(false);
-    }
+    setAnimatedCount((prevCount) => {
+      const newCount = prevCount + 1;
+  
+      if (newCount === data.list.length) {
+        setOnLoaded(true);
+        setShowText(false);
+      }
+  
+      return newCount;
+    })
   };
 
   return (

@@ -73,7 +73,7 @@ export const Animated = ({ children, queueId, id = '', className = '', onStart =
 
     const sortedQueue = queue.sort((a: number, b: number) => a - b);
 
-    if (sortedQueue.includes(queueId) && sortedQueue[0] === queueId) {
+    if (sortedQueue.length > 0 && sortedQueue.includes(queueId) && sortedQueue[0] === queueId) {
       setIsVisible(true);
       if (onVisible) {
         onVisible(true);
@@ -86,7 +86,7 @@ export const Animated = ({ children, queueId, id = '', className = '', onStart =
         }, 900);
       }
     }
-  }, [queue, queueId, isVisible, onVisible, onComplete, removeFromQueue]);
+  }, [queue, queueId]);
 
   useEffect(() => {
     if (onLoaded) {
