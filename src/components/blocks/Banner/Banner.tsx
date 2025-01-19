@@ -61,22 +61,16 @@ export const Banner = ({ id, queueId }: SectionProps) => {
     }
   };
 
-  return (
-    <Animated 
-      id={id}
-      queueId={queueId} 
-      className={styles.banner} 
-      onVisible={handleVisibilityChange}
-      onLoaded={onLoaded}
-    >
+  const Content = (
+    <>
       <Particles id="particles-banner" />
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={clsx(
             styles.image,
-            onLoaded !== true ? styles.animate : '',
-            hasTransition === true && onLoaded !== true  ? styles.transition : '',
-            showImage ? styles.show : ''
+            queueId && onLoaded !== true ? styles.animate : '',
+            queueId && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+            queueId && showImage ? styles.show : ''
           )}>
             <div className={styles.imageWrap}>
               <Image
@@ -93,9 +87,9 @@ export const Banner = ({ id, queueId }: SectionProps) => {
           </div>
           <div className={clsx(
             styles.text,
-            onLoaded !== true ? styles.animate : '',
-            hasTransition === true && onLoaded !== true  ? styles.transition : '',
-            showText ? styles.show : ''
+            queueId && onLoaded !== true ? styles.animate : '',
+            queueId && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+            queueId && showText ? styles.show : ''
           )}>
             <h1 dangerouslySetInnerHTML={{ __html: data.title }}></h1>
             <h2>{data.subtitle}</h2>
@@ -103,12 +97,32 @@ export const Banner = ({ id, queueId }: SectionProps) => {
           </div>
           <div className={clsx(
             styles.viewMore,
-            onLoaded !== true ? styles.animate : '',
-            hasTransition === true && onLoaded !== true  ? styles.transition : '',
-            showMore ? styles.show : ''
+            queueId && onLoaded !== true ? styles.animate : '',
+            queueId && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+            queueId && showMore ? styles.show : ''
           )}></div>
         </div>
       </div>
-    </Animated>
-  );
+    </>
+  )
+
+  if (queueId) {
+    return (
+      <Animated 
+        id={id}
+        queueId={queueId} 
+        className={styles.banner} 
+        onVisible={handleVisibilityChange}
+        onLoaded={onLoaded}
+      >
+        {Content}
+      </Animated>
+    )
+  }
+
+  return (
+    <div id={id} className={styles.banner}>
+      {Content}
+    </div>
+  )
 }

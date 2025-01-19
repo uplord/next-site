@@ -5,13 +5,9 @@ import clsx from 'clsx';
 import styles from './style.module.scss';
 import { Social } from '@/components';
 import Animated from '@/components/utils/Animated';
+import { SectionProps } from '@/types/section';
 
-type FooterProps = {
-  id: string,
-  queueId: number,
-}
-
-export const Footer = ({ id, queueId }: FooterProps) => {
+export const Footer = ({ id, queueId }: SectionProps) => {
   const [showFooter, setShowFooter] = useState(false);
   const [hasTransition, setHasTransition] = useState(false);
   const [onLoaded, setOnLoaded] = useState(false);
@@ -32,23 +28,35 @@ export const Footer = ({ id, queueId }: FooterProps) => {
     }
   };
 
+  const Content = (
+    <div className={styles.container}>
+      <Social className={styles.social} />
+      <p>&copy; {currentYear} Michael Allen</p>
+    </div>
+  )
+
+  if (queueId) {
+    return (
+      <Animated
+        id={id}
+        queueId={queueId}
+        className={clsx(
+          styles.footer,
+          onLoaded !== true ? styles.animate : '',
+          hasTransition === true && onLoaded !== true  ? styles.transition : '',
+          showFooter ? styles.show : ''
+        )}
+        onVisible={handleVisibilityChange}
+        onLoaded={onLoaded}
+      >
+        {Content}
+      </Animated>
+    )
+  }
+
   return (
-    <Animated
-      id={id}
-      queueId={queueId} 
-      className={clsx(
-        styles.footer,
-        onLoaded !== true ? styles.animate : '',
-        hasTransition === true && onLoaded !== true  ? styles.transition : '',
-        showFooter ? styles.show : ''
-      )}
-      onVisible={handleVisibilityChange}
-      onLoaded={onLoaded}
-    >
-      <div className={styles.container}>
-        <Social className={styles.social} />
-        <p>&copy; {currentYear} Michael Allen</p>
-      </div>
-    </Animated>
+    <div id={id} className={styles.footer}>
+      {Content}
+    </div>
   )
 }

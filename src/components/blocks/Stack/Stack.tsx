@@ -45,24 +45,36 @@ export const Stack = ({ id, queueId }: SectionProps) => {
     }]
   }
 
-  return (
-    <Animated id={id} queueId={queueId} className={styles.stack}>
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <div className={styles.text}>
-            <h2>{data.title}</h2>
-          </div>
-          <div className={styles.list}>
-            {data.list.map((item, index) => (
-              <div key={index} className={styles.item}>
-                <div className={styles.image} data-tooltip={item.tooltip}>
-                  <Svg name={item.icon} width={60} />
-                </div>
+  const Content = (
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.text}>
+          <h2>{data.title}</h2>
+        </div>
+        <div className={styles.list}>
+          {data.list.map((item, index) => (
+            <div key={index} className={styles.item}>
+              <div className={styles.image} data-tooltip={item.tooltip}>
+                <Svg name={item.icon} width={60} />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-    </Animated>
-  );
+    </div>
+  )
+
+  if (queueId) {
+    return (
+      <Animated id={id} queueId={queueId} className={styles.stack}>
+        {Content}
+      </Animated>
+    )
+  }
+
+  return (
+    <div id={id} className={styles.stack}>
+      {Content}
+    </div>
+  )
 }
