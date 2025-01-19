@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import styles from './style.module.scss'
 import { useEffect, useRef, useState, ReactNode } from 'react'
 import { useQueue, useTimelineQueue } from '@/context/queueContexts'
+import { isBreakpoint } from '@/utils/useBreakpoints'
 
 type AnimatedProps = {
   children: ReactNode
@@ -46,7 +47,7 @@ export const Animated = ({ children, queueId, id = '', className = '', onStart =
   useEffect(() => {
     if (onStart) {
       const observer = new IntersectionObserver(handleIntersection, {
-        rootMargin: '0% 0% -100px 0%',
+        rootMargin: '0% 0% 0% 0%',
         threshold: 0,
       })
       if (sectionRef.current) {
@@ -59,7 +60,7 @@ export const Animated = ({ children, queueId, id = '', className = '', onStart =
   useEffect(() => {
     const rect = sectionRef.current?.getBoundingClientRect()
 
-    if (rect?.bottom && rect.bottom < 0 && !isVisible) {
+    if (rect?.bottom && rect.bottom < (isBreakpoint('lg') ? 105 : 79) && !isVisible) {
       setIsVisible(true)
       removeFromQueue(queueId)
       if (onVisible) {
