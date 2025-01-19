@@ -1,13 +1,13 @@
-'use client';
+'use client'
 
-import React from 'react';
+import React from 'react'
 import Link from 'next/link'
-import clsx from 'clsx';
-import styles from './style.module.scss';
-import { Logo } from '@/components';
-import Toggle from '@/components/ui/Toggle';
-import Particles from '@/components/utils/Particles';
-import { useScroll } from '@/utils/scrollUtils';
+import clsx from 'clsx'
+import styles from './style.module.scss'
+import { Logo } from '@/components'
+import Toggle from '@/components/ui/Toggle'
+import Particles from '@/components/utils/Particles'
+import { useScroll } from '@/utils/scrollUtils'
 
 type HeaderProps = {
   className?: string
@@ -15,7 +15,7 @@ type HeaderProps = {
 }
 
 export const Header = ({ className, home = false }: HeaderProps) => {
-  const isScrolled = useScroll();
+  const isScrolled = useScroll()
 
   return (
     <div className={clsx(styles.header, isScrolled || !home ? styles.scrolled : '', className, home == true && styles.home )}>
@@ -45,7 +45,7 @@ export function Navigation() {
   },{
     title: 'Contact',
     link: 'mailto:michael@uplord.co.uk',
-  }];
+  }]
 
   return (
     <div className={styles.navigation}>

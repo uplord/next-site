@@ -1,5 +1,5 @@
-import styles from "@/app/page.module.scss"
-import { Header, Footer, Banner, Section, Projects, Timeline, Stack } from "@/components"
+import styles from '@/app/page.module.scss'
+import { Header, Footer, Banner, Section, Projects, Timeline, Stack } from '@/components'
 
 export default function Home() {
   return (

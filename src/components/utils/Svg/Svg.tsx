@@ -24,5 +24,5 @@ export const Svg = ({
       className={className}
       {...(color ? { color } : {})}
     />
-  );
-};
+  )
+}

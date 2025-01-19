@@ -1,7 +1,7 @@
-import styles from './style.module.scss';
-import Svg from '@/components/utils/Svg';
-import Animated from '@/components/utils/Animated';
-import { SectionProps } from '@/types/section';
+import styles from './style.module.scss'
+import Svg from '@/components/utils/Svg'
+import Animated from '@/components/utils/Animated'
+import { SectionProps } from '@/types/section'
 
 export const Stack = ({ id, queueId }: SectionProps) => {
   const data = {

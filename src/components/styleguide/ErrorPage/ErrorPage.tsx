@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
-import styles from './style.module.scss';
-import { Logo, Buttons } from '@/components';
-import Particles from '@/components/utils/Particles';
+import styles from './style.module.scss'
+import { Logo, Buttons } from '@/components'
+import Particles from '@/components/utils/Particles'
 
 export const ErrorPage = () => {
   const data = {
@@ -11,7 +11,7 @@ export const ErrorPage = () => {
     buttons: [
       { title: 'Go back to the homepage', link: '/', class: 'primary' },
     ],
-  };
+  }
 
   return (
     <div className={styles.error}>

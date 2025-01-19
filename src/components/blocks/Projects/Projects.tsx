@@ -1,9 +1,9 @@
-import styles from './style.module.scss';
-import Image from 'next/image';
-import { Svg } from '@/components';
-import Animated from '@/components/utils/Animated';
-import { useBreakpoints } from '@/utils/useBreakpoints';
-import { SectionProps } from '@/types/section';
+import styles from './style.module.scss'
+import Image from 'next/image'
+import { Svg } from '@/components'
+import Animated from '@/components/utils/Animated'
+import { useBreakpoints } from '@/utils/useBreakpoints'
+import { SectionProps } from '@/types/section'
 
 const data = {
   title: 'Projects I\'ve worked on',
@@ -21,10 +21,10 @@ const data = {
     { type: 'image', src: '/images/petervardy.png', alt: 'Peter Vardy', tooltip: 'Peter Vardy' },
     { type: 'image', src: '/images/carmoney.png', alt: 'CarMoney', tooltip: 'CarMoney' },
   ]
-};
+}
 
 export const Projects = ({ id, queueId }: SectionProps) => {
-  const breakpoints = useBreakpoints();
+  const breakpoints = useBreakpoints()
 
   const Content = (
     <div className={styles.container}>

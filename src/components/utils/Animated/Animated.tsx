@@ -1,119 +1,119 @@
-'use client';
+'use client'
 
-import clsx from 'clsx';
-import styles from './style.module.scss';
-import { useEffect, useRef, useState, ReactNode } from 'react';
-import { useQueue, useTimelineQueue } from '@/context/queueContexts';
+import clsx from 'clsx'
+import styles from './style.module.scss'
+import { useEffect, useRef, useState, ReactNode } from 'react'
+import { useQueue, useTimelineQueue } from '@/context/queueContexts'
 
 type AnimatedProps = {
-  children: ReactNode;
-  queueId: number;
-  id?: string;
-  className?: string;
-  onStart?: boolean;
-  onVisible?: (isVisible: boolean) => void;
-  onLoaded?: boolean;
-  onComplete?: () => void;
-  queueType?: 'default' | 'timeline';
-};
+  children: ReactNode
+  queueId: number
+  id?: string
+  className?: string
+  onStart?: boolean
+  onVisible?: (isVisible: boolean) => void
+  onLoaded?: boolean
+  onComplete?: () => void
+  queueType?: 'default' | 'timeline'
+}
 
 export const Animated = ({ children, queueId, id = '', className = '', onStart = true, onVisible, onLoaded = false, onComplete, queueType = 'default' }: AnimatedProps) => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [hasTransition, setHasTransition] = useState(false);
+  const sectionRef = useRef<HTMLDivElement | null>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [hasTransition, setHasTransition] = useState(false)
 
-  const defaultQueue = useQueue();
-  const timelineQueue = useTimelineQueue();
+  const defaultQueue = useQueue()
+  const timelineQueue = useTimelineQueue()
 
   const { queue, addToQueue, removeFromQueue } =
-    queueType === 'timeline' ? timelineQueue : defaultQueue;
+    queueType === 'timeline' ? timelineQueue : defaultQueue
 
   const handleIntersection = (
     entries: IntersectionObserverEntry[],
     observer: IntersectionObserver
   ) => {
-    const entry = entries[0];
+    const entry = entries[0]
     if (entry.isIntersecting && !isVisible) {
       if (!onVisible) {
-        setHasTransition(true);
+        setHasTransition(true)
       }
-      addToQueue(queueId);
-      observer.unobserve(entry.target);
+      addToQueue(queueId)
+      observer.unobserve(entry.target)
     }
-  };
+  }
 
   useEffect(() => {
     if (onStart) {
       const observer = new IntersectionObserver(handleIntersection, {
         rootMargin: '0% 0% -100px 0%',
         threshold: 0,
-      });
+      })
       if (sectionRef.current) {
-        observer.observe(sectionRef.current);
+        observer.observe(sectionRef.current)
       }
-      return () => observer.disconnect();
+      return () => observer.disconnect()
     }
-  }, [isVisible, onStart, handleIntersection]);
+  }, [isVisible, onStart, handleIntersection])
 
   useEffect(() => {
-    const rect = sectionRef.current?.getBoundingClientRect();
+    const rect = sectionRef.current?.getBoundingClientRect()
 
     if (rect?.bottom && rect.bottom < 0 && !isVisible) {
-      setIsVisible(true);
-      removeFromQueue(queueId);
+      setIsVisible(true)
+      removeFromQueue(queueId)
       if (onVisible) {
-        onVisible(false);
+        onVisible(false)
       }
       if (onComplete) {
-        onComplete();
+        onComplete()
       }
-      return;
+      return
     }
 
-    const sortedQueue = queue.sort((a: number, b: number) => a - b);
+    const sortedQueue = queue.sort((a: number, b: number) => a - b)
 
     if (sortedQueue.length > 0 && sortedQueue.includes(queueId) && sortedQueue[0] === queueId) {
-      setIsVisible(true);
+      setIsVisible(true)
       if (onVisible) {
-        onVisible(true);
+        onVisible(true)
       } else {
         setTimeout(() => {
-          setIsLoaded(true);
+          setIsLoaded(true)
           if (onComplete) {
-            onComplete();
+            onComplete()
           }
-        }, 900);
+        }, 900)
       }
     }
-  }, [queue, queueId]);
+  }, [queue, queueId])
 
   useEffect(() => {
     if (onLoaded) {
-      setIsLoaded(true);
+      setIsLoaded(true)
       if (onComplete) {
-        onComplete();
+        onComplete()
       }
     }
-  }, [onLoaded]);
+  }, [onLoaded])
 
   useEffect(() => {
     if (isLoaded) {
-      setHasTransition(false);
-      removeFromQueue(queueId);
+      setHasTransition(false)
+      removeFromQueue(queueId)
     }
-  }, [isLoaded, queueId]);
+  }, [isLoaded, queueId])
 
-  let dynamicClass = '';
+  let dynamicClass = ''
   if (!onVisible && !isVisible) {
-    dynamicClass = `${styles.animate} ${styles.transition}`;
+    dynamicClass = `${styles.animate} ${styles.transition}`
   } else if (!onVisible && isVisible && hasTransition === true) {
-    dynamicClass = `${styles.show} ${styles.transition}`;
+    dynamicClass = `${styles.show} ${styles.transition}`
   }
 
   return (
     <div ref={sectionRef} id={id} className={clsx(className, dynamicClass)}>
       {children}
     </div>
-  );
+  )
 }

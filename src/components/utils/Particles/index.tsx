@@ -1,14 +1,14 @@
-import { useSeason } from '@/utils/seasonTheme';
-import ParticlesDefault from '@/utils/particlesDefault';
-import ParticlesSnow from '@/utils/particlesSnow';
+import { useSeason } from '@/utils/seasonTheme'
+import ParticlesDefault from '@/utils/particlesDefault'
+import ParticlesSnow from '@/utils/particlesSnow'
 
 interface ParticlesProps {
-  id: string;
-  className?: string;
+  id: string
+  className?: string
 }
 
 const Particles = ({ id, className }: ParticlesProps) => {
-  const season = useSeason();
+  const season = useSeason()
 
   return (
     <>
@@ -19,7 +19,7 @@ const Particles = ({ id, className }: ParticlesProps) => {
         <ParticlesSnow id={id} className={className} />
       )}
     </>
-  );
-};
+  )
+}
 
-export default Particles;
+export default Particles

@@ -1,31 +1,31 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import clsx from 'clsx';
-import styles from './style.module.scss';
+import { useState } from 'react'
+import clsx from 'clsx'
+import styles from './style.module.scss'
 import Link from 'next/link'
-import { Svg, Buttons } from '@/components';
-import Animated from '@/components/utils/Animated';
-import { SectionProps } from '@/types/section';
+import { Svg, Buttons } from '@/components'
+import Animated from '@/components/utils/Animated'
+import { SectionProps } from '@/types/section'
 
 type TimelineItem = {
-  title: string;
-  subtitle: string;
-  logo: string;
-  link: string;
-  content?: string;
+  title: string
+  subtitle: string
+  logo: string
+  link: string
+  content?: string
 }
 
 type TimelineProps = {
-  item: TimelineItem;
+  item: TimelineItem
 }
 
 export const Timeline = ({ id, queueId }: SectionProps) => {
-  const [showText, setShowText] = useState(false);
-  const [hasTransition, setHasTransition] = useState(false);
-  const [onLoaded, setOnLoaded] = useState(false);
-  const [animatedCount, setAnimatedCount] = useState(0);
-  const [onStart, setOnStart] = useState(false);
+  const [showText, setShowText] = useState(false)
+  const [hasTransition, setHasTransition] = useState(false)
+  const [onLoaded, setOnLoaded] = useState(false)
+  const [animatedCount, setAnimatedCount] = useState(0)
+  const [onStart, setOnStart] = useState(false)
 
   const data = {
     id: 'timeline',
@@ -62,31 +62,31 @@ export const Timeline = ({ id, queueId }: SectionProps) => {
       link: 'https://www.mtc.co.uk/',
       content: '<p>While in mtc I have worked in many areas of the company from leading projects to dealing with aftercare for clients. I was able to work on complex projects early into joining the company without needing much assistance to mentoring newer members of staff.</p><p>I have dealt with hundreds of different websites and have the ability to work to tight deadlines without lowering quality. I have been able to work across multiple teams in the company and am quick to adapt to new situations.</p>',
     }]
-  };
+  }
 
   const handleVisibilityChange = (animate = true) => {
     if (animate == true) {
-      setHasTransition(true);
-      setShowText(true);
+      setHasTransition(true)
+      setShowText(true)
 
       setTimeout(() => {
-        setOnStart(true);
-      }, 600);
+        setOnStart(true)
+      }, 600)
     } else {
-      setOnLoaded(true);
+      setOnLoaded(true)
     }
-  };
+  }
 
   const handleCompleteChange = () => {
     setAnimatedCount((prevCount) => {
-      const newCount = prevCount + 1;
+      const newCount = prevCount + 1
   
       if (newCount === data.list.length) {
-        setOnLoaded(true);
-        setShowText(false);
+        setOnLoaded(true)
+        setShowText(false)
       }
   
-      return newCount;
+      return newCount
     })
   }
 

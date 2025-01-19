@@ -1,24 +1,24 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import Particles, { initParticlesEngine } from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim';
-import type { MoveDirection, OutMode } from '@tsparticles/engine';
+import React, { useEffect, useMemo, useState } from 'react'
+import Particles, { initParticlesEngine } from '@tsparticles/react'
+import { loadSlim } from '@tsparticles/slim'
+import type { MoveDirection, OutMode } from '@tsparticles/engine'
 
 interface ParticlesDefaultProps {
-  id: string;
-  className?: string;
+  id: string
+  className?: string
 }
 
 const ParticlesDefault = React.memo(
   ({ id, className }: ParticlesDefaultProps) => {
-    const [init, setInit] = useState(false);
+    const [init, setInit] = useState(false)
 
     useEffect(() => {
       initParticlesEngine(async (engine) => {
-        await loadSlim(engine);
+        await loadSlim(engine)
       }).then(() => {
-        setInit(true);
-      });
-    }, []);
+        setInit(true)
+      })
+    }, [])
 
     const options = useMemo(
       () => ({
@@ -64,16 +64,16 @@ const ParticlesDefault = React.memo(
         },
       }),
       []
-    );
+    )
 
     if (!init) {
-      return null;
+      return null
     }
 
-    return <Particles id={id} options={options} className={className} />;
+    return <Particles id={id} options={options} className={className} />
   }
-);
+)
 
-ParticlesDefault.displayName = 'ParticlesDefault';
+ParticlesDefault.displayName = 'ParticlesDefault'
 
-export default ParticlesDefault;
+export default ParticlesDefault

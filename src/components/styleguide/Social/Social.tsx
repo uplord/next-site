@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import Link from 'next/link'
-import clsx from 'clsx';
-import styles from './style.module.scss';
-import { Svg } from '@/components';
+import clsx from 'clsx'
+import styles from './style.module.scss'
+import { Svg } from '@/components'
 
 export const Social = ({ className = '' }) => {
   const data = [{

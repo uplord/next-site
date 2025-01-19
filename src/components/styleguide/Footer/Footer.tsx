@@ -1,37 +1,37 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import styles from './style.module.scss';
-import { Social } from '@/components';
-import Animated from '@/components/utils/Animated';
-import { SectionProps } from '@/types/section';
+import React, { useState } from 'react'
+import clsx from 'clsx'
+import styles from './style.module.scss'
+import { Social } from '@/components'
+import Animated from '@/components/utils/Animated'
+import { SectionProps } from '@/types/section'
 
 export const Footer = ({ id, queueId }: SectionProps) => {
-  const [showFooter, setShowFooter] = useState(false);
-  const [hasTransition, setHasTransition] = useState(false);
-  const [onLoaded, setOnLoaded] = useState(false);
+  const [showFooter, setShowFooter] = useState(false)
+  const [hasTransition, setHasTransition] = useState(false)
+  const [onLoaded, setOnLoaded] = useState(false)
 
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
   const handleVisibilityChange = (animate = true) => {
     if (animate == true) {
-      setHasTransition(true);
-      setShowFooter(true);
+      setHasTransition(true)
+      setShowFooter(true)
 
       setTimeout(() => {
-        setOnLoaded(true);
-        setShowFooter(false);
-      }, 600);
+        setOnLoaded(true)
+        setShowFooter(false)
+      }, 600)
     } else {
-      setOnLoaded(true);
+      setOnLoaded(true)
     }
-  };
+  }
 
   const Content = (
     <div className={styles.container}>
       <Social className={styles.social} />
-      <p>&copy; {currentYear} Michael Allen</p>
+      <p>&copy {currentYear} Michael Allen</p>
     </div>
   )
 

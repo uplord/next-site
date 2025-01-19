@@ -1,25 +1,25 @@
-'use client';
+'use client'
 
-import Image from 'next/image';
-import { useState } from 'react';
-import clsx from 'clsx';
-import styles from './style.module.scss';
-import { Buttons, Social } from '@/components';
-import Animated from '@/components/utils/Animated';
-import Particles from '@/components/utils/Particles';
-import { useBreakpoints } from '@/utils/useBreakpoints';
-import { useSeason } from '@/utils/seasonTheme';
-import { SectionProps } from '@/types/section';
+import Image from 'next/image'
+import { useState } from 'react'
+import clsx from 'clsx'
+import styles from './style.module.scss'
+import { Buttons, Social } from '@/components'
+import Animated from '@/components/utils/Animated'
+import Particles from '@/components/utils/Particles'
+import { useBreakpoints } from '@/utils/useBreakpoints'
+import { useSeason } from '@/utils/seasonTheme'
+import { SectionProps } from '@/types/section'
 
 export const Banner = ({ id, queueId }: SectionProps) => {
-  const breakpoints = useBreakpoints();
-  const [showImage, setShowImage] = useState(false);
-  const [showText, setShowText] = useState(false);
-  const [showMore, setShowMore] = useState(false);
-  const [hasTransition, setHasTransition] = useState(false);
-  const [onLoaded, setOnLoaded] = useState(false);
+  const breakpoints = useBreakpoints()
+  const [showImage, setShowImage] = useState(false)
+  const [showText, setShowText] = useState(false)
+  const [showMore, setShowMore] = useState(false)
+  const [hasTransition, setHasTransition] = useState(false)
+  const [onLoaded, setOnLoaded] = useState(false)
 
-  const season = useSeason();
+  const season = useSeason()
 
   const data = {
     title: '<span>Hi, I\'m Michael</span> A Front End Developer',
@@ -41,25 +41,25 @@ export const Banner = ({ id, queueId }: SectionProps) => {
       width: 500,
       height: 499,
     }
-  };
+  }
 
   const handleVisibilityChange = (animate = true) => {
     if (animate) {
-      setHasTransition(true);
-      setShowText(true);
-      setTimeout(() => setShowImage(true), 900);
-      setTimeout(() => setShowMore(true), 1500);
+      setHasTransition(true)
+      setShowText(true)
+      setTimeout(() => setShowImage(true), 900)
+      setTimeout(() => setShowMore(true), 1500)
 
       setTimeout(() => {
-        setOnLoaded(true);
-        setShowText(false);
-        setShowImage(false);
-        setShowMore(false);
-      }, 2400);
+        setOnLoaded(true)
+        setShowText(false)
+        setShowImage(false)
+        setShowMore(false)
+      }, 2400)
     } else {
-      setOnLoaded(true);
+      setOnLoaded(true)
     }
-  };
+  }
 
   const Content = (
     <>

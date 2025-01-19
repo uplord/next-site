@@ -1,24 +1,24 @@
-import { useState, useEffect } from 'react';
-import { useBreakpoints } from '@/utils/useBreakpoints';
+import { useState, useEffect } from 'react'
+import { useBreakpoints } from '@/utils/useBreakpoints'
 
 export function useScroll() {
-  const breakpoints = useBreakpoints();
+  const breakpoints = useBreakpoints()
 
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
+      setIsScrolled(window.scrollY > 0)
+    }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
-    handleScroll();
+    handleScroll()
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
-  return isScrolled;
+  return isScrolled
 }
