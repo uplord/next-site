@@ -8,6 +8,18 @@ import { Svg, Buttons } from '@/components';
 import Animated from '@/components/utils/Animated';
 import { SectionProps } from '@/types/section';
 
+type TimelineItem = {
+  title: string;
+  subtitle: string;
+  logo: string;
+  link: string;
+  content?: string;
+}
+
+type TimelineProps = {
+  item: TimelineItem;
+}
+
 export const Timeline = ({ id, queueId }: SectionProps) => {
   const [showText, setShowText] = useState(false);
   const [hasTransition, setHasTransition] = useState(false);
@@ -78,16 +90,18 @@ export const Timeline = ({ id, queueId }: SectionProps) => {
     })
   }
 
-  const ListContent = ({ item }) => (
+  const ListContent = ({ item }: TimelineProps) => (
     <>
       <h4>{item.title}</h4>
       <h3>{item.subtitle}</h3>
       <Link href={item.link} target="_blank">
         <Svg name={item.logo} height={32} />
       </Link>
+      {item.content && (
       <div className={styles.content}
         dangerouslySetInnerHTML={{ __html: item.content }}
       ></div>
+      )}
     </>
   )
 
