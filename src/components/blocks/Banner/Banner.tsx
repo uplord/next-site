@@ -7,41 +7,14 @@ import styles from './style.module.scss'
 import { Buttons, Social } from '@/components'
 import Animated from '@/components/utils/Animated'
 import Particles from '@/components/utils/Particles'
-import { useBreakpoints } from '@/utils/useBreakpoints'
-import { useSeason } from '@/utils/seasonTheme'
-import { SectionProps } from '@/types/section'
+import { BannerProps } from '@/types/section'
 
-export const Banner = ({ id, queueId }: SectionProps) => {
-  const breakpoints = useBreakpoints()
+export const Banner = ({ id, queueId, data }: BannerProps) => {
   const [showImage, setShowImage] = useState(false)
   const [showText, setShowText] = useState(false)
   const [showMore, setShowMore] = useState(false)
   const [hasTransition, setHasTransition] = useState(false)
   const [onLoaded, setOnLoaded] = useState(false)
-
-  const season = useSeason()
-
-  const data = {
-    title: '<span>Hi, I\'m Michael</span> A Front End Developer',
-    subtitle: 'With 9 years in the industry creating websites',
-    buttons: [{
-      title: 'Get in touch',
-      link: 'mailto:michael@uplord.co.uk',
-      class: 'primary large',
-    },{
-      title: 'Download CV',
-      link: '/michael-allen-cv.pdf',
-      class: 'link large',
-      target: '_blank',
-    }],
-    image: {
-      src: season == 'xmas' ? '/images/me-santa.png' : '/images/me.jpeg',
-      alt: 'Hi, I\'m Michael',
-      sizes: `(max-width: ${breakpoints.md - 1}px) 140px, 500px`,
-      width: 500,
-      height: 499,
-    }
-  }
 
   const handleVisibilityChange = (animate = true) => {
     if (animate) {
@@ -93,7 +66,9 @@ export const Banner = ({ id, queueId }: SectionProps) => {
           )}>
             <h1 dangerouslySetInnerHTML={{ __html: data.title }}></h1>
             <h2>{data.subtitle}</h2>
-            <Buttons data={data.buttons} className={styles.buttons} />
+            {data.buttons && (
+              <Buttons data={data.buttons} className={styles.buttons} />
+            )}
           </div>
           <div className={clsx(
             styles.viewMore,

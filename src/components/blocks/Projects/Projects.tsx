@@ -3,27 +3,9 @@ import Image from 'next/image'
 import { Svg } from '@/components'
 import Animated from '@/components/utils/Animated'
 import { useBreakpoints } from '@/utils/useBreakpoints'
-import { SectionProps } from '@/types/section'
+import { ProjectsProps } from '@/types/section'
 
-const data = {
-  title: 'Projects I\'ve worked on',
-  list: [
-    { type: 'svg', name: 'brewdog', tooltip: 'Brewdog' },
-    { type: 'svg', name: 'gdk', tooltip: 'German Doner Kebab' },
-    { type: 'svg', name: 'subway', tooltip: 'Subway' },
-    { type: 'svg', name: 'umbro', tooltip: 'Umbro' },
-    { type: 'svg', name: 'superga', tooltip: 'Superga' },
-    { type: 'svg', name: 'dundeeunited', tooltip: 'Dundee United Football Club' },
-    { type: 'svg', name: 'hungrrr', tooltip: 'Hungrrr' },
-    { type: 'svg', name: 'snappy', tooltip: 'Snappy Shopper' },
-    { type: 'svg', name: 'macdonalds', tooltip: 'Macdonald Hotels & Resorts' },
-    { type: 'svg', name: 'campbells', tooltip: 'Campbells Meat' },
-    { type: 'image', src: '/images/petervardy.png', alt: 'Peter Vardy', tooltip: 'Peter Vardy' },
-    { type: 'image', src: '/images/carmoney.png', alt: 'CarMoney', tooltip: 'CarMoney' },
-  ]
-}
-
-export const Projects = ({ id, queueId }: SectionProps) => {
+export const Projects = ({ id, queueId, data }: ProjectsProps) => {
   const breakpoints = useBreakpoints()
 
   const Content = (

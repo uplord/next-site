@@ -5,9 +5,9 @@ import clsx from 'clsx'
 import styles from './style.module.scss'
 import { Social } from '@/components'
 import Animated from '@/components/utils/Animated'
-import { SectionProps } from '@/types/section'
+import { DefaultProps } from '@/types/section'
 
-export const Footer = ({ id, queueId }: SectionProps) => {
+export const Footer = ({ id, queueId }: DefaultProps) => {
   const [showFooter, setShowFooter] = useState(false)
   const [hasTransition, setHasTransition] = useState(false)
   const [onLoaded, setOnLoaded] = useState(false)

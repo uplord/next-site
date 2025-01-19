@@ -6,36 +6,15 @@ import clsx from 'clsx'
 import styles from './style.module.scss'
 import { Buttons } from '@/components'
 import Animated from '@/components/utils/Animated'
-import { useBreakpoints, isBreakpoint } from '@/utils/useBreakpoints'
+import { isBreakpoint } from '@/utils/useBreakpoints'
 import { SectionProps } from '@/types/section'
 
-export const Section = ({ id, queueId }: SectionProps) => {
-  const breakpoints = useBreakpoints()
+
+export const Section = ({ id, queueId, data }: SectionProps) => {
   const [showImage, setShowImage] = useState(false)
   const [showText, setShowText] = useState(false)
   const [hasTransition, setHasTransition] = useState(false)
   const [onLoaded, setOnLoaded] = useState(false)
-
-  const data = {
-    title: 'About Michael Allen',
-    subtitle: 'Front End Development',
-    content:
-      `I'm an experienced Front End Developer with excellent collaboration, organization, and teamwork skills. Passionate about developing in HTML, CSS, and JavaScript and always open to exploring new technologies. Over the last 9 years, I've worked with various clients, helping me hone my analytical, debugging, and problem-solving skills to create exceptional websites.`,
-    buttons: [
-      {
-        title: 'Get in touch',
-        link: 'mailto:michael@uplord.co.uk',
-        class: 'primary',
-      },
-    ],
-    image: {
-      src: '/images/me.png',
-      alt: 'Michael Allen',
-      sizes: `(max-width: ${breakpoints.md - 1}px) 240px, 500px`,
-      width: 500,
-      height: 617,
-    },
-  }
 
   const handleVisibilityChange = (animate = true) => {
     if (animate) {
@@ -99,7 +78,9 @@ export const Section = ({ id, queueId }: SectionProps) => {
           <h3>{data.title}</h3>
           <h2>{data.subtitle}</h2>
           <p>{data.content}</p>
-          <Buttons data={data.buttons} className={styles.buttons} />
+          {data.buttons && (
+            <Buttons data={data.buttons} className={styles.buttons} />
+          )}
         </div>
       </div>
     </div>
