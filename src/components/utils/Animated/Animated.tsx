@@ -47,7 +47,7 @@ export const Animated = ({ children, queueId, id = '', className = '', onStart =
   useEffect(() => {
     if (onStart) {
       const observer = new IntersectionObserver(handleIntersection, {
-        rootMargin: '0% 0% 0% 0%',
+        rootMargin: '0% 0% -100px 0%',
         threshold: 0,
       })
       if (sectionRef.current) {

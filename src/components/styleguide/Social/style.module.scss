@@ -18,6 +18,10 @@
       }
     }
 
+    &:focus {
+      transform: scale(1);
+    }
+
     @media (min-width: vars.$breakpoint-xl) {
       padding: 1rem;
     }

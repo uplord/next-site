@@ -43,6 +43,10 @@
         transform: scale(1.07);
       }
     }
+
+    &:focus {
+      transform: scale(1);
+    }
   }
 }
 
@@ -112,6 +116,10 @@
           color: vars.$color-nav-hover-text-dark;
         }
       }
+    }
+
+    &:focus {
+      transform: scale(1);
     }
 
     &:nth-child(1) {

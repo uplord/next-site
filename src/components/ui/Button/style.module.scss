@@ -26,6 +26,10 @@
     }
   }
 
+  &:focus {
+    transform: scale(1);
+  }
+
   @media (min-width: vars.$breakpoint-xl) {
     font-size: 1.125rem;
     padding: 0.75rem 2rem;

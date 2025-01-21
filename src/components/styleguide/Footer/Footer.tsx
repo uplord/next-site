@@ -31,7 +31,7 @@ export const Footer = ({ id, queueId }: DefaultProps) => {
   const Content = (
     <div className={styles.container}>
       <Social className={styles.social} />
-      <p>&copy {currentYear} Michael Allen</p>
+      <p>&copy; {currentYear} Michael Allen</p>
     </div>
   )
 
