@@ -24,7 +24,7 @@ export const Stack = ({ id, queueId, data }: StackProps) => {
     </div>
   )
 
-  if (queueId) {
+  if (queueId != null) {
     return (
       <Animated id={id} queueId={queueId} className={styles.stack}>
         {Content}

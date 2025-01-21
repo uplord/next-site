@@ -41,9 +41,9 @@ export const Banner = ({ id, queueId, data }: BannerProps) => {
         <div className={styles.content}>
           <div className={clsx(
             styles.image,
-            queueId && onLoaded !== true ? styles.animate : '',
-            queueId && hasTransition === true && onLoaded !== true  ? styles.transition : '',
-            queueId && showImage ? styles.show : ''
+            queueId != null && onLoaded !== true ? styles.animate : '',
+            queueId != null && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+            queueId != null && showImage ? styles.show : ''
           )}>
             <div className={styles.imageWrap}>
               <Image
@@ -60,9 +60,9 @@ export const Banner = ({ id, queueId, data }: BannerProps) => {
           </div>
           <div className={clsx(
             styles.text,
-            queueId && onLoaded !== true ? styles.animate : '',
-            queueId && hasTransition === true && onLoaded !== true  ? styles.transition : '',
-            queueId && showText ? styles.show : ''
+            queueId != null && onLoaded !== true ? styles.animate : '',
+            queueId != null && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+            queueId != null && showText ? styles.show : ''
           )}>
             <h1 dangerouslySetInnerHTML={{ __html: data.title }}></h1>
             <h2>{data.subtitle}</h2>
@@ -72,16 +72,16 @@ export const Banner = ({ id, queueId, data }: BannerProps) => {
           </div>
           <div className={clsx(
             styles.viewMore,
-            queueId && onLoaded !== true ? styles.animate : '',
-            queueId && hasTransition === true && onLoaded !== true  ? styles.transition : '',
-            queueId && showMore ? styles.show : ''
+            queueId != null && onLoaded !== true ? styles.animate : '',
+            queueId != null && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+            queueId != null && showMore ? styles.show : ''
           )}></div>
         </div>
       </div>
     </>
   )
 
-  if (queueId) {
+  if (queueId != null) {
     return (
       <Animated 
         id={id}

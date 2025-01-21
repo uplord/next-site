@@ -54,7 +54,7 @@ export const Projects = ({ id, queueId, data }: ProjectsProps) => {
     </div>
   )
 
-  if (queueId) {
+  if (queueId != null) {
     return (
       <Animated id={id} queueId={queueId} className={styles.projects}>
         {Content}

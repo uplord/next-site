@@ -50,9 +50,9 @@ export const Section = ({ id, queueId, data }: SectionProps) => {
         <div
           className={clsx(
             styles.image,
-            queueId && onLoaded !== true ? styles.animate : '',
-            queueId && hasTransition === true && onLoaded !== true ? styles.transition : '',
-            queueId && showImage ? styles.show : ''
+            queueId != null && onLoaded !== true ? styles.animate : '',
+            queueId != null && hasTransition === true && onLoaded !== true ? styles.transition : '',
+            queueId != null && showImage ? styles.show : ''
           )}
         >
           <div className={styles.imageWrap}>
@@ -70,9 +70,9 @@ export const Section = ({ id, queueId, data }: SectionProps) => {
         <div
           className={clsx(
             styles.text,
-            queueId && onLoaded !== true ? styles.animate : '',
-            queueId && hasTransition === true && onLoaded !== true ? styles.transition : '',
-            queueId && showText ? styles.show : ''
+            queueId != null && onLoaded !== true ? styles.animate : '',
+            queueId != null && hasTransition === true && onLoaded !== true ? styles.transition : '',
+            queueId != null && showText ? styles.show : ''
           )}
         >
           <h3>{data.title}</h3>
@@ -86,7 +86,7 @@ export const Section = ({ id, queueId, data }: SectionProps) => {
     </div>
   )
 
-  if (queueId) {
+  if (queueId != null) {
     return (
       <Animated
         id={id}

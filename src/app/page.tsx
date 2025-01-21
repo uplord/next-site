@@ -9,7 +9,6 @@ import timelineData from '@/data/timeline.json'
 import stackData from '@/data/stack.json'
 
 export default function Home() {
-  const breakpoints = useBreakpoints()
 
   return (
     <div className={styles.page}>

@@ -61,7 +61,7 @@ export const Timeline = ({ id, queueId, data }: TimelineProps) => {
       <div className={styles.content}>
         <div className={styles.list}>
           {data.list.map((item, index) => (
-            queueId ? (
+            queueId != null ? (
               <Animated
                 key={index}
                 queueId={index}
@@ -84,9 +84,9 @@ export const Timeline = ({ id, queueId, data }: TimelineProps) => {
         </div>
         <div className={clsx(
           styles.text,
-          queueId && onLoaded !== true ? styles.animate : '',
-          queueId && hasTransition === true && onLoaded !== true  ? styles.transition : '',
-          queueId && showText ? styles.show : ''
+          queueId != null && onLoaded !== true ? styles.animate : '',
+          queueId != null && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+          queueId != null && showText ? styles.show : ''
         )}>
           <h3>{data.title}</h3>
           <h2>{data.subtitle}</h2>
@@ -101,7 +101,7 @@ export const Timeline = ({ id, queueId, data }: TimelineProps) => {
     </div>
   )
 
-  if (queueId) {
+  if (queueId != null) {
     return (
       <Animated
         id={id}
