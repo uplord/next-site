@@ -15,7 +15,7 @@ export const Footer = ({ id, queueId }: DefaultProps) => {
   const currentYear = new Date().getFullYear()
 
   const handleVisibilityChange = (animate = true) => {
-    if (animate == true) {
+    if (animate) {
       setHasTransition(true)
       setShowFooter(true)
 
@@ -35,26 +35,22 @@ export const Footer = ({ id, queueId }: DefaultProps) => {
     </div>
   )
 
-  if (queueId) {
-    return (
-      <Animated
-        id={id}
-        queueId={queueId}
-        className={clsx(
-          styles.footer,
-          !onLoaded ? styles.animate : '',
-          hasTransition && !onLoaded  ? styles.transition : '',
-          showFooter ? styles.show : ''
-        )}
-        onVisible={handleVisibilityChange}
-        onLoaded={onLoaded}
-      >
-        {Content}
-      </Animated>
-    )
-  }
-
-  return (
+  return queueId != null ? (
+    <Animated
+      id={id}
+      queueId={queueId}
+      className={clsx(
+        styles.footer,
+        !onLoaded && styles.animate,
+        hasTransition && !onLoaded  && styles.transition,
+        showFooter && styles.show
+      )}
+      onVisible={handleVisibilityChange}
+      onLoaded={onLoaded}
+    >
+      {Content}
+    </Animated>
+  ) : (
     <div id={id} className={styles.footer}>
       {Content}
     </div>

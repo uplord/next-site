@@ -49,9 +49,9 @@ export const Section = ({ id, queueId, data }: SectionProps) => {
         <div
           className={clsx(
             styles.image,
-            queueId != null && !onLoaded ? styles.animate : '',
-            queueId != null && hasTransition && !onLoaded ? styles.transition : '',
-            queueId != null && showImage ? styles.show : ''
+            queueId != null && !onLoaded && styles.animate,
+            queueId != null && hasTransition && !onLoaded && styles.transition,
+            queueId != null && showImage && styles.show
           )}
         >
           <div className={styles.imageWrap}>
@@ -69,9 +69,9 @@ export const Section = ({ id, queueId, data }: SectionProps) => {
         <div
           className={clsx(
             styles.text,
-            queueId != null && !onLoaded ? styles.animate : '',
-            queueId != null && hasTransition && !onLoaded ? styles.transition : '',
-            queueId != null && showText ? styles.show : ''
+            queueId != null && !onLoaded && styles.animate,
+            queueId != null && hasTransition && !onLoaded && styles.transition,
+            queueId != null && showText && styles.show
           )}
         >
           <h3>{data.title}</h3>
@@ -85,21 +85,17 @@ export const Section = ({ id, queueId, data }: SectionProps) => {
     </div>
   )
 
-  if (queueId != null) {
-    return (
-      <Animated
-        id={id}
-        queueId={queueId}
-        className={styles.section}
-        onVisible={handleVisibilityChange}
-        onLoaded={onLoaded}
-      >
-        {Content}
-      </Animated>
-    )
-  }
-
-  return (
+  return queueId != null ? (
+    <Animated
+      id={id}
+      queueId={queueId}
+      className={styles.section}
+      onVisible={handleVisibilityChange}
+      onLoaded={onLoaded}
+    >
+      {Content}
+    </Animated>
+  ) : (
     <div id={id} className={styles.section}>
       {Content}
     </div>

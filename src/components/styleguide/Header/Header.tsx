@@ -18,7 +18,7 @@ export const Header = ({ className, home = false }: HeaderProps) => {
   const isScrolled = useScroll()
 
   return (
-    <div className={clsx(styles.header, isScrolled || !home ? styles.scrolled : '', className, home == true && styles.home )}>
+    <div className={clsx(styles.header, isScrolled || !home && styles.scrolled, className, home && styles.home )}>
       <Particles id="particles-header" className={styles.particles} />
       <div className={styles.container}>
         <Logo className={styles.logo} />

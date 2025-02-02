@@ -85,9 +85,9 @@ export const Timeline = ({ id, queueId, data }: TimelineProps) => {
         </div>
         <div className={clsx(
           styles.text,
-          queueId != null && !onLoaded ? styles.animate : '',
-          queueId != null && hasTransition && !onLoaded  ? styles.transition : '',
-          queueId != null && showText ? styles.show : ''
+          queueId != null && !onLoaded && styles.animate,
+          queueId != null && hasTransition && !onLoaded && styles.transition,
+          queueId != null && showText && styles.show
         )}>
           <h3>{data.title}</h3>
           <h2>{data.subtitle}</h2>
@@ -102,25 +102,18 @@ export const Timeline = ({ id, queueId, data }: TimelineProps) => {
     </div>
   )
 
-  if (queueId != null) {
-    return (
-      <Animated
-        id={id}
-        queueId={queueId}
-        onVisible={handleVisibilityChange}
-        onLoaded={onLoaded}
-        className={styles.timeline}
-      >
-        {Content}
-      </Animated>
-    )
-  }
-
-  return (
-    <div
+  return queueId != null ? (
+    <Animated
       id={id}
+      queueId={queueId}
+      onVisible={handleVisibilityChange}
+      onLoaded={onLoaded}
       className={styles.timeline}
     >
+      {Content}
+    </Animated>
+  ) : (
+    <div id={id} className={styles.timeline}>
       {Content}
     </div>
   )

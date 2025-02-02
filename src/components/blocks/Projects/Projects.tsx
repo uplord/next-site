@@ -53,15 +53,11 @@ export const Projects = ({ id, queueId, data }: ProjectsProps) => {
     </div>
   )
 
-  if (queueId != null) {
-    return (
-      <Animated id={id} queueId={queueId} className={styles.projects}>
-        {Content}
-      </Animated>
-    )
-  }
-
-  return (
+  return queueId != null ? (
+    <Animated id={id} queueId={queueId} className={styles.projects}>
+      {Content}
+    </Animated>
+  ) : (
     <div id={id} className={styles.projects}>
       {Content}
     </div>

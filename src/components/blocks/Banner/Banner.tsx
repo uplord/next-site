@@ -42,9 +42,9 @@ export const Banner = ({ id, queueId, data }: BannerProps) => {
         <div className={styles.content}>
           <div className={clsx(
             styles.image,
-            queueId != null && !onLoaded ? styles.animate : '',
-            queueId != null && hasTransition && !onLoaded ? styles.transition : '',
-            queueId != null && showImage ? styles.show : ''
+            queueId != null && !onLoaded && styles.animate,
+            queueId != null && hasTransition && !onLoaded && styles.transition,
+            queueId != null && showImage && styles.show
           )}>
             <div className={styles.imageWrap}>
               <Image
@@ -61,9 +61,9 @@ export const Banner = ({ id, queueId, data }: BannerProps) => {
           </div>
           <div className={clsx(
             styles.text,
-            queueId != null && !onLoaded ? styles.animate : '',
-            queueId != null && hasTransition && !onLoaded ? styles.transition : '',
-            queueId != null && showText ? styles.show : ''
+            queueId != null && !onLoaded && styles.animate,
+            queueId != null && hasTransition && !onLoaded && styles.transition,
+            queueId != null && showText && styles.show
           )}>
             <h1 dangerouslySetInnerHTML={{ __html: data.title }} />
             <h2>{data.subtitle}</h2>
@@ -71,30 +71,26 @@ export const Banner = ({ id, queueId, data }: BannerProps) => {
           </div>
           <div className={clsx(
             styles.viewMore,
-            queueId != null && !onLoaded ? styles.animate : '',
-            queueId != null && hasTransition && !onLoaded ? styles.transition : '',
-            queueId != null && showMore ? styles.show : ''
+            queueId != null && !onLoaded && styles.animate,
+            queueId != null && hasTransition && !onLoaded && styles.transition,
+            queueId != null && showMore && styles.show
           )} />
         </div>
       </div>
     </>
   )
 
-  if (queueId != null) {
-    return (
-      <Animated 
-        id={id}
-        queueId={queueId} 
-        className={styles.banner} 
-        onVisible={handleVisibilityChange}
-        onLoaded={onLoaded}
-      >
-        {Content}
-      </Animated>
-    )
-  }
-
-  return (
+  return queueId != null ? (
+    <Animated 
+      id={id}
+      queueId={queueId} 
+      className={styles.banner} 
+      onVisible={handleVisibilityChange}
+      onLoaded={onLoaded}
+    >
+      {Content}
+    </Animated>
+  ) : (
     <div id={id} className={styles.banner}>
       {Content}
     </div>

@@ -23,15 +23,11 @@ export const Stack = ({ id, queueId, data }: StackProps) => {
     </div>
   )
 
-  if (queueId != null) {
-    return (
-      <Animated id={id} queueId={queueId} className={styles.stack}>
-        {Content}
-      </Animated>
-    )
-  }
-
-  return (
+  return queueId != null ? (
+    <Animated id={id} queueId={queueId} className={styles.stack}>
+      {Content}
+    </Animated>
+  ) : (
     <div id={id} className={styles.stack}>
       {Content}
     </div>
