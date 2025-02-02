@@ -1,17 +1,14 @@
-@use '@/styles/variables' as vars;
-@use '@/styles/mixins' as mixins;
-
 .logo {
-  font-family: vars.$font-heading;
+  font-family: $font-heading;
   font-size: 1.25rem;
   font-weight: bold;
   color: #FFF;
 
-  @include mixins.dark-mode {
-    color: vars.$color-heading-dark;
+  @include dark-mode {
+    color: $color-heading-dark;
   }
 
-  @media (min-width: vars.$breakpoint-xl) {
+  @media (min-width: $breakpoint-xl) {
     font-size: 1.5rem;
   }
 
@@ -19,7 +16,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: vars.$color-primary;
+    background: $color-primary;
     color: #FFF;
     font-size: 1.625rem;
     width: 2.5rem;
@@ -27,7 +24,7 @@
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     margin-right: 0.5rem;
 
-    @media (min-width: vars.$breakpoint-xl) {
+    @media (min-width: $breakpoint-xl) {
       font-size: 1.75rem;
       width: 3rem;
       height: 3rem;

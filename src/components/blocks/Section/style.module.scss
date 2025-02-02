@@ -1,33 +1,30 @@
-@use '@/styles/variables' as vars;
-@use '@/styles/mixins' as mixins;
-
 .section {
   display: block;
   text-align: left;
   scroll-margin-top: 110px;
 
-  @media (min-width: vars.$breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     text-align: left;
   }
 
-  @media (min-width: vars.$breakpoint-xl) {
+  @media (min-width: $breakpoint-xl) {
     scroll-margin-top: 136px;
   }
 }
 
 .container {
-  @include mixins.container;
+  @include container;
 }
 
 .content {
   display: grid;
   gap: 1.5rem;
 
-  @media (min-width: vars.$breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  @media (min-width: vars.$breakpoint-md) and (max-width: vars.$breakpoint-lg - 1)  {
+  @media (min-width: $breakpoint-md)  {
     gap: 2rem;
   }
 
@@ -41,18 +38,18 @@
   &.animate img {
     opacity: 0;
 
-    @media (max-width: vars.$breakpoint-md - 1) {
+    @media (max-width: $breakpoint-md - 1) {
       transform: translateY(100px);
     }
   }
 
   &.transition img {
     
-    @media (max-width: vars.$breakpoint-md - 1) {
+    @media (max-width: $breakpoint-md - 1) {
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    @media (min-width: vars.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       animation-duration: 0.6s;
     }
   }
@@ -60,11 +57,11 @@
   &.show img {
     opacity: 1;
 
-    @media (max-width: vars.$breakpoint-md - 1) {
+    @media (max-width: $breakpoint-md - 1) {
       transform: translateY(0);
     }
 
-    @media (min-width: vars.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       animation-fill-mode: forwards;
       animation-name: slideRight;
     }
@@ -76,7 +73,7 @@
     width: 100%;
     max-width: 240px;
 
-    @media (min-width: vars.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       justify-content: center;
       max-width: 100%;
     }
@@ -85,7 +82,7 @@
   img {
     border-radius: 1rem;
 
-    @media (min-width: vars.$breakpoint-xl) {
+    @media (min-width: $breakpoint-xl) {
       width: 640px;
     }
   }
@@ -97,7 +94,7 @@
   flex-direction: column;
   gap: 0.5rem;
 
-  @media (min-width: vars.$breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     gap: 1rem;
   }
 
@@ -116,34 +113,30 @@
   }
 
   h2 {
-    @include mixins.heading2;
+    @include heading2;
 
-    & {
-      color: vars.$color-heading;
-    }
+    color: $color-heading;
 
-    @include mixins.dark-mode {
-      color: vars.$color-heading-dark;
+    @include dark-mode {
+      color: $color-heading-dark;
     }
   }
 
   h3 {
-    @include mixins.heading3;
+    @include heading3;
 
-    & {
-      color: vars.$color-primary;
-    }
+    color: $color-primary;
   }
 
   p {
-    @include mixins.paragraph;
+    @include paragraph;
   }
 
   .buttons {
     justify-content: flex-start;
     margin-top: 0.5rem;
 
-    @media (min-width: vars.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       justify-content: flex-start;
       margin-top: 0;
     }

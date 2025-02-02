@@ -1,6 +1,3 @@
-@use '@/styles/variables' as vars;
-@use '@/styles/mixins' as mixins;
-
 .header {
   position: sticky;
   top: 0;
@@ -9,19 +6,19 @@
   &.home {
     margin-bottom: -78px;
 
-    @media (min-width: vars.$breakpoint-xl) {
+    @media (min-width: $breakpoint-xl) {
       margin-bottom: -104px;
     }
   }
 
 
   &.scrolled {
-    background: vars.$color-header;
+    background: $color-header;
     border-bottom: 1px solid transparent;
 
-    @include mixins.dark-mode {
-      background: vars.$color-header-dark;
-      border-color: vars.$color-border-dark;
+    @include dark-mode {
+      background: $color-header-dark;
+      border-color: $color-border-dark;
     }
 
     .particles {
@@ -34,7 +31,7 @@
     margin: 1.1875rem auto 1.1875rem 0;
     transition: transform 0.3s ease;
 
-    @media (min-width: vars.$breakpoint-xl) {
+    @media (min-width: $breakpoint-xl) {
       margin: 1.6875rem auto 1.6875rem 0;
     }
 
@@ -51,28 +48,28 @@
 }
 
 .container {
-  @include mixins.container;
+  @include container;
 }
 
 .navigation {
   position: relative;
   display: none;
   align-items: center;
-  background: vars.$color-nav;
+  background: $color-nav;
   border-radius: 23px;
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-right: auto;
 
-  @include mixins.dark-mode {
-    background: vars.$color-nav-dark;
+  @include dark-mode {
+    background: $color-nav-dark;
   }
 
-  @media (min-width: vars.$breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     display: flex;
   }
 
-  @media (min-width: vars.$breakpoint-xl) {
+  @media (min-width: $breakpoint-xl) {
     border-radius: 28px;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -82,23 +79,23 @@
     display: flex;
     align-items: center;
     border-radius: 23px;
-    color: vars.$color-nav-text;
+    color: $color-nav-text;
     height: 46px;
     line-height: 1.25rem;
     padding: 0.75rem 1rem;
     margin: 0 0.25rem;
     transition: all 0.3s;
 
-    @include mixins.dark-mode {
-      color: vars.$color-nav-text-dark;
+    @include dark-mode {
+      color: $color-nav-text-dark;
     }
 
-    @media (min-width: vars.$breakpoint-lg) {
+    @media (min-width: $breakpoint-lg) {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
 
-    @media (min-width: vars.$breakpoint-xl) {
+    @media (min-width: $breakpoint-xl) {
       border-radius: 28px;
       height: 56px;
       font-size: 1.125rem;
@@ -107,13 +104,13 @@
 
     @media (hover: hover) {
       &:hover {
-        background: vars.$color-nav-hover;
-        color: vars.$color-nav-hover-text;
+        background: $color-nav-hover;
+        color: $color-nav-hover-text;
         transform: scale(1.05);
 
-        @include mixins.dark-mode {
-          background: vars.$color-nav-hover-dark;
-          color: vars.$color-nav-hover-text-dark;
+        @include dark-mode {
+          background: $color-nav-hover-dark;
+          color: $color-nav-hover-text-dark;
         }
       }
     }
@@ -125,13 +122,13 @@
     &:nth-child(1) {
       margin-left: 0;
 
-      @media (max-width: vars.$breakpoint-lg - 1) {
+      @media (max-width: $breakpoint-lg - 1) {
         display: none;
       }
     }
 
     &:nth-child(2) {
-      @media (max-width: vars.$breakpoint-lg - 1) {
+      @media (max-width: $breakpoint-lg - 1) {
         margin-left: 0;
       }
     }

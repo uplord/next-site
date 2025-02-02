@@ -1,12 +1,9 @@
-@use '@/styles/variables' as vars;
-@use '@/styles/mixins' as mixins;
-
 .social {
   display: flex;
   gap: 1.5rem;
 
   a {
-    background: vars.$color-primary;
+    background: $color-primary;
     color: #fff;
     padding: 0.5rem;
     border-radius: 0 0.5rem 0.5rem 0.5rem;
@@ -22,7 +19,7 @@
       transform: scale(1);
     }
 
-    @media (min-width: vars.$breakpoint-xl) {
+    @media (min-width: $breakpoint-xl) {
       padding: 1rem;
     }
 
@@ -30,7 +27,7 @@
       background: #0077b5;
 
       :global(#banner) & {
-        @include mixins.light-mode {
+        @include light-mode {
           background: #FFF;
           color: #0077b5;
         }
@@ -42,12 +39,12 @@
     }
 
     &.github {
-      background: vars.$color-svg;
-      color: vars.$color-svg-dark;
+      background: $color-svg;
+      color: $color-svg-dark;
 
-      @include mixins.dark-mode {
-        background: vars.$color-svg-dark;
-        color: vars.$color-svg;
+      @include dark-mode {
+        background: $color-svg-dark;
+        color: $color-svg;
       }
     }
   }
@@ -56,7 +53,7 @@
     width: 24px;
     height: auto;
 
-    @media (min-width: vars.$breakpoint-xl) {
+    @media (min-width: $breakpoint-xl) {
       width: 30px;
     }
   }

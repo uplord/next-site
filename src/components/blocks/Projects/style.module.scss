@@ -1,32 +1,27 @@
-@use '@/styles/variables' as vars;
-@use '@/styles/mixins' as mixins;
-
 .projects {
   scroll-margin-top: 110px;
 
-  @media (min-width: vars.$breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     text-align: center;
   }
 
-  @media (min-width: vars.$breakpoint-xl) {
+  @media (min-width: $breakpoint-xl) {
     scroll-margin-top: 136px;
   }
 
   h2 {
-    @include mixins.heading2;
+    @include heading2;
 
-    & {
-      color: vars.$color-heading;
-    }
+    color: $color-heading;
 
-    @include mixins.dark-mode {
-      color: vars.$color-heading-dark;
+    @include dark-mode {
+      color: $color-heading-dark;
     }
   }
 }
 
 .container {
-  @include mixins.container;
+  @include container;
 }
 
 .content {
@@ -40,7 +35,7 @@
   margin: 0 -1rem;
   padding: 0 1rem;
 
-  @media (max-width: vars.$breakpoint-md - 1) {
+  @media (max-width: $breakpoint-md - 1) {
     display: grid;
     grid-template-columns: repeat(6, calc(100% / 2.5));
     grid-auto-rows: 1fr;
@@ -49,7 +44,7 @@
     scroll-snap-type: x mandatory;
   }
 
-  @media (min-width: vars.$breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -71,29 +66,29 @@
   display: flex;
   border-radius: 1rem;
   border: 1px solid transparent;
-  background: vars.$color-block;
-  color: vars.$color-svg;
+  background: $color-block;
+  color: $color-svg;
   aspect-ratio: 3/2;
 
-  @include mixins.dark-mode {
-    border-color: vars.$color-border-dark;
-    background: vars.$color-block-dark;
-    color: vars.$color-svg-dark;
+  @include dark-mode {
+    border-color: $color-border-dark;
+    background: $color-block-dark;
+    color: $color-svg-dark;
   }
 
-  @media (max-width: vars.$breakpoint-md - 1) {
+  @media (max-width: $breakpoint-md - 1) {
     scroll-snap-align: center;
   }
 
-  @media (min-width: vars.$breakpoint-md) and (max-width: vars.$breakpoint-lg - 1) {
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
     width: calc(33.3% - 0.75rem);
   }
 
-  @media (min-width: vars.$breakpoint-lg) and (max-width: vars.$breakpoint-xl - 1) {
+  @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl - 1) {
     width: calc(25% - 1.5rem);
   }
 
-  @media (min-width: vars.$breakpoint-xl) {
+  @media (min-width: $breakpoint-xl) {
     width: calc(20% - 1.6rem);
   }
 
@@ -109,7 +104,7 @@
     height: 100%;
 
     &[data-tooltip] {
-      @include mixins.toolbar;
+      @include toolbar;
     }
   }
 
@@ -127,7 +122,7 @@
   margin-top: -1rem;
   opacity: 0.75;
 
-  @media (min-width: vars.$breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     display: none;
   }
 

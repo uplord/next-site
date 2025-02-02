@@ -1,18 +1,16 @@
-@use './normalize' as *;
-@use './variables' as vars;
-@use './mixins' as mixins;
+@import './normalize';
 
 html {
   overflow-y: scroll;
 }
 
 body {
-  background: vars.$color-bg;
-  color: vars.$color-text;
-  font-family: vars.$font-body;
+  background: $color-bg;
+  color: $color-text;
+  font-family: $font-body;
 
-  @include mixins.dark-mode {
-    background: vars.$color-bg-dark;
-    color: vars.$color-text-dark;
+  @include dark-mode {
+    background: $color-bg-dark;
+    color: $color-text-dark;
   }
 }

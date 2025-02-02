@@ -1,6 +1,3 @@
-@use "@/styles/variables" as vars;
-@use "@/styles/mixins" as mixins;
-
 .error {
   .content {
     position: relative;
@@ -16,24 +13,24 @@
   }
 
   .logo {
-    color: vars.$color-heading;
+    color: $color-heading;
   }
 
   h1 {
-    font-family: vars.$font-heading;
-    color: vars.$color-heading;
+    font-family: $font-heading;
+    color: $color-heading;
     font-size: 1.5rem;
     font-weight: bold;
 
-    @include mixins.dark-mode {
-      color: vars.$color-heading-dark;
+    @include dark-mode {
+      color: $color-heading-dark;
     }
 
-    @media (min-width: vars.$breakpoint-md) and (max-width: vars.$breakpoint-lg - 1) {
+    @media (min-width: $breakpoint-md) {
       font-size: 2rem;
     }
 
-    @media (min-width: vars.$breakpoint-lg) {
+    @media (min-width: $breakpoint-lg) {
       font-size: 3rem;
     }
   }
