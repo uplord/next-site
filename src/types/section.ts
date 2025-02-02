@@ -4,10 +4,22 @@ export type DefaultProps = {
 }
 
 export type ButtonProps = {
-  title: string
-  link: string
-  class: string
+  title?: string
+  icon?: string
+  class?: string
+  link?: string
   target?: string
+  onClick?: () => void
+}
+
+export interface ButtonsDataProps {
+  data: ButtonProps[]
+  className?: string
+}
+
+export interface ButtonDataProps {
+  data: ButtonProps
+  className?: string
 }
 
 export type ImageProps = {
@@ -22,7 +34,7 @@ export type BannerProps = DefaultProps & {
   data: {
     title: string
     subtitle: string
-    buttons?: ButtonProps[]
+    buttons?: ButtonProps
     image: ImageProps
   }
 }
@@ -32,7 +44,7 @@ export type SectionProps = DefaultProps & {
     title: string
     subtitle: string
     content: string
-    buttons?: ButtonProps[]
+    buttons?: ButtonProps
     image: ImageProps
   }
 }

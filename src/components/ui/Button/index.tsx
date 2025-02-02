@@ -2,25 +2,13 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import styles from './style.module.scss'
 import { Svg } from '@/components/utils'
+import { ButtonProps, ButtonDataProps, ButtonsDataProps } from '@/types/section'
 
-type ButtonData = {
-  title?: string
-  icon?: string
-  class?: string
-  link?: string
-  target?: string
-  onClick?: () => void
-}
-
-const generateContent = (data: ButtonData) => (
+const generateContent = (data: ButtonProps) => (
   data.title || (data.icon && <Svg name={data.icon} width={20} height={20} />)
 )
 
-interface ButtonProps {
-  data: ButtonData
-}
-
-export default function Button ({ data }: ButtonProps) {
+export default function Button ({ data }: ButtonDataProps) {
   const buttonClasses = clsx(
     styles.button,
     ...data.class?.split(' ').map((name) => styles[name] || '') || []
@@ -41,12 +29,7 @@ export default function Button ({ data }: ButtonProps) {
   return ButtonComponent
 }
 
-interface ButtonsProps {
-  data: ButtonData[]
-  className?: string
-}
-
-export function Buttons ({ data, className = '' }: ButtonsProps) {
+export function Buttons ({ data, className = '' }: ButtonsDataProps) {
   return (
     <div className={clsx(styles.buttons, className)}>
       {data.map((button) => (
