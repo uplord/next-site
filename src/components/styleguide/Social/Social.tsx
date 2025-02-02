@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 import styles from './style.module.scss'
-import { Svg } from '@/components'
+import { Svg } from '@/components/utils'
 
 export const Social = ({ className = '' }) => {
   const data = [{
@@ -29,8 +29,8 @@ export const Social = ({ className = '' }) => {
 
   return (
     <div className={clsx(styles.social, className)}>
-      {data.map((item, index) => (
-        <Link key={index}
+      {data.map((item) => (
+        <Link key={item.icon}
           href={item.link}
           {...(item.target && { target: item.target })}
           {...(item.class && { className: item.class })}

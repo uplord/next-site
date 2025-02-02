@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 import styles from './style.module.scss'
-import { Svg } from '@/components'
+import { Svg } from '@/components/utils'
 
 type ButtonData = {
   title?: string
@@ -49,9 +49,9 @@ interface ButtonsProps {
 export function Buttons ({ data, className = '' }: ButtonsProps) {
   return (
     <div className={clsx(styles.buttons, className)}>
-      {data.map((button, index) => (
+      {data.map((button) => (
         <Button
-          key={index}
+          key={button.title || button.icon}
           data={{
             ...button,
             link: button.link || undefined,

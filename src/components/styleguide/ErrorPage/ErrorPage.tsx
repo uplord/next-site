@@ -1,7 +1,8 @@
 'use client'
 
 import styles from './style.module.scss'
-import { Logo, Buttons } from '@/components'
+import Logo from '@/components/styleguide/Logo'
+import Buttons from '@/components/ui/Button'
 import Particles from '@/components/utils/Particles'
 
 export const ErrorPage = () => {

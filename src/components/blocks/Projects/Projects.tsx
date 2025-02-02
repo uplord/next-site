@@ -1,7 +1,6 @@
 import styles from './style.module.scss'
 import Image from 'next/image'
-import { Svg } from '@/components'
-import Animated from '@/components/utils/Animated'
+import { Svg, Animated } from '@/components/utils'
 import { useBreakpoints } from '@/utils/useBreakpoints'
 import { ProjectsProps } from '@/types/section'
 
@@ -15,9 +14,9 @@ export const Projects = ({ id, queueId, data }: ProjectsProps) => {
           <h2>{data.title}</h2>
         </div>
         <div className={styles.list}>
-          {data.list.map((item, index) => (
+          {data.list.map((item) => (
             <div
-              key={index}
+              key={item.name || item.alt}
               className={styles.item}
             >
               <div

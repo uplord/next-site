@@ -4,7 +4,8 @@ import { useState } from 'react'
 import clsx from 'clsx'
 import styles from './style.module.scss'
 import Link from 'next/link'
-import { Svg, Buttons } from '@/components'
+import { Buttons } from '@/components/ui/Button'
+import { Svg } from '@/components/utils'
 import Animated from '@/components/utils/Animated'
 import { TimelineProps, TimelineListProps } from '@/types/section'
 
@@ -63,7 +64,7 @@ export const Timeline = ({ id, queueId, data }: TimelineProps) => {
           {data.list.map((item, index) => (
             queueId != null ? (
               <Animated
-                key={index}
+                key={item.title}
                 queueId={index}
                 onStart={onStart}
                 onComplete={handleCompleteChange}

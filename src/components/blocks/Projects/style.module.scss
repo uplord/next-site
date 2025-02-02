@@ -80,11 +80,11 @@
     scroll-snap-align: center;
   }
 
-  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
+  @media (min-width: $breakpoint-md) {
     width: calc(33.3% - 0.75rem);
   }
 
-  @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl - 1) {
+  @media (min-width: $breakpoint-lg) {
     width: calc(25% - 1.5rem);
   }
 

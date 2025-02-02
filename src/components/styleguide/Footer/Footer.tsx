@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import clsx from 'clsx'
 import styles from './style.module.scss'
-import { Social } from '@/components'
+import Social from '@/components/styleguide/Social'
 import Animated from '@/components/utils/Animated'
 import { DefaultProps } from '@/types/section'
 

@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 import styles from './style.module.scss'
-import { Logo } from '@/components'
+import Logo from '@/components/styleguide/Logo'
 import Toggle from '@/components/ui/Toggle'
 import Particles from '@/components/utils/Particles'
 import { useScroll } from '@/utils/scrollUtils'
@@ -49,8 +49,8 @@ export function Navigation() {
 
   return (
     <div className={styles.navigation}>
-      {data.map((item, index) => (
-        <Link key={index} href={item.link}>{item.title}</Link>
+      {data.map((item) => (
+        <Link key={item.title} href={item.link}>{item.title}</Link>
       ))}
     </div>
   )

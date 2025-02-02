@@ -1,6 +1,11 @@
 import styles from '@/app/page.module.scss'
-import { Header, Footer, Banner, Section, Projects, Timeline, Stack } from '@/components'
-import { useBreakpoints } from '@/utils/useBreakpoints'
+import Header from '@/components/styleguide/Header'
+import Footer from '@/components/styleguide/Footer'
+import Banner from '@/components/blocks/Banner'
+import Section from '@/components/blocks/Section'
+import Projects from '@/components/blocks/Projects'
+import Timeline from '@/components/blocks/Timeline'
+import Stack from '@/components/blocks/Stack'
 
 import bannerData from '@/data/banner.json'
 import sectionData from '@/data/section.json'
