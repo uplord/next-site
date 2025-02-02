@@ -42,8 +42,8 @@ export const Footer = ({ id, queueId }: DefaultProps) => {
         queueId={queueId}
         className={clsx(
           styles.footer,
-          onLoaded !== true ? styles.animate : '',
-          hasTransition === true && onLoaded !== true  ? styles.transition : '',
+          !onLoaded ? styles.animate : '',
+          hasTransition && !onLoaded  ? styles.transition : '',
           showFooter ? styles.show : ''
         )}
         onVisible={handleVisibilityChange}

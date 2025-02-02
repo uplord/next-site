@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import clsx from 'clsx'
 import styles from './style.module.scss'
-import Buttons from '@/components/ui/Button'
+import { Buttons } from '@/components/ui/Button'
 import Social from '@/components/styleguide/Social'
 import Animated from '@/components/utils/Animated'
 import Particles from '@/components/utils/Particles'
@@ -42,8 +42,8 @@ export const Banner = ({ id, queueId, data }: BannerProps) => {
         <div className={styles.content}>
           <div className={clsx(
             styles.image,
-            queueId != null && onLoaded !== true ? styles.animate : '',
-            queueId != null && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+            queueId != null && !onLoaded ? styles.animate : '',
+            queueId != null && hasTransition && !onLoaded ? styles.transition : '',
             queueId != null && showImage ? styles.show : ''
           )}>
             <div className={styles.imageWrap}>
@@ -51,7 +51,7 @@ export const Banner = ({ id, queueId, data }: BannerProps) => {
                 src={data.image.src}
                 alt={data.image.alt}
                 quality={80}
-                priority={true}
+                priority
                 sizes={data.image.sizes}
                 width={data.image.width}
                 height={data.image.height}
@@ -61,22 +61,20 @@ export const Banner = ({ id, queueId, data }: BannerProps) => {
           </div>
           <div className={clsx(
             styles.text,
-            queueId != null && onLoaded !== true ? styles.animate : '',
-            queueId != null && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+            queueId != null && !onLoaded ? styles.animate : '',
+            queueId != null && hasTransition && !onLoaded ? styles.transition : '',
             queueId != null && showText ? styles.show : ''
           )}>
-            <h1 dangerouslySetInnerHTML={{ __html: data.title }}></h1>
+            <h1 dangerouslySetInnerHTML={{ __html: data.title }} />
             <h2>{data.subtitle}</h2>
-            {data.buttons && (
-              <Buttons data={data.buttons} className={styles.buttons} />
-            )}
+            {data.buttons && <Buttons data={data.buttons} className={styles.buttons} />}
           </div>
           <div className={clsx(
             styles.viewMore,
-            queueId != null && onLoaded !== true ? styles.animate : '',
-            queueId != null && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+            queueId != null && !onLoaded ? styles.animate : '',
+            queueId != null && hasTransition && !onLoaded ? styles.transition : '',
             queueId != null && showMore ? styles.show : ''
-          )}></div>
+          )} />
         </div>
       </div>
     </>

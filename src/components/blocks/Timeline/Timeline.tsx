@@ -85,8 +85,8 @@ export const Timeline = ({ id, queueId, data }: TimelineProps) => {
         </div>
         <div className={clsx(
           styles.text,
-          queueId != null && onLoaded !== true ? styles.animate : '',
-          queueId != null && hasTransition === true && onLoaded !== true  ? styles.transition : '',
+          queueId != null && !onLoaded ? styles.animate : '',
+          queueId != null && hasTransition && !onLoaded  ? styles.transition : '',
           queueId != null && showText ? styles.show : ''
         )}>
           <h3>{data.title}</h3>

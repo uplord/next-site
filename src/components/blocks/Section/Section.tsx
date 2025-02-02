@@ -4,11 +4,10 @@ import Image from 'next/image'
 import { useState } from 'react'
 import clsx from 'clsx'
 import styles from './style.module.scss'
-import Buttons from '@/components/ui/Button'
+import { Buttons } from '@/components/ui/Button'
 import Animated from '@/components/utils/Animated'
 import { isBreakpoint } from '@/utils/useBreakpoints'
 import { SectionProps } from '@/types/section'
-
 
 export const Section = ({ id, queueId, data }: SectionProps) => {
   const [showImage, setShowImage] = useState(false)
@@ -50,8 +49,8 @@ export const Section = ({ id, queueId, data }: SectionProps) => {
         <div
           className={clsx(
             styles.image,
-            queueId != null && onLoaded !== true ? styles.animate : '',
-            queueId != null && hasTransition === true && onLoaded !== true ? styles.transition : '',
+            queueId != null && !onLoaded ? styles.animate : '',
+            queueId != null && hasTransition && !onLoaded ? styles.transition : '',
             queueId != null && showImage ? styles.show : ''
           )}
         >
@@ -70,8 +69,8 @@ export const Section = ({ id, queueId, data }: SectionProps) => {
         <div
           className={clsx(
             styles.text,
-            queueId != null && onLoaded !== true ? styles.animate : '',
-            queueId != null && hasTransition === true && onLoaded !== true ? styles.transition : '',
+            queueId != null && !onLoaded ? styles.animate : '',
+            queueId != null && hasTransition && !onLoaded ? styles.transition : '',
             queueId != null && showText ? styles.show : ''
           )}
         >
