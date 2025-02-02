@@ -2,7 +2,7 @@
 
 import styles from './style.module.scss'
 import Logo from '@/components/styleguide/Logo'
-import Buttons from '@/components/ui/Button'
+import { Buttons } from '@/components/ui/Button'
 import Particles from '@/components/utils/Particles'
 
 export const ErrorPage = () => {

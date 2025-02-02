@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 import styles from './style.module.scss'
-import { useEffect, useRef, useState, ReactNode } from 'react'
+import { useEffect, useRef, useState, ReactNode, useCallback } from 'react'
 import { useQueue, useTimelineQueue } from '@/context/queueContexts'
 import { isBreakpoint } from '@/utils/useBreakpoints'
 
@@ -30,19 +30,19 @@ export const Animated = ({ children, queueId, id = '', className = '', onStart =
   const { queue, addToQueue, removeFromQueue } =
     queueType === 'timeline' ? timelineQueue : defaultQueue
 
-  const handleIntersection = (
-    entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver
-  ) => {
-    const entry = entries[0]
-    if (entry.isIntersecting && !isVisible) {
-      if (!onVisible) {
-        setHasTransition(true)
+  const handleIntersection = useCallback(
+    (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      const entry = entries[0]
+      if (entry.isIntersecting && !isVisible) {
+        if (!onVisible) {
+          setHasTransition(true)
+        }
+        addToQueue(queueId)
+        observer.unobserve(entry.target)
       }
-      addToQueue(queueId)
-      observer.unobserve(entry.target)
-    }
-  }
+    },
+    [isVisible, onVisible, addToQueue, queueId]
+  )
 
   useEffect(() => {
     if (onStart) {
@@ -87,7 +87,7 @@ export const Animated = ({ children, queueId, id = '', className = '', onStart =
         }, 900)
       }
     }
-  }, [queue, queueId])
+  }, [queue, queueId, isVisible, onVisible, onComplete, removeFromQueue])
 
   useEffect(() => {
     if (onLoaded) {
@@ -96,14 +96,14 @@ export const Animated = ({ children, queueId, id = '', className = '', onStart =
         onComplete()
       }
     }
-  }, [onLoaded])
+  }, [onLoaded, onComplete])
 
   useEffect(() => {
     if (isLoaded) {
       setHasTransition(false)
       removeFromQueue(queueId)
     }
-  }, [isLoaded, queueId])
+  }, [isLoaded, queueId, removeFromQueue])
 
   let dynamicClass = ''
   if (!onVisible && !isVisible) {
