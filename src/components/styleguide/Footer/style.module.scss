@@ -29,10 +29,12 @@
 .container {
   @include container;
 
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
+  & {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
   @media (min-width: $breakpoint-xl) {
     gap: 3rem;

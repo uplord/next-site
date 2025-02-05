@@ -63,9 +63,9 @@ interface ButtonsComponentProps {
 export function Buttons({ data, className = '', functionMap }: ButtonsComponentProps) {
   return (
     <div className={clsx(styles.buttons, className)}>
-      {data.map((button) => (
+      {data.map((button, index) => (
         <Button
-          key={button.title || button.icon}
+          key={index}
           data={{
             ...button,
             link: button.link || undefined,

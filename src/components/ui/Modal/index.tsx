@@ -45,18 +45,18 @@ const Modal = ({
     }
   }, [isVisible])
 
-  useEffect(() => {
-    if (triggerClose) {
-      onCloseButton()
-    }
-  }, [triggerClose])
-  
   const onCloseButton = () => {
     setIsVisible(false)
     setTimeout(() => {
       modal.remove()
     }, 300)
   }
+
+  useEffect(() => {
+    if (triggerClose) {
+      onCloseButton()
+    }
+  }, [triggerClose, onCloseButton])
 
   useEffect(() => {
     if (triggerSubmit) {
