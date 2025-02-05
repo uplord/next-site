@@ -1,7 +1,8 @@
 import { DM_Sans } from 'next/font/google'
 import '@/styles/global.scss'
-import { ThemeProvider } from '@/components/utils/ThemeProvider'
+import { ThemeProvider } from '@/context/ThemeProvider'
 import { QueueProvider, TimelineQueueProvider } from '@/context/queueContexts'
+import NiceModalProvider from '@/context/NiceModalProvider'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -34,7 +35,9 @@ export default function RootLayout({
         >
           <QueueProvider>
             <TimelineQueueProvider>
-              {children}
+              <NiceModalProvider>
+                {children}
+              </NiceModalProvider>
             </TimelineQueueProvider>
           </QueueProvider>
         </ThemeProvider>

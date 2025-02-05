@@ -9,17 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ebay/nice-modal-react": "^1.2.13",
+    "@headlessui/react": "^2.2.0",
+    "@hookform/resolvers": "^3.10.0",
     "@svgr/webpack": "^8.1.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/shape-image": "^3.7.1",
     "@tsparticles/slim": "^3.7.1",
     "clsx": "^2.1.1",
+    "lucide-react": "^0.474.0",
     "next": "15.1.4",
     "next-themes": "^0.4.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "react-modern-drawer": "^1.4.0",
     "sass": "^1.82.0",
-    "tsparticles": "^3.7.1"
+    "tsparticles": "^3.7.1",
+    "vaul": "^1.1.2",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

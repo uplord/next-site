@@ -183,7 +183,9 @@
   h2 {
     @include heading2;
 
-    color: $color-heading;
+    & {
+      color: $color-heading;
+    }
 
     @include dark-mode {
       color: $color-heading-dark;
@@ -193,7 +195,9 @@
   h3 {
     @include heading3;
 
-    color: $color-primary;
+    & {
+      color: $color-primary;
+    }
   }
 
   p {

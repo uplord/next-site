@@ -9,6 +9,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: $color-heading;
   padding: 0.5rem 1rem;
   height: 46px;
   font-weight: 500;
@@ -17,20 +18,33 @@
   transition: all .3s ease;
   white-space: nowrap;
 
+  @include dark-mode {
+    color: $color-heading-dark;
+  }
+
   @media (hover: hover) {
     &:hover {
       transform: scale(1.05);
     }
   }
 
-  &:focus {
-    transform: scale(1);
-  }
-
   @media (min-width: $breakpoint-xl) {
     font-size: 1.125rem;
     padding: 0.75rem 2rem;
     height: 56px;
+  }
+
+  &:disabled {
+    background: #ccc;
+    color: #666;
+
+    @media (hover: hover) {
+      &:hover {
+        background: #ccc;
+        color: #666;
+        transform: scale(1);
+      }
+    }
   }
 }
 
@@ -50,9 +64,31 @@
   }
 }
 
+.default {
+  background: $color-default;
+  color: $color-default-text;
+  border-color: transparent;
+
+  @include dark-mode {
+    background: $color-default-dark;
+    color: $color-default-text-dark;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background: $color-default-hover;
+
+      @include dark-mode {
+        background: $color-default-hover-dark;
+      }
+    }
+  }
+}
+
 .primary {
   background: $color-primary;
   color: $color-primary-text;
+  border-color: transparent;
 
   @media (hover: hover) {
     &:hover {
@@ -62,7 +98,9 @@
 }
 
 .link {
+  background: transparent;
   color: $color-heading;
+  border-color: transparent;
   padding: 0.5rem 1rem;
 
   @include dark-mode {
@@ -84,4 +122,8 @@
       color: #FFF;
     }
   }
+}
+
+.right {
+  margin-left: auto;
 }

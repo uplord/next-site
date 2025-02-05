@@ -1,0 +1,155 @@
+.modal {
+  position: relative;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+
+  @media (min-width: $breakpoint-md) {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 100dvw;
+    height: 100dvh;
+    z-index: 10000;
+  }
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  @include dark-mode {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .loaded & {
+    opacity: 1;
+  }
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1100;
+  max-height: calc(100dvh - 1rem);
+  display: flex;
+  flex-direction: column;
+  background: $color-bg;
+  border-radius: 0.5rem 0.5rem 0 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+
+  .loaded & {
+    transform: translateY(0);
+  }
+
+  @include dark-mode {
+    background: $color-bg-dark;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    position: relative;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    max-width: 640px;
+    max-height: 90%;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    transform: translateY(40px);
+
+    .loaded & {
+      transform: translateY(0);
+    }
+  }
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid $color-border;
+
+  @include dark-mode {
+    border-color: $color-border-dark;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    padding: 1rem 1.5rem;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    width: 50px;
+    height: 4px;
+    border-radius: 2px;
+    background: $color-border;
+    transform: translateX(-50%);
+
+    @include dark-mode {
+      background: $color-border-dark;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  .buttonClose {
+    margin: -0.75rem -0.75rem -0.75rem 0;
+  }
+}
+
+.title {
+  color: $color-heading;
+  font-weight: bold;
+
+  @include dark-mode {
+    color: $color-heading-dark;
+  }
+}
+
+.scroll {
+  overflow: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem  1.5rem;
+  border-top: 1px solid $color-border;
+
+  @include dark-mode {
+    border-color: $color-border-dark;
+  }
+
+  .buttons {
+    justify-content: space-between;
+  }
+}

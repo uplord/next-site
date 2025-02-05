@@ -1,3 +1,5 @@
+@use '@/styles/variables' as *;
+
 @mixin dark-mode {
   :global(.dark) & {
     @content;
@@ -22,7 +24,7 @@
   display: flex;
   max-width: $width-max;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 
   @media (min-width: $breakpoint-xl) {
     max-width: $width-xl;

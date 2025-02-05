@@ -15,3 +15,11 @@
     gap: 8rem;
   }
 }
+
+.section {
+  padding: 2rem 0;
+}
+
+.container {
+  @include container;
+}

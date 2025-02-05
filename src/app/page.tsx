@@ -1,4 +1,5 @@
 import styles from '@/app/page.module.scss'
+
 import Header from '@/components/styleguide/Header'
 import Footer from '@/components/styleguide/Footer'
 import Banner from '@/components/blocks/Banner'

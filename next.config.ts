@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   },
   sassOptions: {
     silenceDeprecations: ['legacy-js-api'],
-    additionalData: `@import '@/styles/variables'; @import '@/styles/mixins';`,
+    additionalData: `@use '@/styles/variables' as *; @use '@/styles/mixins' as *;`,
   },
   webpack(config, options) {
     config.module.rules.push({

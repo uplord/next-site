@@ -1,3 +1,5 @@
+import { ElementType } from 'react'
+
 export type DefaultProps = {
   id: string
   queueId?: number
@@ -5,11 +7,12 @@ export type DefaultProps = {
 
 export type ButtonProps = {
   title?: string
-  icon?: string
+  icon?: string | ElementType
   class?: string
   link?: string
   target?: string
-  onClick?: () => void
+  onClick?: (() => void) | string
+  disabled?: boolean
 }
 
 export type ImageProps = {

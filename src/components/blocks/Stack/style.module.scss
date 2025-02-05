@@ -20,7 +20,9 @@
   h2 {
     @include heading2;
 
-    color: $color-heading;
+    & {
+      color: $color-heading;
+    }
 
     @include dark-mode {
       color: $color-heading-dark;
