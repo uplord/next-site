@@ -20,13 +20,13 @@ export default function Home() {
     <div className={styles.page}>
       <Header home={true} />
       <main className={styles.main}>
-        <Banner id="banner" queueId={0} data={bannerData} />
-        <Section id="about-me" queueId={1} data={sectionData} />
-        <Projects id="projects" queueId={2} data={projectsData} />
-        <Timeline id="timeline" queueId={3} data={timelineData} />
-        <Stack id="stack" queueId={4} data={stackData} />
+        <Banner id="banner" data={bannerData} />
+        <Section id="about-me" data={sectionData} />
+        <Projects id="projects" data={projectsData} />
+        <Timeline id="timeline" data={timelineData} />
+        <Stack id="stack" data={stackData} />
       </main>
-      <Footer id="footer" queueId={5} />
+      <Footer id="footer" />
     </div>
   )
 }

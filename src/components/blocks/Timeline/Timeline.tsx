@@ -1,46 +1,10 @@
-'use client'
-
-import { useState } from 'react'
-import clsx from 'clsx'
 import styles from './style.module.scss'
 import Link from 'next/link'
 import { Buttons } from '@/components/ui/Button'
 import { Svg } from '@/components/utils'
-import Animated from '@/components/utils/Animated'
 import { TimelineProps, TimelineListProps } from '@/types/section'
 
-export const Timeline = ({ id, queueId, data }: TimelineProps) => {
-  const [showText, setShowText] = useState(false)
-  const [hasTransition, setHasTransition] = useState(false)
-  const [onLoaded, setOnLoaded] = useState(false)
-  const [animatedCount, setAnimatedCount] = useState(0)
-  const [onStart, setOnStart] = useState(false)
-
-  const handleVisibilityChange = (animate = true) => {
-    if (animate == true) {
-      setHasTransition(true)
-      setShowText(true)
-
-      setTimeout(() => {
-        setOnStart(true)
-      }, 600)
-    } else {
-      setOnLoaded(true)
-    }
-  }
-
-  const handleCompleteChange = () => {
-    setAnimatedCount((prevCount) => {
-      const newCount = prevCount + 1
-  
-      if (newCount === data.list.length) {
-        setOnLoaded(true)
-        setShowText(false)
-      }
-  
-      return newCount
-    })
-  }
+export const Timeline = ({ id, data }: TimelineProps) => {
 
   const ListContent = ({ item }: { item: TimelineListProps }) => (
     <>
@@ -57,64 +21,32 @@ export const Timeline = ({ id, queueId, data }: TimelineProps) => {
     </>
   )
 
-  const Content = (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <div className={styles.list}>
-          {data.list.map((item, index) => (
-            queueId != null ? (
-              <Animated
-                key={item.title}
-                queueId={index}
-                onStart={onStart}
-                onComplete={handleCompleteChange}
-                queueType="timeline"
-                className={styles.item}
-              >
-                <ListContent item={item} />
-              </Animated>
-            ) : (
+  return (
+    <div id={id} className={styles.timeline}>
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <div className={styles.list}>
+            {data.list.map((item, index) => (
               <div
                 key={index}
                 className={styles.item}
               >
                 <ListContent item={item} />
               </div>
-            )
-          ))}
+            ))}
+          </div>
+          <div className={styles.text}>
+            <h3>{data.title}</h3>
+            <h2>{data.subtitle}</h2>
+            {data.content && (
+              <p>{data.content}</p>
+            )}
+            {data.buttons && (
+              <Buttons data={data.buttons} className={styles.buttons} />
+            )}
+          </div>
         </div>
-        <div className={clsx(
-          styles.text,
-          queueId != null && !onLoaded && styles.animate,
-          queueId != null && hasTransition && !onLoaded && styles.transition,
-          queueId != null && showText && styles.show
-        )}>
-          <h3>{data.title}</h3>
-          <h2>{data.subtitle}</h2>
-          {data.content && (
-            <p>{data.content}</p>
-          )}
-          {data.buttons && (
-            <Buttons data={data.buttons} className={styles.buttons} />
-          )}
-        </div>
-      </div>
     </div>
-  )
-
-  return queueId != null ? (
-    <Animated
-      id={id}
-      queueId={queueId}
-      onVisible={handleVisibilityChange}
-      onLoaded={onLoaded}
-      className={styles.timeline}
-    >
-      {Content}
-    </Animated>
-  ) : (
-    <div id={id} className={styles.timeline}>
-      {Content}
     </div>
   )
 }

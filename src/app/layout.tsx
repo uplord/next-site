@@ -1,7 +1,6 @@
 import { DM_Sans } from 'next/font/google'
 import '@/styles/global.scss'
 import { ThemeProvider } from '@/context/ThemeProvider'
-import { QueueProvider, TimelineQueueProvider } from '@/context/queueContexts'
 import NiceModalProvider from '@/context/NiceModalProvider'
 
 const dmSans = DM_Sans({
@@ -33,13 +32,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <QueueProvider>
-            <TimelineQueueProvider>
-              <NiceModalProvider>
-                {children}
-              </NiceModalProvider>
-            </TimelineQueueProvider>
-          </QueueProvider>
+          <NiceModalProvider>
+            {children}
+          </NiceModalProvider>
         </ThemeProvider>
       </body>
     </html>

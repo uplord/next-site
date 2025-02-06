@@ -49,7 +49,7 @@ const Modal = ({
     setIsVisible(false)
     setTimeout(() => {
       modal.remove()
-    }, 300)
+    }, 600)
   }
 
   useEffect(() => {

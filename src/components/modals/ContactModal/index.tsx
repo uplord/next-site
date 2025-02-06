@@ -1,13 +1,13 @@
-import styles from './style.module.scss'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 
 import Modal from '@/components/ui/Modal'
 import NiceModal from '@ebay/nice-modal-react'
 import { Buttons } from '@/components/ui/Button'
 
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
+import styles from './style.module.scss'
 
 const schema = z.object({
   fullName: z.string().min(3, 'Full name must be at least 3 characters'),
@@ -16,29 +16,66 @@ const schema = z.object({
 })
 
 export const ContactModal = NiceModal.create(() => {
-  const formRef = useRef<HTMLFormElement | null>(null)
   const [status, setStatus] = useState('form')
   const [hasFooter, setHasFooter] = useState(true)
   const [isClosed, setIsClosed] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
 
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: zodResolver(schema),
   })
 
   const onHandleSubmit = () => {
-    formRef.current?.requestSubmit()
+    setIsDisabled(true)
+  
+    handleSubmit(
+      async (data) => {
+        await onSubmit(data)
+      },
+      (errors) => {
+        if (Object.keys(errors).length > 0) {
+          setTimeout(() => {
+            setIsDisabled(false)
+          }, 600)
+        }
+      }
+    )()
   }
 
   const onSubmit = async (data: any) => {
-    setStatus('success')
-    setHasFooter(false)
+    setIsDisabled(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setStatus('success');
+      setHasFooter(false);
+    } catch (error) {
+      console.error(error);
+      alert('Something went wrong, please try again.');
+    } finally {
+      setIsDisabled(false);
+    }
   }
 
   const footerButtons = [
     {  
       title: 'Submit',
       onClick: onHandleSubmit,
-      class: 'primary right'
+      class: 'primary right',
+      disabled: isDisabled,
     },
   ]
 
@@ -59,7 +96,6 @@ export const ContactModal = NiceModal.create(() => {
     >
       {status === 'form' ? (
         <form
-          ref={formRef}
           onSubmit={handleSubmit(onSubmit)}
           className={styles.form}
           autoComplete="off"
