@@ -23,9 +23,9 @@ export default meta;
 
 type Story = StoryObj<ModalProps>
 
-const TempModal = NiceModal.create(({children, ...props}: any) => {
-  return <ModalComponent {...props}>{children}</ModalComponent>
-})
+const TempModal = NiceModal.create<ModalProps>(({ children, ...props }) => {
+  return <ModalComponent {...props}>{children}</ModalComponent>;
+});
 
 const footerButtons = [{
   title: 'Submit',

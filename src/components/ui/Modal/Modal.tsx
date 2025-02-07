@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode } from 'react'
+import { useState, useEffect, useCallback, ReactNode } from 'react'
 import styles from './style.module.scss'
 import { useModal } from '@ebay/nice-modal-react'
 import { X } from 'lucide-react'
@@ -45,12 +45,12 @@ export const Modal = ({
     }
   }, [isVisible])
 
-  const onCloseButton = () => {
+  const onCloseButton = useCallback(() => {
     setIsVisible(false)
     setTimeout(() => {
       modal.remove()
     }, 600)
-  }
+  }, [modal])
 
   useEffect(() => {
     if (triggerClose) {

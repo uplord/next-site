@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
-import { useBreakpoints } from '@/utils/useBreakpoints'
 
 export function useScroll() {
-  const breakpoints = useBreakpoints()
-
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
