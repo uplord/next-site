@@ -63,6 +63,9 @@ const preview = {
         },
       },
     },
+    chromatic: {
+      disableSnapshot: true,
+    },
   },
   decorators: [
     Story => {

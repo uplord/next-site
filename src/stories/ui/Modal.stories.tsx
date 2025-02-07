@@ -45,7 +45,7 @@ export const Modal: Story = {
 
     const data = {
       buttons: [{
-        title: 'Contact form modal',
+        title: 'UI modal',
         class: 'primary large',
         onClick: onTriggerModal
       }]
