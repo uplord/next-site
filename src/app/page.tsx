@@ -20,7 +20,7 @@ export default function Home() {
     <div className={styles.page}>
       <Header home={true} />
       <main className={styles.main}>
-        <Banner id="banner" data={bannerData} />
+        <Banner id="banner" data={bannerData} hasHeader={true} />
         <Section id="about-me" data={sectionData} />
         <Projects id="projects" data={projectsData} />
         <Timeline id="timeline" data={timelineData} />

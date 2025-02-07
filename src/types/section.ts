@@ -2,7 +2,6 @@ import { ElementType } from 'react'
 
 export type DefaultProps = {
   id: string
-  queueId?: number
 }
 
 export type ButtonProps = {
@@ -24,6 +23,7 @@ export type ImageProps = {
 }
 
 export type BannerProps = DefaultProps & {
+  hasHeader?: boolean
   data: {
     title: string
     subtitle: string
@@ -60,9 +60,13 @@ export type ProjectsProps = DefaultProps & {
 export type TimelineListProps = {
   title: string
   subtitle: string
-  logo: string
   link: string
   content: string
+  icon: {
+    name: string
+    width: number
+    height: number
+  }
 }
 
 export type TimelineProps = DefaultProps & {

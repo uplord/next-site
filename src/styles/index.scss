@@ -1,0 +1,36 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './normalize';
+
+html {
+  overflow-y: scroll;
+}
+
+.light {
+  // background: $color-bg;
+  color: $color-text;
+}
+
+.dark {
+  // background: $color-bg-dark;
+  color: $color-text-dark;
+}
+
+body {
+  background: $color-bg;
+  color: $color-text;
+
+  @include dark-mode {
+    background: $color-bg-dark;
+    color: $color-text-dark;
+  }
+}
+
+.TESTING {
+  border: 2px solid red;  // Just for testing
+  padding: 20px;
+}
+
+.storybook-max {
+  width: calc(100dvw - 2rem);
+}

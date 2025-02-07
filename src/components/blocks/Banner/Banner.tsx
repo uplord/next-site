@@ -7,10 +7,10 @@ import Social from '@/components/styleguide/Social'
 import Particles from '@/components/utils/Particles'
 import { BannerProps } from '@/types/section'
 
-export const Banner = ({ id, data }: BannerProps) => {
+export const Banner = ({ id, data, hasHeader }: BannerProps) => {
 
   return (
-    <div id={id} className={styles.banner}>
+    <div id={id} className={`${styles.banner} ${hasHeader && styles.header}`}>
       <>
         <Particles id="particles-banner" />
         <div className={styles.container}>

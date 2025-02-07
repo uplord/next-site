@@ -1,0 +1,13 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.test {
+
+  & {
+    background: $color-bg;
+  }
+}
+
+.dark {
+  background: blue;
+}

@@ -1,45 +1,61 @@
 {
-  "name": "next-site",
+  "name": "the-michael",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@ebay/nice-modal-react": "^1.2.13",
-    "@emotion/react": "^11.14.0",
-    "@headlessui/react": "^2.2.0",
-    "@hookform/resolvers": "^3.10.0",
-    "@svgr/webpack": "^8.1.0",
     "@tsparticles/react": "^3.0.0",
-    "@tsparticles/shape-image": "^3.7.1",
-    "@tsparticles/slim": "^3.7.1",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.474.0",
-    "next": "15.1.4",
+    "next": "15.1.6",
     "next-themes": "^0.4.3",
     "react": "^19.0.0",
-    "react-awesome-reveal": "^4.3.1",
     "react-dom": "^19.0.0",
-    "react-hook-form": "^7.54.2",
-    "react-intersection-observer": "^9.15.1",
-    "react-modern-drawer": "^1.4.0",
-    "resend": "^4.1.2",
-    "sass": "^1.82.0",
-    "tsparticles": "^3.7.1",
-    "vaul": "^1.1.2",
-    "zod": "^3.24.1"
+    "react-hook-form": "^7.54.2"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.4",
+    "@ebay/nice-modal-react": "^1.2.13",
     "@eslint/eslintrc": "^3",
+    "@hookform/resolvers": "^3.10.0",
+    "@storybook/addon-essentials": "^8.5.3",
+    "@storybook/addon-interactions": "^8.5.3",
+    "@storybook/addon-onboarding": "^8.5.3",
+    "@storybook/addon-styling-webpack": "^1.0.1",
+    "@storybook/blocks": "^8.5.3",
+    "@storybook/manager-api": "^8.5.3",
+    "@storybook/nextjs": "^8.5.3",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^8.5.3",
+    "@storybook/test": "^8.5.3",
+    "@storybook/theming": "^8.5.3",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "clsx": "^2.1.1",
+    "css-loader": "^7.1.2",
     "eslint": "^9",
-    "eslint-config-next": "15.1.4",
-    "typescript": "^5"
+    "eslint-config-next": "15.1.6",
+    "eslint-plugin-storybook": "^0.11.2",
+    "lucide-react": "^0.474.0",
+    "sass": "^1.84.0",
+    "sass-loader": "^16.0.4",
+    "storybook": "^8.5.3",
+    "storybook-addon-sass-postcss": "^0.3.2",
+    "style-loader": "^4.0.0",
+    "tsparticles": "^3.7.1",
+    "typescript": "^5",
+    "zod": "^3.24.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }

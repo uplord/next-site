@@ -1,12 +1,10 @@
-import { NextConfig } from 'next'
+
+import type { NextConfig } from 'next'
+import path from 'path'
 
 const nextConfig: NextConfig = {
-  images: {
-    formats: ['image/webp', 'image/avif'],
-  },
   sassOptions: {
-    silenceDeprecations: ['legacy-js-api'],
-    additionalData: `@use '@/styles/variables' as *; @use '@/styles/mixins' as *;`,
+    includePaths: [path.join(__dirname, 'src/styles')],
   },
   webpack(config, options) {
     config.module.rules.push({

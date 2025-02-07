@@ -6,9 +6,9 @@ import Footer from '@/components/styleguide/Footer'
 import { Buttons } from '@/components/ui/Button'
 
 import NiceModal from '@ebay/nice-modal-react'
-import { BasicModal } from '@/components/modals/BasicModal'
-import { BasicModal2 } from '@/components/modals/BasicModal2'
-import { ContactModal } from '@/components/modals/ContactModal'
+import BasicModal from '@/components/modals/BasicModal'
+import BasicModal2 from '@/components/modals/BasicModal2'
+import ContactModal from '@/components/modals/ContactModal'
 
 export default function Styleguide() {
   const onTriggerModal = () => {
@@ -49,7 +49,7 @@ export default function Styleguide() {
           </div>
         </div>
       </main>
-      <Footer id="footer" queueId={5} />
+      <Footer id="footer" />
     </div>
   )
 }

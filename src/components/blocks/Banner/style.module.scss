@@ -1,3 +1,6 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
 .banner {
   position: relative;
   background: $color-header;
@@ -22,7 +25,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 78px;
+
+  .header & {
+    padding-top: 78px;
+  }
 
   @media (min-width: $breakpoint-md) {
     justify-content: flex-start;

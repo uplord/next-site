@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { useTheme } from 'next-themes'
+import { Sun, Moon } from 'lucide-react'
 import styles from './style.module.scss'
-import { Svg } from '@/components/utils'
 
 interface ToggleProps {
   className?: string
@@ -55,9 +55,9 @@ export const Toggle = ({ className = '' }: ToggleProps) => {
       onClick={toggleTheme}
       suppressHydrationWarning
     >
-      <span></span>
-      <Svg name="sun-solid" width={20} height={20} className={styles.sun} />
-      <Svg name="moon-solid" width={20} height={20} className={styles.moon} />
+      <span className={styles.dot}></span>
+      <Sun size={20} className={styles.sun} fill="currentColor" />
+      <Moon size={20} className={styles.moon} fill="currentColor" />
     </div>
   )
 }

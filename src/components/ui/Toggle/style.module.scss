@@ -1,3 +1,6 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
 .toggle {
   position: relative;
   margin: 1.1875rem 0;
@@ -11,7 +14,7 @@
   }
 
   @media (hover: hover) {
-    &:hover span {
+    &:hover .dot {
       background: $color-nav-hover;
       
       @include dark-mode {
@@ -20,7 +23,7 @@
     }
   }
 
-  span {
+  .dot {
     position: relative;
     display: block;
     height: 40px;

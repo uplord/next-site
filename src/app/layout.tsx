@@ -1,5 +1,5 @@
 import { DM_Sans } from 'next/font/google'
-import '@/styles/global.scss'
+import '@/styles/index.scss'
 import { ThemeProvider } from '@/context/ThemeProvider'
 import NiceModalProvider from '@/context/NiceModalProvider'
 

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import styles from './style.module.scss'
 
-type LogoProps = {
+export type LogoProps = {
   className?: string
 }
 

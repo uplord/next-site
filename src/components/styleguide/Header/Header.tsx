@@ -9,7 +9,7 @@ import Toggle from '@/components/ui/Toggle'
 import Particles from '@/components/utils/Particles'
 import { useScroll } from '@/utils/scrollUtils'
 
-type HeaderProps = {
+export type HeaderProps = {
   className?: string
   home?: boolean
 }

@@ -14,7 +14,7 @@ export const Stack = ({ id, data }: StackProps) => {
             {data.list.map((item) => (
               <div key={item.icon} className={styles.item}>
                 <div className={styles.image} data-tooltip={item.tooltip}>
-                  <Svg name={item.icon} width={60} />
+                  <Svg name={item.icon} height={60} width={60} />
                 </div>
               </div>
             ))}

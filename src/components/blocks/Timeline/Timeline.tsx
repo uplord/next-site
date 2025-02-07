@@ -11,7 +11,7 @@ export const Timeline = ({ id, data }: TimelineProps) => {
       <h4>{item.title}</h4>
       <h3>{item.subtitle}</h3>
       <Link href={item.link} target="_blank">
-        <Svg name={item.logo} height={32} />
+        <Svg name={item.icon.name} width={item.icon.width} height={item.icon.height} />
       </Link>
       {item.content && (
         <div className={styles.content}
