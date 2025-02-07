@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { default as ToggleComponent } from '@/components/ui/Toggle';
+import type { Meta, StoryObj } from '@storybook/react'
+import { default as ToggleComponent } from '@/components/ui/Toggle'
 
 const meta: Meta<typeof ToggleComponent> = {
   title: 'UI',
@@ -7,9 +7,9 @@ const meta: Meta<typeof ToggleComponent> = {
     layout: 'centered',
   },
   component: ToggleComponent,
-};
+}
 
-export default meta;
+export default meta
 type Story = StoryObj
 
-export const Toggle: Story = {};
+export const Toggle: Story = {}

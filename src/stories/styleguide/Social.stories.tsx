@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { default as SocialComponent } from '@/components/styleguide/Social';
+import type { Meta, StoryObj } from '@storybook/react'
+import { default as SocialComponent } from '@/components/styleguide/Social'
 
 const meta: Meta<typeof SocialComponent> = {
   title: 'Styleguide',
@@ -7,9 +7,9 @@ const meta: Meta<typeof SocialComponent> = {
     layout: 'centered',
   },
   component: SocialComponent,
-};
+}
 
-export default meta;
+export default meta
 type Story = StoryObj
 
-export const Social: Story = {};
+export const Social: Story = {}

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 import NiceModal from '@ebay/nice-modal-react'
 import NiceModalProvider from '@/context/NiceModalProvider'
 import { Buttons } from '@/components/ui/Button'
@@ -25,7 +25,7 @@ type Story = StoryObj<ModalProps>
 
 const TempModal = NiceModal.create<ModalProps>(({ children, ...props }) => {
   return <ModalComponent {...props}>{children}</ModalComponent>;
-});
+})
 
 const footerButtons = [{
   title: 'Submit',

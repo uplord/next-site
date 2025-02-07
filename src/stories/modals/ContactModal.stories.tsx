@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 import NiceModal from '@ebay/nice-modal-react'
 import NiceModalProvider from '@/context/NiceModalProvider'
 import { Buttons } from '@/components/ui/Button'
@@ -19,7 +19,7 @@ const meta: Meta<typeof ModalComponent> = {
   ]
 }
 
-export default meta;
+export default meta
 type Story = StoryObj
 
 export const ContactModal: Story = {
