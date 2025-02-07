@@ -68,8 +68,8 @@
   background: $color-block;
   border: 1px solid transparent;
   border-width: 1px 0;
-  padding: 1.5rem 1rem;
-  margin: 0 -1rem;
+  padding: 1.5rem;
+  margin: 0 -1.5rem;
   
   @include dark-mode {
     background: $color-block-dark;
