@@ -6,7 +6,7 @@ import { ButtonProps } from '@/types/section'
 
 interface ButtonComponentProps {
   data: ButtonProps
-  functionMap?: { [key: string]: Function }
+  functionMap?: { [key: string]: () => void }
 }
 
 const generateContent = (data: ButtonProps) => {
@@ -57,7 +57,7 @@ export function Button({ data, functionMap }: ButtonComponentProps) {
 interface ButtonsComponentProps {
   data: ButtonProps[]
   className?: string
-  functionMap?: { [key: string]: Function }
+  functionMap?: { [key: string]: () => void }
 }
 
 export function Buttons({ data, className = '', functionMap }: ButtonsComponentProps) {

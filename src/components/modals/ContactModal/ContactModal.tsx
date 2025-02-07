@@ -25,7 +25,7 @@ export const ContactModal = NiceModal.create(() => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
   })
 
@@ -46,7 +46,7 @@ export const ContactModal = NiceModal.create(() => {
     )()
   }
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: z.infer<typeof schema>) => {
     setIsDisabled(true);
 
     try {
