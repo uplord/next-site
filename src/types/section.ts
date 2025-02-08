@@ -23,13 +23,11 @@ export type ImageProps = {
 }
 
 export type BannerProps = DefaultProps & {
+  title: string
+  subtitle: string
+  buttons?: ButtonProps[]
+  image: ImageProps
   hasHeader?: boolean
-  data: {
-    title: string
-    subtitle: string
-    buttons?: ButtonProps[]
-    image: ImageProps
-  }
 }
 
 export type SectionProps = DefaultProps & {

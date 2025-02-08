@@ -9,7 +9,11 @@ const meta: Meta<typeof BannerComponent> = {
   component: BannerComponent,
   args: {
     id: 'banner',
-    data
+    title: data.title,
+    subtitle: data.subtitle,
+    buttons: data.buttons,
+    image: data.image,
+    hasHeader: false,
   },
 }
 
