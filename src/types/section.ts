@@ -40,7 +40,7 @@ export type SectionProps = DefaultProps & {
 }
 
 export type ProjectsListProps = {
-  type: 'image' | 'svg';
+  type: string
   name?: string
   src?: string
   alt?: string
