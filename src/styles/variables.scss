@@ -11,6 +11,9 @@ $breakpoint-md: 744px;
 $breakpoint-lg: 1024px;
 $breakpoint-xl: 2032px;
 
+$color-light: #fff;
+$color-dark: #000;
+
 // Primary color scheme
 $color-default: #000;
 $color-default-hover: color.adjust($color-default, $lightness: -10%);

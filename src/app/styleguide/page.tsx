@@ -1,57 +1,83 @@
-'use client'
-
 import styles from '@/app/page.module.scss'
 import Header from '@/components/styleguide/Header'
 import Footer from '@/components/styleguide/Footer'
-import { Buttons } from '@/components/ui/Button'
 
-import NiceModal from '@ebay/nice-modal-react'
-import BasicModal from '@/components/modals/BasicModal'
-import BasicModal2 from '@/components/modals/BasicModal2'
-import ContactModal from '@/components/modals/ContactModal'
+import { ButtonGroup, Button } from '@/components/ui/Button2'
+import { Variant } from '@/types/button'
+import { Size } from '@/types/size'
 
 export default function Styleguide() {
-  const onTriggerModal = () => {
-    NiceModal.show(BasicModal)
-  }
-
-  const onTriggerModal2 = () => {
-    NiceModal.show(BasicModal2)
-  }
-
-  const onTriggerModal3 = () => {
-    NiceModal.show(ContactModal)
-  }
-
-  const data = {
-    buttons: [
-      {
-        title: 'Modal 1',
-        class: 'primary',
-        onClick: onTriggerModal,
-      },
-      {
-        title: 'Modal 2',
-        class: 'default',
-        onClick: onTriggerModal2,
-      },
-      {
-        title: 'Contact',
-        class: 'default',
-        onClick: onTriggerModal3,
-      },
-    ],
-  }
-
   return (
     <div className={styles.page}>
       <Header />
       <main className={styles.main}>
         <div className={styles.section}>
           <div className={styles.container}>
-            {data.buttons && (
-              <Buttons data={data.buttons} className={styles.buttons} />
-            )}
+            <div className={styles.row}>
+              <ButtonGroup>
+                <Button label="Button" size={Size.Small} variant={Variant.Default} />
+
+                <Button label="Button" size={Size.Medium} variant={Variant.Default} />
+
+                <Button label="Button" size={Size.Large} variant={Variant.Default} />
+              </ButtonGroup>
+
+              <ButtonGroup>
+                <Button label="Button" size={Size.Small} variant={Variant.Primary} />
+
+                <Button label="Button" size={Size.Medium} variant={Variant.Primary} />
+
+                <Button label="Button" size={Size.Large} variant={Variant.Primary} />
+              </ButtonGroup>
+
+              <ButtonGroup>
+                <Button label="Button" size={Size.Small} variant={Variant.Success} />
+
+                <Button label="Button" size={Size.Medium} variant={Variant.Success} />
+
+                <Button label="Button" size={Size.Large} variant={Variant.Success} />
+              </ButtonGroup>
+
+              <ButtonGroup>
+                <Button
+                  label="Leading Icon"
+                  size={Size.Medium}
+                  variant={Variant.Default}
+                  leadingIcon="MoveLeft"
+                />
+                <Button
+                  size={Size.Medium}
+                  variant={Variant.Default}
+                  trailingIcon="Home"
+                />
+                <Button
+                  label="Trailing Icon"
+                  size={Size.Medium}
+                  variant={Variant.Default}
+                  trailingIcon="MoveRight"
+                />
+              </ButtonGroup>
+
+              <ButtonGroup>
+                <Button
+                  label="Disabled"
+                  size={Size.Medium}
+                  variant={Variant.Default}
+                  disabled={true}
+                />
+                <Button
+                  label="Not Loading"
+                  size={Size.Medium}
+                  variant={Variant.Default}
+                />
+                <Button
+                  label="Not Loading"
+                  size={Size.Medium}
+                  variant={Variant.Default}
+                  isLoading={true}
+                />
+              </ButtonGroup>
+            </div>
           </div>
         </div>
       </main>
