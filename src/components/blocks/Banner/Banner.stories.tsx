@@ -26,7 +26,7 @@ export const Banner: Story = {
   render: (args: BannerProps) => {
     return (
       <>
-        {args.hasHeader && <HeaderComponent home={args.hasHeader} />}
+        {args.hasHeader && <HeaderComponent isHomepage={args.hasHeader} />}
         <BannerComponent {...args} />
       </>
     )
