@@ -13,7 +13,7 @@ export const ProjectsList = ({
   const breakpoints = useBreakpoints()
 
   return (
-    <div key={name || alt} className={styles.item}>
+    <div className={styles.item}>
       <div
         className={styles.image}
         {...(tooltip && { 'data-tooltip': tooltip })}

@@ -163,9 +163,13 @@
 
   @media (min-width: $breakpoint-md) {
     position: sticky;
-    top: 94px;
+    top: 0;
     text-align: left;
     gap: 1rem;
+
+    .header & {
+      top: 5.875rem;
+    }
   }
 
   &.animate {

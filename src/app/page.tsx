@@ -11,8 +11,8 @@ import Stack from '@/components/blocks/Stack'
 import banner from '@/data/banner.json'
 import section from '@/data/section.json'
 import projects from '@/data/projects.json'
-import timelineData from '@/data/timeline.json'
-import stackData from '@/data/stack.json'
+import timeline from '@/data/timeline.json'
+import stack from '@/data/stack.json'
 
 export default function Home() {
 
@@ -41,8 +41,20 @@ export default function Home() {
           title={projects.title}
           list={projects.list}
         />
-        <Timeline id="timeline" data={timelineData} />
-        <Stack id="stack" data={stackData} />
+        <Timeline
+          id="timeline"
+          title={timeline.title}
+          subtitle={timeline.subtitle}
+          content={timeline.content}
+          buttons={timeline.buttons}
+          list={timeline.list}
+          hasHeader={true}
+        />
+        <Stack
+          id="stack"
+          title={stack.title}
+          list={stack.list}
+        />
       </main>
       <Footer id="footer" />
     </div>

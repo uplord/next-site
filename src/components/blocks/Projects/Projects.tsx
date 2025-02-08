@@ -18,6 +18,7 @@ export const Projects = ({
           <div className={styles.list}>
             {list.map((item) => (
               <ProjectsList
+                key={item.name || item.alt}
                 type={item.type}
                 name={item.name}
                 src={item.src}

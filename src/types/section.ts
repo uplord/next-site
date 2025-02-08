@@ -65,13 +65,12 @@ export type TimelineListProps = {
 }
 
 export type TimelineProps = DefaultProps & {
-  data: {
-    title: string
-    subtitle: string
-    content?: string
-    buttons?: ButtonProps[]
-    list: TimelineListProps[]
-  }
+  title: string
+  subtitle: string
+  content?: string
+  buttons?: ButtonProps[]
+  list: TimelineListProps[]
+  hasHeader?: boolean
 }
 
 export type StackListProps = {
@@ -80,8 +79,6 @@ export type StackListProps = {
 }
 
 export type StackProps = DefaultProps & {
-  data: {
-    title: string
-    list: StackListProps[]
-  }
+  title: string
+  list: StackListProps[]
 }
