@@ -1,5 +1,5 @@
 import styles from './style.module.scss'
-import { Svg } from '@/components/utils'
+import { StackList } from './StackList'
 import { StackProps } from '@/types/section'
 
 export const Stack = ({ id, data }: StackProps) => {
@@ -12,11 +12,10 @@ export const Stack = ({ id, data }: StackProps) => {
           </div>
           <div className={styles.list}>
             {data.list.map((item) => (
-              <div key={item.icon} className={styles.item}>
-                <div className={styles.image} data-tooltip={item.tooltip}>
-                  <Svg name={item.icon} height={60} width={60} />
-                </div>
-              </div>
+              <StackList
+                icon={item.icon}
+                tooltip={item.tooltip}
+              />
             ))}
           </div>
         </div>

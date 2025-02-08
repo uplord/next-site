@@ -8,9 +8,9 @@ import Projects from '@/components/blocks/Projects'
 import Timeline from '@/components/blocks/Timeline'
 import Stack from '@/components/blocks/Stack'
 
-import bannerData from '@/data/banner.json'
-import sectionData from '@/data/section.json'
-import projectsData from '@/data/projects.json'
+import banner from '@/data/banner.json'
+import section from '@/data/section.json'
+import projects from '@/data/projects.json'
 import timelineData from '@/data/timeline.json'
 import stackData from '@/data/stack.json'
 
@@ -22,14 +22,25 @@ export default function Home() {
       <main className={styles.main}>
         <Banner 
          id="banner"
-         title={bannerData.title}
-         subtitle={bannerData.subtitle}
-         buttons={bannerData.buttons}
-         image={bannerData.image}
+         title={banner.title}
+         subtitle={banner.subtitle}
+         buttons={banner.buttons}
+         image={banner.image}
          hasHeader={true}
         />
-        <Section id="about-me" data={sectionData} />
-        <Projects id="projects" data={projectsData} />
+        <Section
+          id="about-me"
+          title={section.title}
+          subtitle={section.subtitle}
+          content={section.content}
+          buttons={section.buttons}
+          image={section.image}
+        />
+        <Projects
+          id="projects"
+          title={projects.title}
+          list={projects.list}
+        />
         <Timeline id="timeline" data={timelineData} />
         <Stack id="stack" data={stackData} />
       </main>

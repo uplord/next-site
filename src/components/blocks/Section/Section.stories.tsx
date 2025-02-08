@@ -9,7 +9,11 @@ const meta: Meta<typeof SectionComponent> = {
   component: SectionComponent,
   args: {
     id: 'section',
-    data
+    title: data.title,
+    subtitle: data.subtitle,
+    content: data.content,
+    buttons: data.buttons,
+    image: data.image,
   },
 }
 

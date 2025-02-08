@@ -9,7 +9,8 @@ const meta: Meta<typeof ProjectsComponent> = {
   component: ProjectsComponent,
   args: {
     id: 'projects',
-    data
+    title: data.title,
+    list: data.list,
   },
 }
 

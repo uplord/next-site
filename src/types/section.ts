@@ -28,16 +28,15 @@ export type BannerProps = DefaultProps & {
   buttons?: ButtonProps[]
   image: ImageProps
   hasHeader?: boolean
+  hasParticles?: boolean
 }
 
 export type SectionProps = DefaultProps & {
-  data: {
-    title: string
-    subtitle: string
-    content: string
-    buttons?: ButtonProps[]
-    image: ImageProps
-  }
+  title: string
+  subtitle: string
+  content: string
+  buttons?: ButtonProps[]
+  image: ImageProps
 }
 
 export type ProjectsListProps = {
@@ -49,10 +48,8 @@ export type ProjectsListProps = {
 }
 
 export type ProjectsProps = DefaultProps & {
-  data: {
-    title: string
-    list: ProjectsListProps[]
-  }
+  title: string
+  list: ProjectsListProps[]
 }
 
 export type TimelineListProps = {
