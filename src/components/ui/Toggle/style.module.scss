@@ -16,7 +16,7 @@
   @media (hover: hover) {
     &:hover .dot {
       background: $color-nav-hover;
-      
+
       @include dark-mode {
         background: $color-nav-hover-dark;
       }
@@ -60,7 +60,7 @@
           left: 6px;
         }
       }
-      
+
       @media (min-width: $breakpoint-xl) {
         top: 6px;
         left: 56px;

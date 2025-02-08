@@ -19,11 +19,7 @@ export const ProjectsList = ({
         {...(tooltip && { 'data-tooltip': tooltip })}
       >
         {type === 'svg' ? (
-          <Svg
-            name={name}
-            width={900}
-            height={600}
-          />
+          <Svg name={name} width={900} height={600} />
         ) : (
           src && (
             <Image

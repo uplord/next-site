@@ -8,7 +8,7 @@ import Particles from '@/components/utils/Particles'
 export const ErrorPage = () => {
   const data = {
     title: 'Page not found',
-    content: 'We couldn\'t find the page you are looking for.',
+    content: "We couldn't find the page you are looking for.",
     buttons: [
       { title: 'Go back to the homepage', link: '/', class: 'primary' },
     ],
@@ -28,4 +28,3 @@ export const ErrorPage = () => {
     </div>
   )
 }
-

@@ -34,7 +34,7 @@ const ParticlesSnow = React.memo(({ id, className }: ParticlesSnowProps) => {
         move: {
           direction: 'bottom' as MoveDirection,
           enable: true,
-          outModes: 'out' as OutMode, 
+          outModes: 'out' as OutMode,
           speed: 4,
         },
         number: {

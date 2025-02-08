@@ -7,7 +7,7 @@
   &.animate {
     opacity: 0;
   }
-  
+
   &.transition {
     transition: opacity 0.6s ease;
   }
@@ -45,13 +45,11 @@
 }
 
 .social {
-
   @media (max-width: $breakpoint-md - 1) {
     gap: 2rem;
   }
 
   a {
-
     @media (min-width: $breakpoint-md - 1) {
       padding: 0.75rem;
     }
@@ -62,7 +60,6 @@
   }
 
   svg {
-
     @media (max-width: $breakpoint-md - 1) {
       width: 28px;
     }

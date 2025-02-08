@@ -31,15 +31,11 @@ export const Timeline = ({
           <div className={styles.text}>
             <h3>{title}</h3>
             <h2>{subtitle}</h2>
-            {content && (
-              <p>{content}</p>
-            )}
-            {buttons && (
-              <Buttons data={buttons} className={styles.buttons} />
-            )}
+            {content && <p>{content}</p>}
+            {buttons && <Buttons data={buttons} className={styles.buttons} />}
           </div>
         </div>
-    </div>
+      </div>
     </div>
   )
 }

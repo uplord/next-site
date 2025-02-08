@@ -2,7 +2,7 @@ import React from 'react'
 import { DM_Sans } from 'next/font/google'
 import { useGlobals } from '@storybook/preview-api'
 
-import '../src/styles/index.scss';
+import '../src/styles/index.scss'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -29,8 +29,8 @@ const preview = {
         {
           name: 'Dark',
           value: '#0d0d0d',
-        }
-      ]
+        },
+      ],
     },
     viewport: {
       viewports: {
@@ -69,14 +69,16 @@ const preview = {
     },
   },
   decorators: [
-    Story => {
+    (Story) => {
       const [globals] = useGlobals()
       return (
-        <div className={`${dmSans.className} ${globals?.backgrounds?.value !== '#FFF' ? 'dark' : 'light'}`}>
+        <div
+          className={`${dmSans.className} ${globals?.backgrounds?.value !== '#FFF' ? 'dark' : 'light'}`}
+        >
           <Story />
         </div>
       )
-    }
+    },
   ],
 }
 

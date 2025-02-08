@@ -11,7 +11,7 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    '@storybook/addon-styling-webpack'
+    '@storybook/addon-styling-webpack',
   ],
   framework: {
     name: '@storybook/nextjs',
@@ -21,21 +21,21 @@ const config: StorybookConfig = {
   webpackFinal: async (config) => {
     // Remove default Storybook SVG handling to avoid conflicts
     config.module.rules = config.module.rules.filter(
-      (rule) => !rule.test?.toString().includes("svg")
-    );
+      (rule) => !rule.test?.toString().includes('svg')
+    )
 
     // Add SVGR loader (same as Next.js config)
     config.module.rules.push({
       test: /\.svg$/,
       use: [
         {
-          loader: "@svgr/webpack",
+          loader: '@svgr/webpack',
           options: {
             svgo: true,
             svgoConfig: {
               plugins: [
                 {
-                  name: "preset-default",
+                  name: 'preset-default',
                   params: {
                     overrides: {
                       removeViewBox: false,
@@ -51,9 +51,9 @@ const config: StorybookConfig = {
           },
         },
       ],
-    });
+    })
 
-    return config;
+    return config
   },
 }
 

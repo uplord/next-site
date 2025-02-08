@@ -30,5 +30,5 @@ export const Banner: Story = {
         <BannerComponent {...args} />
       </>
     )
-  }
+  },
 }

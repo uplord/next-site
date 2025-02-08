@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { default as LogoComponennt, LogoProps } from '@/components/styleguide/Logo'
+import {
+  default as LogoComponennt,
+  LogoProps,
+} from '@/components/styleguide/Logo'
 
 const meta: Meta<typeof LogoComponennt> = {
   title: 'Styleguide',
@@ -19,7 +22,7 @@ const meta: Meta<typeof LogoComponennt> = {
   },
 }
 
-export default meta;
+export default meta
 type Story = StoryObj<LogoProps>
 
 export const Logo: Story = {}

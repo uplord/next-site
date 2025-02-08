@@ -15,18 +15,17 @@ import timeline from '@/data/timeline.json'
 import stack from '@/data/stack.json'
 
 export default function Home() {
-
   return (
     <div className={styles.page}>
       <Header isHomepage={true} />
       <main className={styles.main}>
-        <Banner 
-         id="banner"
-         title={banner.title}
-         subtitle={banner.subtitle}
-         buttons={banner.buttons}
-         image={banner.image}
-         hasHeader={true}
+        <Banner
+          id="banner"
+          title={banner.title}
+          subtitle={banner.subtitle}
+          buttons={banner.buttons}
+          image={banner.image}
+          hasHeader={true}
         />
         <Section
           id="about-me"
@@ -36,11 +35,7 @@ export default function Home() {
           buttons={section.buttons}
           image={section.image}
         />
-        <Projects
-          id="projects"
-          title={projects.title}
-          list={projects.list}
-        />
+        <Projects id="projects" title={projects.title} list={projects.list} />
         <Timeline
           id="timeline"
           title={timeline.title}
@@ -50,11 +45,7 @@ export default function Home() {
           list={timeline.list}
           hasHeader={true}
         />
-        <Stack
-          id="stack"
-          title={stack.title}
-          list={stack.list}
-        />
+        <Stack id="stack" title={stack.title} list={stack.list} />
       </main>
       <Footer id="footer" />
     </div>

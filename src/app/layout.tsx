@@ -11,7 +11,8 @@ const dmSans = DM_Sans({
 
 export const metadata = {
   title: 'Michael Allen - Front End Developer',
-  description: 'Experienced Front End Developer with 9 years of expertise, showcasing excellent collaboration, organization, and teamwork skills. Passionate about HTML, CSS, and JavaScript, I thrive on creating exceptional websites. My strong analytical, debugging, and problem-solving abilities have successfully served both small and large clients. Always open to exploring new technologies for innovative web solutions.',
+  description:
+    'Experienced Front End Developer with 9 years of expertise, showcasing excellent collaboration, organization, and teamwork skills. Passionate about HTML, CSS, and JavaScript, I thrive on creating exceptional websites. My strong analytical, debugging, and problem-solving abilities have successfully served both small and large clients. Always open to exploring new technologies for innovative web solutions.',
   icons: {
     icon: '/favicon.svg',
     apple: '/apple.png',
@@ -32,9 +33,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NiceModalProvider>
-            {children}
-          </NiceModalProvider>
+          <NiceModalProvider>{children}</NiceModalProvider>
         </ThemeProvider>
       </body>
     </html>

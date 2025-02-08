@@ -13,10 +13,10 @@ export const BasicModal2 = NiceModal.create(() => {
   }
 
   const buttons = [
-    { 
+    {
       title: 'Close',
       onClick: onHandleClose,
-      class: 'primary'
+      class: 'primary',
     },
   ]
 
@@ -25,9 +25,7 @@ export const BasicModal2 = NiceModal.create(() => {
       showHeader={false}
       modalStyles={styles}
       triggerClose={isClosed}
-      footer={(
-        <Buttons data={buttons} className={styles.buttons} />
-      )}
+      footer={<Buttons data={buttons} className={styles.buttons} />}
     >
       <p>Basic Content 2</p>
       <p>Add custom footer with buttons</p>

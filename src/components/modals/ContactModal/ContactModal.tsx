@@ -31,7 +31,7 @@ export const ContactModal = NiceModal.create(() => {
 
   const onHandleSubmit = () => {
     setIsDisabled(true)
-  
+
     handleSubmit(
       async (data) => {
         await onSubmit(data)
@@ -47,31 +47,31 @@ export const ContactModal = NiceModal.create(() => {
   }
 
   const onSubmit = async (data: z.infer<typeof schema>) => {
-    setIsDisabled(true);
+    setIsDisabled(true)
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
-      });
+      })
 
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error('Failed to send message')
       }
 
-      setStatus('success');
-      setHasFooter(false);
+      setStatus('success')
+      setHasFooter(false)
     } catch (error) {
-      console.error(error);
-      alert('Something went wrong, please try again.');
+      console.error(error)
+      alert('Something went wrong, please try again.')
     } finally {
-      setIsDisabled(false);
+      setIsDisabled(false)
     }
   }
 
   const footerButtons = [
-    {  
+    {
       title: 'Submit',
       onClick: onHandleSubmit,
       class: 'primary right',
@@ -80,10 +80,10 @@ export const ContactModal = NiceModal.create(() => {
   ]
 
   const successButtons = [
-    {  
+    {
       title: 'Close',
       onClick: () => setIsClosed(true),
-      class: 'primary'
+      class: 'primary',
     },
   ]
 
@@ -103,18 +103,36 @@ export const ContactModal = NiceModal.create(() => {
           noValidate
         >
           <div className={styles.field}>
-            <input {...register('fullName')} placeholder="Full name" autoComplete="none" />
-            {errors.fullName?.message && <p className={styles.error}>{String(errors.fullName.message)}</p>}
+            <input
+              {...register('fullName')}
+              placeholder="Full name"
+              autoComplete="none"
+            />
+            {errors.fullName?.message && (
+              <p className={styles.error}>{String(errors.fullName.message)}</p>
+            )}
           </div>
 
           <div className={styles.field}>
-            <input {...register('email')} type="email" placeholder="Email address" />
-            {errors.email?.message && <p className={styles.error}>{String(errors.email.message)}</p>}
+            <input
+              {...register('email')}
+              type="email"
+              placeholder="Email address"
+            />
+            {errors.email?.message && (
+              <p className={styles.error}>{String(errors.email.message)}</p>
+            )}
           </div>
 
           <div className={styles.field}>
-            <textarea {...register('message')} rows={4} placeholder="Your message..." />
-            {errors.message?.message && <p className={styles.error}>{String(errors.message.message)}</p>}
+            <textarea
+              {...register('message')}
+              rows={4}
+              placeholder="Your message..."
+            />
+            {errors.message?.message && (
+              <p className={styles.error}>{String(errors.message.message)}</p>
+            )}
           </div>
         </form>
       ) : (

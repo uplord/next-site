@@ -18,7 +18,8 @@ export const TimelineList = ({
         <Svg name={icon.name} width={icon.width} height={icon.height} />
       </Link>
       {content && (
-        <div className={styles.content}
+        <div
+          className={styles.content}
           dangerouslySetInnerHTML={{ __html: content }}
         ></div>
       )}

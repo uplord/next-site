@@ -18,7 +18,7 @@
   font-weight: 500;
   border-radius: 0.5em;
   border: 1px solid transparent;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   white-space: nowrap;
 
   @include dark-mode {
@@ -122,7 +122,7 @@
 
   :global(#banner) & {
     @include light-mode {
-      color: #FFF;
+      color: #fff;
     }
   }
 }

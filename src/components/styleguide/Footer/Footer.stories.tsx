@@ -7,7 +7,7 @@ const meta: Meta<typeof FooterComponent> = {
   component: FooterComponent,
 }
 
-export default meta;
+export default meta
 type Story = StoryObj<DefaultProps>
 
 export const Footer: Story = {}

@@ -11,7 +11,8 @@ interface ToggleProps {
 const updateFavicon = (currentTheme: string): void => {
   const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement
   if (favicon) {
-    favicon.href = currentTheme === 'dark' ? '/favicon-dark.svg' : '/favicon.svg'
+    favicon.href =
+      currentTheme === 'dark' ? '/favicon-dark.svg' : '/favicon.svg'
   }
 }
 
@@ -61,4 +62,3 @@ export const Toggle = ({ className = '' }: ToggleProps) => {
     </div>
   )
 }
-

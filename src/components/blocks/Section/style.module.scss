@@ -27,7 +27,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  @media (min-width: $breakpoint-md)  {
+  @media (min-width: $breakpoint-md) {
     gap: 2rem;
   }
 
@@ -37,7 +37,6 @@
 }
 
 .image {
-
   .imageWrap {
     display: flex;
     justify-content: flex-start;

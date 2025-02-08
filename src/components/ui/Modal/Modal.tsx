@@ -39,7 +39,7 @@ export const Modal = ({
     } else {
       document.documentElement.style.overflow = ''
     }
-  
+
     return () => {
       document.documentElement.style.overflow = ''
     }
@@ -68,14 +68,16 @@ export const Modal = ({
     console.log('onSubmitButton')
   }
 
-  const headerButtons = { 
+  const headerButtons = {
     icon: X,
     onClick: onCloseButton,
-    class: `${styles['buttonClose']}`
+    class: `${styles['buttonClose']}`,
   }
 
   return (
-    <div className={`${styles.modal} ${isVisible ? styles.loaded : ''} ${modalStyles.modal || ''}`}>
+    <div
+      className={`${styles.modal} ${isVisible ? styles.loaded : ''} ${modalStyles.modal || ''}`}
+    >
       <div className={styles.backdrop} onClick={onCloseButton}></div>
       <div className={`${styles.overlay} ${modalStyles.overlay || ''}`}>
         {showHeader && (
@@ -91,7 +93,7 @@ export const Modal = ({
             {children}
           </div>
         </div>
-        {(showFooter && footer) && (
+        {showFooter && footer && (
           <div className={`${styles.footer} ${modalStyles.footer || ''}`}>
             {footer}
           </div>

@@ -3,11 +3,7 @@ import { ProjectsList } from './ProjectsList'
 import { Svg } from '@/components/utils'
 import { ProjectsProps } from '@/types/section'
 
-export const Projects = ({
-  id,
-  title,
-  list,
-}: ProjectsProps) => {
+export const Projects = ({ id, title, list }: ProjectsProps) => {
   return (
     <div id={id} className={styles.projects}>
       <div className={styles.container}>

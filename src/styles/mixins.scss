@@ -46,7 +46,9 @@
     white-space: nowrap;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease;
 
     @include dark-mode {
       background-color: $color-tooltip-dark;
@@ -68,7 +70,9 @@
     width: 0;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease;
 
     @include dark-mode {
       border-color: transparent transparent $color-tooltip-dark transparent;
@@ -124,7 +128,6 @@
 }
 
 @mixin paragraph {
-
   @media (min-width: $breakpoint-md) {
     font-size: 1.125rem;
     line-height: 1.7;

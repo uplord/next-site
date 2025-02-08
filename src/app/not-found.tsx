@@ -6,8 +6,5 @@ export const metadata = {
 }
 
 export default function NotFound() {
-
-  return (
-    <ErrorPage />
-  )
+  return <ErrorPage />
 }

@@ -24,19 +24,23 @@ export default function Styleguide() {
   }
 
   const data = {
-    buttons: [{
-      title: 'Modal 1',
-      class: "primary",
-      onClick: onTriggerModal
-    },{
-      title: 'Modal 2',
-      class: 'default',
-      onClick: onTriggerModal2
-    },{
-      title: 'Contact',
-      class: 'default',
-      onClick: onTriggerModal3
-    }]
+    buttons: [
+      {
+        title: 'Modal 1',
+        class: 'primary',
+        onClick: onTriggerModal,
+      },
+      {
+        title: 'Modal 2',
+        class: 'default',
+        onClick: onTriggerModal2,
+      },
+      {
+        title: 'Contact',
+        class: 'default',
+        onClick: onTriggerModal3,
+      },
+    ],
   }
 
   return (
@@ -45,7 +49,9 @@ export default function Styleguide() {
       <main className={styles.main}>
         <div className={styles.section}>
           <div className={styles.container}>
-            {data.buttons && <Buttons data={data.buttons} className={styles.buttons} />}
+            {data.buttons && (
+              <Buttons data={data.buttons} className={styles.buttons} />
+            )}
           </div>
         </div>
       </main>

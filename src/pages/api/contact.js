@@ -1,6 +1,6 @@
-import { Resend } from 'resend';
+import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { fullName, email, message } = req.body;
+    const { fullName, email, message } = req.body
 
     const data = await resend.emails.send({
       from: 'Michael Allen <noreply@themichael.co.uk>',
@@ -22,10 +22,10 @@ export default async function handler(req, res) {
         <p><strong>Message:</strong></p>
         <p>${message}</p>
       `,
-    });
+    })
 
-    return res.status(200).json({ success: true, data });
+    return res.status(200).json({ success: true, data })
   } catch (error) {
-    return res.status(500).json({ success: false, error: error.message });
+    return res.status(500).json({ success: false, error: error.message })
   }
 }

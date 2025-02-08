@@ -16,7 +16,7 @@ $color-default: #000;
 $color-default-hover: color.adjust($color-default, $lightness: -10%);
 $color-default-text: #fff;
 
-$color-default-dark: #FFF;
+$color-default-dark: #fff;
 $color-default-hover-dark: color.adjust($color-default-dark, $lightness: 10%);
 $color-default-text-dark: #000;
 

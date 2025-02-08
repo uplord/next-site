@@ -11,32 +11,34 @@ const meta: Meta<typeof ModalComponent> = {
   },
   component: ModalComponent,
   decorators: [
-    Story => (
+    (Story) => (
       <NiceModalProvider>
         <Story />
       </NiceModalProvider>
-    )
-  ]
+    ),
+  ],
 }
 
-export default meta;
+export default meta
 
 type Story = StoryObj<ModalProps>
 
 const TempModal = NiceModal.create<ModalProps>(({ children, ...props }) => {
-  return <ModalComponent {...props}>{children}</ModalComponent>;
+  return <ModalComponent {...props}>{children}</ModalComponent>
 })
 
-const footerButtons = [{
-  title: 'Submit',
-  class: 'primary right'
-}]
+const footerButtons = [
+  {
+    title: 'Submit',
+    class: 'primary right',
+  },
+]
 
 export const Modal: Story = {
   args: {
     children: <h1>Page Test</h1>,
     title: 'Test',
-    footer: <Buttons data={footerButtons} />
+    footer: <Buttons data={footerButtons} />,
   },
   render: (args) => {
     const onTriggerModal = () => {
@@ -44,15 +46,15 @@ export const Modal: Story = {
     }
 
     const data = {
-      buttons: [{
-        title: 'UI modal',
-        class: 'primary large',
-        onClick: onTriggerModal
-      }]
+      buttons: [
+        {
+          title: 'UI modal',
+          class: 'primary large',
+          onClick: onTriggerModal,
+        },
+      ],
     }
 
-    return (
-      <Buttons data={data.buttons} />
-    )
-  }
+    return <Buttons data={data.buttons} />
+  },
 }

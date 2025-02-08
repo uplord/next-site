@@ -28,13 +28,17 @@ export function Button({ data, functionMap }: ButtonComponentProps) {
   const buttonClasses = clsx(
     styles.button,
     data.icon && styles.icon,
-    ...data.class?.split(' ').map((name) => styles[name] || name || '') || []
+    ...(data.class?.split(' ').map((name) => styles[name] || name || '') || [])
   )
 
   const Content = generateContent(data)
 
   const handleClick = () => {
-    if (typeof data.onClick === 'string' && functionMap && functionMap[data.onClick]) {
+    if (
+      typeof data.onClick === 'string' &&
+      functionMap &&
+      functionMap[data.onClick]
+    ) {
       functionMap[data.onClick]()
     } else if (typeof data.onClick === 'function') {
       data.onClick()
@@ -42,11 +46,20 @@ export function Button({ data, functionMap }: ButtonComponentProps) {
   }
 
   const ButtonComponent = data.link ? (
-    <Link href={data.link} className={buttonClasses} target={data.target || undefined}>
+    <Link
+      href={data.link}
+      className={buttonClasses}
+      target={data.target || undefined}
+    >
       {Content}
     </Link>
   ) : (
-    <button type="button" className={buttonClasses} onClick={handleClick} disabled={data.disabled}>
+    <button
+      type="button"
+      className={buttonClasses}
+      onClick={handleClick}
+      disabled={data.disabled}
+    >
       {Content}
     </button>
   )
@@ -60,7 +73,11 @@ export interface ButtonsComponentProps {
   functionMap?: { [key: string]: () => void }
 }
 
-export function Buttons({ data, className = '', functionMap }: ButtonsComponentProps) {
+export function Buttons({
+  data,
+  className = '',
+  functionMap,
+}: ButtonsComponentProps) {
   return (
     <div className={clsx(styles.buttons, className)}>
       {data.map((button, index) => (

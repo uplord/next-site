@@ -23,8 +23,9 @@
     flex-direction: column;
     gap: 0.5rem;
   }
-  
-  input, textarea {
+
+  input,
+  textarea {
     width: 100%;
     padding: 0.625rem 1rem;
     background: none;
@@ -51,7 +52,7 @@
   }
 }
 
-.success { 
+.success {
   display: flex;
   flex-direction: column;
   align-items: center;

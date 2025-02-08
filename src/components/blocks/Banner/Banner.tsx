@@ -16,7 +16,6 @@ export const Banner = ({
   hasHeader,
   hasParticles = true,
 }: BannerProps) => {
-
   return (
     <div id={id} className={`${styles.banner} ${hasHeader && styles.header}`}>
       <>

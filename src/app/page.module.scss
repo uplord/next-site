@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: 3rem;
   padding: 0 0 2rem;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 
   @media (min-width: $breakpoint-md) {
     gap: 4rem;

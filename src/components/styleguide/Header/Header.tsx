@@ -18,7 +18,14 @@ export const Header = ({ className, isHomepage = false }: HeaderProps) => {
   const isScrolled = useScroll()
 
   return (
-    <div className={clsx(styles.header, (isScrolled || !isHomepage) && styles.scrolled, className, isHomepage && styles.home )}>
+    <div
+      className={clsx(
+        styles.header,
+        (isScrolled || !isHomepage) && styles.scrolled,
+        className,
+        isHomepage && styles.home
+      )}
+    >
       <Particles id="particles-header" className={styles.particles} />
       <div className={styles.container}>
         <Logo className={styles.logo} />
@@ -30,29 +37,36 @@ export const Header = ({ className, isHomepage = false }: HeaderProps) => {
 }
 
 export function Navigation() {
-  const data = [{
-    title: 'Home',
-    link: '/',
-  },{
-    title: 'About me',
-    link: '/#about-me',
-  },{
-    title: 'Projects',
-    link: '/#projects',
-  },{
-    title: 'Timeline',
-    link: '/#timeline',
-  },{
-    title: 'Contact',
-    link: 'mailto:michael@uplord.co.uk',
-  }]
+  const data = [
+    {
+      title: 'Home',
+      link: '/',
+    },
+    {
+      title: 'About me',
+      link: '/#about-me',
+    },
+    {
+      title: 'Projects',
+      link: '/#projects',
+    },
+    {
+      title: 'Timeline',
+      link: '/#timeline',
+    },
+    {
+      title: 'Contact',
+      link: 'mailto:michael@uplord.co.uk',
+    },
+  ]
 
   return (
     <div className={styles.navigation}>
       {data.map((item) => (
-        <Link key={item.title} href={item.link}>{item.title}</Link>
+        <Link key={item.title} href={item.link}>
+          {item.title}
+        </Link>
       ))}
     </div>
   )
 }
-

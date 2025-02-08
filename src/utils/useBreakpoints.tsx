@@ -30,7 +30,9 @@ export const getCurrentBreakpoint = (): BreakpointKey | null => {
   }
 
   const width = window.innerWidth
-  return (Object.keys(BREAKPOINTS) as BreakpointKey[])
-    .reverse()
-    .find((key) => width >= BREAKPOINTS[key]) || null
+  return (
+    (Object.keys(BREAKPOINTS) as BreakpointKey[])
+      .reverse()
+      .find((key) => width >= BREAKPOINTS[key]) || null
+  )
 }

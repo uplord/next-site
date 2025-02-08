@@ -11,7 +11,6 @@ export const Section = ({
   buttons,
   image,
 }: SectionProps) => {
-
   return (
     <div id={id} className={styles.section}>
       <div className={styles.container}>
