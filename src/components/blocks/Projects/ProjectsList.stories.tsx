@@ -65,6 +65,34 @@ const meta: Meta<typeof ProjectsListComponent> = {
       },
     },
   },
+  decorators: [
+    Story => {
+      const [args, updateArgs] = useArgs()
+
+      useEffect(() => {
+
+        if (args.type === 'svg') {
+          const svg = data.list.find(item => item.name === args.name)
+  
+          if (args.name && svg) {
+            updateArgs({ tooltip: svg.tooltip })
+          }
+        }
+  
+        if (args.type === 'image') {
+          const image = data.list.find(item => item.src === args.src)
+  
+          if (args.src && image) {
+            updateArgs({ alt: image.alt, tooltip: image.tooltip })
+          }
+        }
+      }, [args.type, args.name, args.src, updateArgs])
+
+      return (
+        <Story />
+      )
+    }
+  ],
 }
 
 export default meta
@@ -73,26 +101,6 @@ type Story = StoryObj<ProjectsListProps>
 
 export const ProjectsList: Story = {
   render: (args) => {
-    const [{}, updateArgs] = useArgs()
-
-    useEffect(() => {
-      if (args.type === 'svg') {
-        const svg = data.list.find(item => item.name === args.name)
-
-        if (args.name && svg) {
-          updateArgs({ tooltip: svg.tooltip })
-        }
-      }
-
-      if (args.type === 'image') {
-        const image = data.list.find(item => item.src === args.src)
-
-        if (args.src && image) {
-          updateArgs({ alt: image.alt, tooltip: image.tooltip })
-        }
-      }
-    }, [args.type, args.name, args.src, updateArgs])
-
     return <ProjectsListComponent {...args} />
   },
 }
