@@ -11,7 +11,7 @@
     { "type": "svg", "name": "snappy", "tooltip": "Snappy Shopper" },
     { "type": "svg", "name": "macdonalds", "tooltip": "Macdonald Hotels & Resorts" },
     { "type": "svg", "name": "campbells", "tooltip": "Campbells Meat" },
-    { "type": "image", "src": "/images/petervardy.png", "alt": "Peter Vardy", "tooltip": "Peter Vardy" },
-    { "type": "image", "src": "/images/carmoney.png", "alt": "CarMoney", "tooltip": "CarMoney" }
+    { "type": "image", "src": "petervardy.png", "alt": "Peter Vardy", "tooltip": "Peter Vardy" },
+    { "type": "image", "src": "carmoney.png", "alt": "CarMoney", "tooltip": "CarMoney" }
   ]
 }

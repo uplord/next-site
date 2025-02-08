@@ -15,8 +15,9 @@ export const Stack = ({
             <h2>{title}</h2>
           </div>
           <div className={styles.list}>
-            {list.map((item) => (
+            {list.map((item, index) => (
               <StackList
+                key={index}
                 icon={item.icon}
                 tooltip={item.tooltip}
               />

@@ -14,6 +14,7 @@ const meta: Meta<typeof TimelineComponent> = {
     content: data.content,
     buttons: data.buttons,
     list: data.list,
+    hasHeader: false,
   },
 }
 

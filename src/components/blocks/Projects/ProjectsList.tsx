@@ -27,7 +27,7 @@ export const ProjectsList = ({
         ) : (
           src && (
             <Image
-              src={src}
+              src={`/images/${src}`}
               alt={alt || 'Project Image'}
               sizes={`(max-width: ${breakpoints.md - 1}px) 360px, 326px`}
               width={326}

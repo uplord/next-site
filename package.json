@@ -12,6 +12,7 @@
     "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
+    "@storybook/addon-controls": "^8.5.3",
     "@tsparticles/react": "^3.0.0",
     "next": "15.1.6",
     "next-themes": "^0.4.3",

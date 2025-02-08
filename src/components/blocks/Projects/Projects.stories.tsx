@@ -5,7 +5,7 @@ import { ProjectsProps } from '@/types/section'
 import data from '@/data/projects.json'
 
 const meta: Meta<typeof ProjectsComponent> = {
-  title: 'Blocks',
+  title: 'Blocks/Projects',
   component: ProjectsComponent,
   args: {
     id: 'projects',
