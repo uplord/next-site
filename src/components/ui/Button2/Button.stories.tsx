@@ -14,6 +14,7 @@ const meta: Meta<typeof ButtonComponent> = {
     size: Size.Medium,
     variant: 'primary',
     isLoading: false,
+    disabled: false,
   },
   argTypes: {
     size: {
