@@ -7,6 +7,16 @@ const meta: Meta<typeof LogoComponennt> = {
     layout: 'centered',
   },
   component: LogoComponennt,
+  args: {
+    className: '',
+  },
+  argTypes: {
+    className: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 }
 
 export default meta;

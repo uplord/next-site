@@ -11,14 +11,14 @@ import { useScroll } from '@/utils/scrollUtils'
 
 export type HeaderProps = {
   className?: string
-  home?: boolean
+  isHomepage?: boolean
 }
 
-export const Header = ({ className, home = false }: HeaderProps) => {
+export const Header = ({ className, isHomepage = false }: HeaderProps) => {
   const isScrolled = useScroll()
 
   return (
-    <div className={clsx(styles.header, (isScrolled || !home) && styles.scrolled, className, home && styles.home )}>
+    <div className={clsx(styles.header, (isScrolled || !isHomepage) && styles.scrolled, className, isHomepage && styles.home )}>
       <Particles id="particles-header" className={styles.particles} />
       <div className={styles.container}>
         <Logo className={styles.logo} />

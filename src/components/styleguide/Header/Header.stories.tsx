@@ -4,6 +4,17 @@ import { default as HeaderComponent, HeaderProps } from '@/components/styleguide
 const meta: Meta<typeof HeaderComponent> = {
   title: 'Styleguide',
   component: HeaderComponent,
+  args: {
+    className: '',
+    isHomepage: false
+  },
+  argTypes: {
+    className: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 }
 
 export default meta

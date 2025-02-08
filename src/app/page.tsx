@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <Header home={true} />
+      <Header isHomepage={true} />
       <main className={styles.main}>
         <Banner 
          id="banner"

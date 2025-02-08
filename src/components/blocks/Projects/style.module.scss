@@ -64,21 +64,6 @@
   &::-webkit-scrollbar {
     display: none;
   }
-
-  .item {
-
-    @media (min-width: $breakpoint-md) {
-      width: calc(33.3% - 0.75rem);
-    }
-  
-    @media (min-width: $breakpoint-lg) {
-      width: calc(25% - 1.5rem);
-    }
-  
-    @media (min-width: $breakpoint-xl) {
-      width: calc(20% - 1.6rem);
-    }
-  }
 }
 
 .item {
@@ -98,6 +83,18 @@
 
   @media (max-width: $breakpoint-md - 1) {
     scroll-snap-align: center;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    width: calc(33.3% - 0.75rem);
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    width: calc(25% - 1.5rem);
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    width: calc(20% - 1.6rem);
   }
 
   &:hover {
