@@ -25,7 +25,7 @@ export interface LinkProps {
   label?: string
   href: string
   target?: '_self' | '_blank'
-  size: SizeType
+  size?: SizeType
   variant: string
   className?: string
   disabled?: boolean
