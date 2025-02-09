@@ -6,7 +6,8 @@
     {
       "label": "Get in touch",
       "href": "mailto:michael@uplord.co.uk",
-      "variant": "Primary"
+      "size": "lg",
+      "variant": "primary"
     }
   ],
   "list": [

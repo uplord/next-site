@@ -3,8 +3,6 @@ import { TimelineList } from './TimelineList'
 import { ButtonGroup } from '@/components/ui/Button'
 import { Link } from '@/components/ui/Link'
 import { TimelineProps } from '@/types/section'
-import { Variant } from '@/types/button'
-import { Size } from '@/types/size'
 
 export const Timeline = ({
   id,
@@ -43,8 +41,8 @@ export const Timeline = ({
                     label={button.label}
                     href={button.href}
                     target={button.target}
-                    size={Size.Large}
-                    variant={Variant[button.variant as keyof typeof Variant]}
+                    size={button.size}
+                    variant={button.variant}
                     className={(Array.isArray(button.className)
                       ? button.className
                       : button.className?.split(' ') || []

@@ -7,8 +7,6 @@ import { UtilImage as Image } from '@/components/utils'
 import Social from '@/components/styleguide/Social'
 import Particles from '@/components/utils/Particles'
 import { BannerProps } from '@/types/section'
-import { Variant } from '@/types/button'
-import { Size } from '@/types/size'
 
 export const Banner = ({
   id,
@@ -48,8 +46,8 @@ export const Banner = ({
                       label={button.label}
                       href={button.href}
                       target={button.target}
-                      size={Size.ExtraLarge}
-                      variant={Variant[button.variant as keyof typeof Variant]}
+                      size={button.size}
+                      variant={button.variant}
                       className={(Array.isArray(button.className)
                         ? button.className
                         : button.className?.split(' ') || []

@@ -5,14 +5,16 @@
     {
       "label": "Get in touch",
       "href": "mailto:michael@uplord.co.uk",
-      "variant": "Primary",
+      "size": "lg",
+      "variant": "primary",
       "className": "button"
     },
     {
       "label": "Download CV",
       "href": "/michael-allen-cv.pdf",
       "target": "_blank",
-      "variant": "Text",
+      "size": "xl",
+      "variant": "text",
       "className": "button link"
     }
   ],

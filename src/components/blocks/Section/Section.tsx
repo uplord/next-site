@@ -3,8 +3,6 @@ import { ButtonGroup } from '@/components/ui/Button'
 import { Link } from '@/components/ui/Link'
 import { UtilImage as Image } from '@/components/utils'
 import { SectionProps } from '@/types/section'
-import { Variant } from '@/types/button'
-import { Size } from '@/types/size'
 
 export const Section = ({
   id,
@@ -41,8 +39,8 @@ export const Section = ({
                     label={button.label}
                     href={button.href}
                     target={button.target}
-                    size={Size.Large}
-                    variant={Variant[button.variant as keyof typeof Variant]}
+                    size={button.size}
+                    variant={button.variant}
                     className={(Array.isArray(button.className)
                       ? button.className
                       : button.className?.split(' ') || []
