@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import * as icons from 'lucide-react'
-import { Link as LinkComponent, LinkProps } from '@/components/ui/Link'
-import { Variant } from '@/types/button'
+import { Link as LinkComponent } from '@/components/ui/Link'
+import { Variant, LinkProps } from '@/types/button'
 import { Size } from '@/types/size'
 
 type AvailableIcons = keyof typeof icons
