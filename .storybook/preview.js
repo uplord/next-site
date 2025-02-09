@@ -68,6 +68,7 @@ const preview = {
       disableSnapshot: true,
     },
   },
+  tags: ['autodocs'],
   decorators: [
     (Story) => {
       const [globals] = useGlobals()

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import * as icons from 'lucide-react'
-import { Button as ButtonComponent, ButtonProps } from '@/components/ui/Button'
-import { Variant } from '@/types/button'
+import { Button as ButtonComponent } from '@/components/ui/Button'
+import { ButtonProps, Variant } from '@/types/button'
 import { Size } from '@/types/size'
 
 type AvailableIcons = keyof typeof icons
