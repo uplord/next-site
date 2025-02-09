@@ -24,7 +24,7 @@ export interface ButtonProps {
 export interface LinkProps {
   label?: string
   href: string
-  target?: '_self' | '_blank'
+  target?: string
   size?: SizeType
   variant: string
   className?: string
