@@ -1,4 +1,4 @@
-import { SizeType } from 'size'
+import { SizeType } from './size'
 import * as icons from 'lucide-react'
 type AvailableIcons = keyof typeof icons
 
