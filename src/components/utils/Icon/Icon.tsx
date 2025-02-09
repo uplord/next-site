@@ -1,11 +1,11 @@
 import * as icons from 'lucide-react'
 import { LucideIcon } from 'lucide-react'
-import { Size, SizeType } from '@/types/size'
+import { Size } from '@/types/size'
 type AvailableIcons = keyof typeof icons
 
 export interface IconProps {
   icon: AvailableIcons
-  size: SizeType
+  size: string
   className?: string
 }
 
