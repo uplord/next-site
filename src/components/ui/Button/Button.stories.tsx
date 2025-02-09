@@ -1,35 +1,58 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import {
-  Buttons as ButtonsComponent,
-  ButtonsComponentProps,
-} from '@/components/ui/Button'
+import * as icons from 'lucide-react'
+import { Button as ButtonComponent, ButtonProps } from '@/components/ui/Button'
+import { Variant } from '@/types/button'
+import { Size } from '@/types/size'
 
-const buttons = [
-  {
-    title: 'Get in touch',
-    link: 'mailto:michael@uplord.co.uk',
-    class: 'primary large',
-  },
-  {
-    title: 'Download CV',
-    link: '/michael-allen-cv.pdf',
-    class: 'link large',
-    target: '_blank',
-  },
-]
+type AvailableIcons = keyof typeof icons
 
-const meta: Meta<typeof ButtonsComponent> = {
-  title: 'UI/Buttons',
-  component: ButtonsComponent,
+const meta: Meta<typeof ButtonComponent> = {
+  title: 'UI/Button',
+  component: ButtonComponent,
   parameters: {
     layout: 'centered',
   },
   args: {
-    data: buttons,
+    label: 'Button example',
+    size: Size.Medium,
+    variant: 'primary',
+    isLoading: false,
+    disabled: false,
+  },
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+      },
+      options: Object.values(Size),
+    },
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: Object.values(Variant),
+    },
+    className: {
+      table: {
+        disable: true,
+      },
+    },
+    leadingIcon: {
+      control: {
+        type: 'select',
+      },
+      options: [null, ...Object.keys(icons)] as (AvailableIcons | null)[],
+    },
+    trailingIcon: {
+      control: {
+        type: 'select',
+      },
+      options: [null, ...Object.keys(icons)] as (AvailableIcons | null)[],
+    },
   },
 }
 
 export default meta
-type Story = StoryObj<ButtonsComponentProps>
+type Story = StoryObj<ButtonProps>
 
-export const Buttons: Story = {}
+export const Button: Story = {}

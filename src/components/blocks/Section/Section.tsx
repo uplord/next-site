@@ -1,7 +1,10 @@
 import styles from './style.module.scss'
-import { Buttons } from '@/components/ui/Button'
+import { ButtonGroup } from '@/components/ui/Button'
+import { Link } from '@/components/ui/Link'
 import { UtilImage as Image } from '@/components/utils'
 import { SectionProps } from '@/types/section'
+import { Variant } from '@/types/button'
+import { Size } from '@/types/size'
 
 export const Section = ({
   id,
@@ -30,7 +33,26 @@ export const Section = ({
             <h3>{title}</h3>
             <h2>{subtitle}</h2>
             <p>{content}</p>
-            {buttons && <Buttons data={buttons} className={styles.buttons} />}
+            {buttons && (
+              <ButtonGroup className={styles.buttons}>
+                {buttons.map((button, index) => (
+                  <Link
+                    key={index}
+                    label={button.label}
+                    href={button.href}
+                    target={button.target}
+                    size={Size.Large}
+                    variant={Variant[button.variant as keyof typeof Variant]}
+                    className={(Array.isArray(button.className)
+                      ? button.className
+                      : button.className?.split(' ') || []
+                    )
+                      .map((cls) => styles[cls] || cls)
+                      .join(' ')}
+                  />
+                ))}
+              </ButtonGroup>
+            )}
           </div>
         </div>
       </div>

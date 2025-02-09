@@ -5,7 +5,9 @@ import * as z from 'zod'
 
 import Modal from '@/components/ui/Modal'
 import NiceModal from '@ebay/nice-modal-react'
-import { Buttons } from '@/components/ui/Button'
+import { ButtonGroup, Button } from '@/components/ui/Button'
+import { Variant } from '@/types/button'
+import { Size } from '@/types/size'
 
 import styles from './style.module.scss'
 
@@ -70,30 +72,23 @@ export const ContactModal = NiceModal.create(() => {
     }
   }
 
-  const footerButtons = [
-    {
-      title: 'Submit',
-      onClick: onHandleSubmit,
-      class: 'primary right',
-      disabled: isDisabled,
-    },
-  ]
-
-  const successButtons = [
-    {
-      title: 'Close',
-      onClick: () => setIsClosed(true),
-      class: 'primary',
-    },
-  ]
-
   return (
     <Modal
       title="Get in touch"
       showFooter={hasFooter}
       modalStyles={styles}
       triggerClose={isClosed}
-      footer={<Buttons data={footerButtons} className={styles.buttons} />}
+      footer={
+        <ButtonGroup className={styles.buttons}>
+          <Button
+            label="Submit"
+            size={Size.Large}
+            variant={Variant.Primary}
+            disabled={isDisabled}
+            onClick={onHandleSubmit}
+          />
+        </ButtonGroup>
+      }
     >
       {status === 'form' ? (
         <form
@@ -139,7 +134,14 @@ export const ContactModal = NiceModal.create(() => {
         <div className={styles.success}>
           <h3>Thank you</h3>
           <p>I have recieved your message and will be in touch shortly.</p>
-          <Buttons data={successButtons} className={styles.buttons} />
+          <ButtonGroup className={styles.buttons}>
+            <Button
+              label="Close"
+              size={Size.Large}
+              variant={Variant.Primary}
+              onClick={() => setIsClosed(true)}
+            />
+          </ButtonGroup>
         </div>
       )}
     </Modal>

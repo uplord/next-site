@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback, ReactNode } from 'react'
 import styles from './style.module.scss'
 import { useModal } from '@ebay/nice-modal-react'
-import { X } from 'lucide-react'
+
 import { Button } from '@/components/ui/Button'
+import { Variant } from '@/types/button'
+import { Size } from '@/types/size'
 
 export type ModalProps = {
   children: ReactNode
@@ -68,12 +70,6 @@ export const Modal = ({
     console.log('onSubmitButton')
   }
 
-  const headerButtons = {
-    icon: X,
-    onClick: onCloseButton,
-    class: `${styles['buttonClose']}`,
-  }
-
   return (
     <div
       className={`${styles.modal} ${isVisible ? styles.loaded : ''} ${modalStyles.modal || ''}`}
@@ -85,7 +81,13 @@ export const Modal = ({
             <div className={`${styles.title} ${modalStyles.title || ''}`}>
               {title || 'Modal Title'}
             </div>
-            <Button data={headerButtons} />
+            <Button
+              leadingIcon={'X'}
+              size={Size.Large}
+              variant={Variant.Text}
+              onClick={onCloseButton}
+              className={styles['buttonClose']}
+            />
           </div>
         )}
         <div className={styles.scroll}>

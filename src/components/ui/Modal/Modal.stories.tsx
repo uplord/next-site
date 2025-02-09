@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import NiceModal from '@ebay/nice-modal-react'
 import NiceModalProvider from '@/context/NiceModalProvider'
-import { Buttons } from '@/components/ui/Button'
+import { ButtonGroup, Button } from '@/components/ui/Button'
+import { Variant } from '@/types/button'
+import { Size } from '@/types/size'
 import { default as ModalComponent, ModalProps } from '@/components/ui/Modal'
 
 const meta: Meta<typeof ModalComponent> = {
@@ -27,34 +29,30 @@ const TempModal = NiceModal.create<ModalProps>(({ children, ...props }) => {
   return <ModalComponent {...props}>{children}</ModalComponent>
 })
 
-const footerButtons = [
-  {
-    title: 'Submit',
-    class: 'primary right',
-  },
-]
-
 export const Modal: Story = {
   args: {
     children: <h1>Page Test</h1>,
     title: 'Test',
-    footer: <Buttons data={footerButtons} />,
+    footer: (
+      <ButtonGroup>
+        <Button label="Submit" size={Size.Large} variant={Variant.Primary} />
+      </ButtonGroup>
+    ),
   },
   render: (args) => {
     const onTriggerModal = () => {
       NiceModal.show(TempModal, args)
     }
 
-    const data = {
-      buttons: [
-        {
-          title: 'UI modal',
-          class: 'primary large',
-          onClick: onTriggerModal,
-        },
-      ],
-    }
-
-    return <Buttons data={data.buttons} />
+    return (
+      <ButtonGroup>
+        <Button
+          label="UI modal"
+          size={Size.Large}
+          variant={Variant.Primary}
+          onClick={onTriggerModal}
+        />
+      </ButtonGroup>
+    )
   },
 }

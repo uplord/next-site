@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import NiceModal from '@ebay/nice-modal-react'
 import NiceModalProvider from '@/context/NiceModalProvider'
-import { Buttons } from '@/components/ui/Button'
+import { ButtonGroup, Button } from '@/components/ui/Button'
+import { Variant } from '@/types/button'
+import { Size } from '@/types/size'
 import { default as ModalComponent } from '@/components/modals/ContactModal'
 
 const meta: Meta<typeof ModalComponent> = {
@@ -28,16 +30,15 @@ export const ContactModal: Story = {
       NiceModal.show(ModalComponent)
     }
 
-    const data = {
-      buttons: [
-        {
-          title: 'Contact form modal',
-          class: 'primary large',
-          onClick: onTriggerModal,
-        },
-      ],
-    }
-
-    return <Buttons data={data.buttons} />
+    return (
+      <ButtonGroup>
+        <Button
+          label="Contact form modal"
+          size={Size.Large}
+          variant={Variant.Primary}
+          onClick={onTriggerModal}
+        />
+      </ButtonGroup>
+    )
   },
 }

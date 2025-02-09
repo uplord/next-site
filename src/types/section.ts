@@ -1,17 +1,7 @@
-import { ElementType } from 'react'
+import { LinkProps } from '@/types/button'
 
 export type DefaultProps = {
   id: string
-}
-
-export type ButtonProps = {
-  title?: string
-  icon?: string | ElementType
-  class?: string
-  link?: string
-  target?: string
-  onClick?: (() => void) | string
-  disabled?: boolean
 }
 
 export type ImageProps = {
@@ -25,7 +15,7 @@ export type ImageProps = {
 export type BannerProps = DefaultProps & {
   title: string
   subtitle: string
-  buttons?: ButtonProps[]
+  buttons?: LinkProps[]
   image: ImageProps
   hasHeader?: boolean
   hasParticles?: boolean
@@ -35,7 +25,7 @@ export type SectionProps = DefaultProps & {
   title: string
   subtitle: string
   content: string
-  buttons?: ButtonProps[]
+  buttons?: LinkProps[]
   image: ImageProps
 }
 
@@ -68,7 +58,7 @@ export type TimelineProps = DefaultProps & {
   title: string
   subtitle: string
   content?: string
-  buttons?: ButtonProps[]
+  buttons?: LinkProps[]
   list: TimelineListProps[]
   hasHeader?: boolean
 }

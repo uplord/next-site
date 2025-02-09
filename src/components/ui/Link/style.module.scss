@@ -3,13 +3,7 @@
 @use '../../../styles/mixins' as *;
 @use '../../../styles/typography' as *;
 
-.group {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.button {
+.link {
   @include button-size;
   @include button-variant;
 

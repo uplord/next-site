@@ -181,6 +181,18 @@
   @media (min-width: $breakpoint-md) {
     justify-content: flex-start;
   }
+
+  .button {
+    color: $color-light;
+
+    &:focus {
+      outline-color: $color-light;
+
+      @include dark-mode {
+        outline-color: $color-light;
+      }
+    }
+  }
 }
 
 .viewMore {

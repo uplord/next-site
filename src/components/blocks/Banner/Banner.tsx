@@ -1,11 +1,14 @@
 'use client'
 
 import styles from './style.module.scss'
-import { Buttons } from '@/components/ui/Button'
+import { ButtonGroup } from '@/components/ui/Button'
+import { Link } from '@/components/ui/Link'
 import { UtilImage as Image } from '@/components/utils'
 import Social from '@/components/styleguide/Social'
 import Particles from '@/components/utils/Particles'
 import { BannerProps } from '@/types/section'
+import { Variant } from '@/types/button'
+import { Size } from '@/types/size'
 
 export const Banner = ({
   id,
@@ -37,7 +40,26 @@ export const Banner = ({
             <div className={styles.text}>
               <h1 dangerouslySetInnerHTML={{ __html: title }} />
               <h2>{subtitle}</h2>
-              {buttons && <Buttons data={buttons} className={styles.buttons} />}
+              {buttons && (
+                <ButtonGroup className={styles.buttons}>
+                  {buttons.map((button, index) => (
+                    <Link
+                      key={index}
+                      label={button.label}
+                      href={button.href}
+                      target={button.target}
+                      size={Size.ExtraLarge}
+                      variant={Variant[button.variant as keyof typeof Variant]}
+                      className={(Array.isArray(button.className)
+                        ? button.className
+                        : button.className?.split(' ') || []
+                      )
+                        .map((cls) => styles[cls] || cls)
+                        .join(' ')}
+                    />
+                  ))}
+                </ButtonGroup>
+              )}
             </div>
             <div className={styles.viewMore} />
           </div>

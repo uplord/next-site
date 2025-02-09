@@ -4,9 +4,9 @@
   "content": "I have included here my progress through the world of website development from my beginnings at university to my current work I do now. Each stage has helped to build me up to the developer I am today through lots of different projects big and small.",
   "buttons": [
     {
-      "title": "Get in touch",
-      "link": "mailto:michael@uplord.co.uk",
-      "class": "primary"
+      "label": "Get in touch",
+      "href": "mailto:michael@uplord.co.uk",
+      "variant": "Primary"
     }
   ],
   "list": [
