@@ -1,3 +1,4 @@
+import { SizeType } from 'size'
 import * as icons from 'lucide-react'
 type AvailableIcons = keyof typeof icons
 
@@ -10,7 +11,7 @@ export enum Variant {
 
 export interface ButtonProps {
   label?: string
-  size: string
+  size: SizeType | string
   variant: string
   className?: string
   disabled?: boolean
@@ -24,7 +25,7 @@ export interface LinkProps {
   label?: string
   href: string
   target?: string
-  size: string
+  size: SizeType | string
   variant: string
   className?: string
   disabled?: boolean
